@@ -10257,3 +10257,2229 @@ END
 2024-02-22 10:13:15.313 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
 2024-02-22 10:13:15.802 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
 2024-02-22 10:13:16.023 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 21:30:05.184 +05:30 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:30:05.376 +05:30 [INF] Executed DbCommand (123ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:30:05.382 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:30:05.385 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:30:05.451 +05:30 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-24 21:30:05.498 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-24 21:30:06.184 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.348 +05:30 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.355 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.422 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.462 +05:30 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.532 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.587 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:30:06.810 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-24 21:30:07.318 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-24 21:30:07.322 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-24 21:30:07.338 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-24 21:30:07.343 +05:30 [INF] Hosting environment: Development
+2024-02-24 21:30:07.346 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-24 21:30:08.149 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-24 21:30:09.019 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-24 21:30:09.019 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-24 21:30:09.040 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 19.0818ms
+2024-02-24 21:30:09.040 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 897.5131ms
+2024-02-24 21:30:09.077 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.2459ms
+2024-02-24 21:30:09.186 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-24 21:30:09.408 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 223.0880ms
+2024-02-24 21:30:32.424 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-24 21:30:32.591 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:30:32.672 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 21:30:33.068 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 384.6049ms
+2024-02-24 21:30:33.072 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:30:33.194 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[Healink.Business.Services.Dto.UserDto]' to type 'System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Healink.Business.Services.Dto.UserDto]]]'.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-24 21:30:33.217 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 793.9209ms
+2024-02-24 21:31:40.479 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-24 21:31:40.480 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:31:40.481 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 21:31:40.599 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 118.1882ms
+2024-02-24 21:31:40.600 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:31:40.609 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[Healink.Business.Services.Dto.UserDto]' to type 'System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Healink.Business.Services.Dto.UserDto]]]'.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-24 21:31:40.612 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 132.7905ms
+2024-02-24 21:35:32.853 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:35:32.942 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:35:32.950 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:35:32.953 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:35:32.992 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-24 21:35:33.037 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-24 21:35:33.753 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.874 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.882 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.891 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.899 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.910 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.923 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:35:33.993 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-24 21:35:34.428 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-24 21:35:34.431 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-24 21:35:34.445 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-24 21:35:34.450 +05:30 [INF] Hosting environment: Development
+2024-02-24 21:35:34.452 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-24 21:35:35.100 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-24 21:35:35.843 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-24 21:35:35.861 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-24 21:35:35.889 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 33.0082ms
+2024-02-24 21:35:35.890 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 801.7395ms
+2024-02-24 21:35:35.921 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.0898ms
+2024-02-24 21:35:35.996 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-24 21:35:36.162 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 166.0757ms
+2024-02-24 21:35:43.927 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-24 21:35:44.071 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:35:44.136 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 21:35:53.308 +05:30 [INF] Executing OkObjectResult, writing value of type 'Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[Healink.Business.Services.Dto.UserDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-24 21:35:53.372 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 9224.636ms
+2024-02-24 21:35:53.377 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:35:53.471 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The element type 'Healink.Business.Services.Dto.UserDto' used in 'SqlQuery' method is not natively supported by your database provider. Either use a supported element type, or use ModelConfigurationBuilder.DefaultTypeMapping to define a mapping for your type.
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at Microsoft.EntityFrameworkCore.SqlServer.Query.Internal.SqlServerQueryableMethodTranslatingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.Converters.IAsyncEnumerableOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TAsyncEnumerable value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-24 21:35:53.488 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 9560.9120ms
+2024-02-24 21:41:05.621 +05:30 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:41:05.727 +05:30 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:41:05.735 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:41:05.739 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:41:05.788 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-24 21:41:05.837 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-24 21:41:06.522 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.596 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.605 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.614 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.620 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.627 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.639 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:41:06.726 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-24 21:41:07.176 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-24 21:41:07.179 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-24 21:41:07.194 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-24 21:41:07.199 +05:30 [INF] Hosting environment: Development
+2024-02-24 21:41:07.201 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-24 21:41:08.023 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-24 21:41:08.867 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-24 21:41:08.878 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-24 21:41:08.923 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 53.2271ms
+2024-02-24 21:41:08.925 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 914.2134ms
+2024-02-24 21:41:08.984 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 106.2232ms
+2024-02-24 21:41:09.048 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-24 21:41:09.286 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 238.1933ms
+2024-02-24 21:41:19.996 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-24 21:41:20.138 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:41:20.203 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 21:41:31.570 +05:30 [INF] Executing OkObjectResult, writing value of type 'Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[Healink.Business.Services.Dto.UserDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-24 21:41:31.630 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 11415.8998ms
+2024-02-24 21:41:31.634 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:41:31.719 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The element type 'Healink.Business.Services.Dto.UserDto' used in 'SqlQuery' method is not natively supported by your database provider. Either use a supported element type, or use ModelConfigurationBuilder.DefaultTypeMapping to define a mapping for your type.
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at Microsoft.EntityFrameworkCore.SqlServer.Query.Internal.SqlServerQueryableMethodTranslatingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.Converters.IAsyncEnumerableOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TAsyncEnumerable value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-24 21:41:31.735 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 11738.6465ms
+2024-02-24 21:57:02.966 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:57:03.060 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:57:03.068 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 21:57:03.071 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 21:57:03.111 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-24 21:57:03.154 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-24 21:57:03.907 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.001 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.010 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.024 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.032 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.048 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.060 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 21:57:04.137 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-24 21:57:04.526 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-24 21:57:04.529 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-24 21:57:04.576 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-24 21:57:04.580 +05:30 [INF] Hosting environment: Development
+2024-02-24 21:57:04.584 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-24 21:57:05.348 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-24 21:57:06.142 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-24 21:57:06.147 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 807.1886ms
+2024-02-24 21:57:06.161 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-24 21:57:06.176 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 33.3270ms
+2024-02-24 21:57:06.224 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.8357ms
+2024-02-24 21:57:06.312 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-24 21:57:06.540 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 228.1040ms
+2024-02-24 21:57:14.742 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-24 21:57:14.886 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:57:14.945 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 21:57:15.381 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 424.1474ms
+2024-02-24 21:57:15.385 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 21:57:15.405 +05:30 [INF] Executed DbCommand (269ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+exec spGetUserDetails @p0
+2024-02-24 21:57:15.498 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'AsyncStateMachineBox`1[System.Int32,Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions+<ExecuteSqlRawAsync>d__17]' to type 'System.Linq.IQueryable`1[Healink.Business.Services.Dto.UserDto]'.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-24 21:57:15.517 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 775.0237ms
+2024-02-24 22:10:45.450 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 22:10:45.562 +05:30 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 22:10:45.570 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-24 22:10:45.575 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-24 22:10:45.616 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-24 22:10:45.656 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-24 22:10:46.399 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.506 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.514 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.522 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.530 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.537 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.549 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-24 22:10:46.642 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-24 22:10:47.025 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-24 22:10:47.027 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-24 22:10:47.041 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-24 22:10:47.045 +05:30 [INF] Hosting environment: Development
+2024-02-24 22:10:47.048 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-24 22:10:47.993 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-24 22:10:48.783 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-24 22:10:48.783 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-24 22:10:48.810 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 828.0997ms
+2024-02-24 22:10:48.810 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 17.2705ms
+2024-02-24 22:10:48.842 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.8730ms
+2024-02-24 22:10:48.984 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-24 22:10:49.170 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 186.3140ms
+2024-02-24 22:10:58.674 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-24 22:10:58.814 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 22:10:58.870 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-24 22:10:59.200 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 318.9062ms
+2024-02-24 22:10:59.204 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-24 22:10:59.317 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The element type 'Healink.Business.Services.Dto.UserDto' used in 'SqlQuery' method is not natively supported by your database provider. Either use a supported element type, or use ModelConfigurationBuilder.DefaultTypeMapping to define a mapping for your type.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-24 22:10:59.339 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 664.2814ms
+2024-02-25 14:16:15.682 +05:30 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:16:15.831 +05:30 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:16:15.839 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:16:15.843 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:16:15.900 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:16:15.936 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 14:16:16.726 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.840 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.850 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.860 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.872 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.883 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.899 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:16:16.980 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 14:16:17.438 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 14:16:17.440 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 14:16:17.456 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 14:16:17.461 +05:30 [INF] Hosting environment: Development
+2024-02-25 14:16:17.464 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 14:16:18.721 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 14:16:19.604 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 14:16:19.685 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 14:16:19.725 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1017.5759ms
+2024-02-25 14:16:19.726 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 122.1310ms
+2024-02-25 14:16:19.839 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 155.0359ms
+2024-02-25 14:16:19.935 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 14:16:20.092 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 157.0997ms
+2024-02-25 14:16:35.194 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 14:16:35.428 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:16:35.534 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 14:16:36.142 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 595.1477ms
+2024-02-25 14:16:36.150 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:16:36.335 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The element type 'Healink.Business.Services.Dto.UserDto' used in 'SqlQuery' method is not natively supported by your database provider. Either use a supported element type, or use ModelConfigurationBuilder.DefaultTypeMapping to define a mapping for your type.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 14:16:36.363 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 1169.4757ms
+2024-02-25 14:20:57.147 +05:30 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:20:57.328 +05:30 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:20:57.342 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:20:57.348 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:20:57.448 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:20:57.538 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 14:20:58.655 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:58.846 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:58.861 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:58.880 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:58.893 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:58.905 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:58.923 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:20:59.079 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 14:20:59.713 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 14:20:59.719 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 14:20:59.748 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 14:20:59.756 +05:30 [INF] Hosting environment: Development
+2024-02-25 14:20:59.761 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 14:21:01.028 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 14:21:02.153 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 14:21:02.154 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 14:21:02.155 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1133.7374ms
+2024-02-25 14:21:02.207 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 52.3931ms
+2024-02-25 14:21:02.239 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 86.6665ms
+2024-02-25 14:21:02.396 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 14:21:02.734 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 338.6503ms
+2024-02-25 14:21:12.047 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 14:21:12.283 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:21:12.401 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 14:21:12.979 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 556.4646ms
+2024-02-25 14:21:12.986 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:21:13.178 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The element type 'Healink.Business.Services.Dto.UserDto' used in 'SqlQuery' method is not natively supported by your database provider. Either use a supported element type, or use ModelConfigurationBuilder.DefaultTypeMapping to define a mapping for your type.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 14:21:13.202 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 1154.7119ms
+2024-02-25 14:24:48.456 +05:30 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:24:48.656 +05:30 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:24:48.668 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:24:48.674 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:24:48.751 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:24:48.822 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 14:24:50.087 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.217 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.228 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.238 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.249 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.259 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.272 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:24:50.385 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 14:24:51.004 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 14:24:51.010 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 14:24:51.035 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 14:24:51.042 +05:30 [INF] Hosting environment: Development
+2024-02-25 14:24:51.046 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 14:24:52.348 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 14:24:53.427 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 14:24:53.428 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 14:24:53.512 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 80.9541ms
+2024-02-25 14:24:53.527 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1199.3122ms
+2024-02-25 14:24:53.664 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 235.8326ms
+2024-02-25 14:24:53.755 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 14:24:54.205 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 451.1778ms
+2024-02-25 14:25:04.701 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 14:25:04.923 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:25:05.000 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 14:25:05.497 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 471.049ms
+2024-02-25 14:25:05.505 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:25:05.706 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot create a DbSet for 'UserDto' because this type is not included in the model for the context.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 14:25:05.731 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 1032.1590ms
+2024-02-25 14:27:21.872 +05:30 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:27:22.042 +05:30 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:27:22.060 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:27:22.067 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:27:22.164 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:27:22.250 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 14:27:23.604 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.773 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.783 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.794 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.805 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.816 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.830 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:27:23.954 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 14:27:24.567 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 14:27:24.572 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 14:27:24.595 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 14:27:24.600 +05:30 [INF] Hosting environment: Development
+2024-02-25 14:27:24.604 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 14:27:25.785 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 14:27:26.933 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 14:27:26.933 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 14:27:26.938 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1169.1088ms
+2024-02-25 14:27:26.979 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 45.4233ms
+2024-02-25 14:27:27.010 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.4896ms
+2024-02-25 14:27:27.131 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 14:27:27.430 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 299.7524ms
+2024-02-25 14:27:36.689 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 14:27:36.962 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:27:37.074 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 14:27:37.454 +05:30 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+exec spGetUserDetails 1
+2024-02-25 14:27:44.182 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Healink.Business.Services.Dto.UserDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-25 14:27:44.280 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 7192.6931ms
+2024-02-25 14:27:44.282 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:27:44.314 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 200 - application/json;+charset=utf-8 7625.1266ms
+2024-02-25 14:29:54.949 +05:30 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:29:55.086 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:29:55.121 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:33:45.061 +05:30 [INF] Executed DbCommand (75ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:33:45.215 +05:30 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:33:45.230 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:33:45.236 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:33:45.322 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:33:45.423 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 14:33:46.676 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:46.871 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:46.884 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:46.895 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:46.908 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:46.926 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:46.945 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:33:47.092 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 14:33:47.920 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 14:33:47.926 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 14:33:47.953 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 14:33:47.961 +05:30 [INF] Hosting environment: Development
+2024-02-25 14:33:47.965 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 14:33:49.818 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 14:33:51.064 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 14:33:51.064 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 14:33:51.081 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1279.2632ms
+2024-02-25 14:33:51.093 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 28.7466ms
+2024-02-25 14:33:51.151 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 86.6795ms
+2024-02-25 14:33:51.339 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 14:33:51.732 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 393.3182ms
+2024-02-25 14:34:27.335 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 14:34:27.592 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:34:27.684 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 14:34:28.060 +05:30 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+exec spGetUserDetails 1
+2024-02-25 14:34:31.534 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Healink.Business.Services.Dto.UserDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-25 14:34:31.618 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 3919.4143ms
+2024-02-25 14:34:31.620 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:34:31.650 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 200 - application/json;+charset=utf-8 4315.6524ms
+2024-02-25 14:35:50.285 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:35:50.381 +05:30 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:35:50.420 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:36:40.883 +05:30 [INF] Executed DbCommand (115ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:36:41.054 +05:30 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:36:41.067 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 14:36:41.072 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 14:36:41.138 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 14:36:41.200 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 14:36:42.429 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.559 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.572 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.584 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.599 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.618 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.635 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 14:36:42.760 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 14:36:43.368 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 14:36:43.372 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 14:36:43.389 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 14:36:43.395 +05:30 [INF] Hosting environment: Development
+2024-02-25 14:36:43.398 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 14:36:44.860 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 14:36:46.040 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 14:36:46.043 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 14:36:46.089 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 45.3621ms
+2024-02-25 14:36:46.092 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1247.2255ms
+2024-02-25 14:36:46.147 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 104.4291ms
+2024-02-25 14:36:46.275 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 14:36:46.621 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 346.0134ms
+2024-02-25 14:36:54.584 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 14:36:54.819 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:36:54.904 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 14:36:55.239 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 1
+2024-02-25 14:36:55.279 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Healink.Business.Services.Dto.UserDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-25 14:36:55.347 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 429.1019ms
+2024-02-25 14:36:55.349 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 14:36:55.385 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 200 - application/json;+charset=utf-8 802.1703ms
+2024-02-25 20:10:44.498 +05:30 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:10:44.604 +05:30 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:10:44.613 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:10:44.616 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:10:44.683 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 20:10:44.731 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 20:10:45.511 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.642 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.658 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.669 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.677 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.710 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.723 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:10:45.798 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 20:10:46.241 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 20:10:46.244 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 20:10:46.260 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 20:10:46.265 +05:30 [INF] Hosting environment: Development
+2024-02-25 20:10:46.269 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 20:10:47.602 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 20:10:48.407 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 20:10:48.407 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 20:10:48.420 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 829.8403ms
+2024-02-25 20:10:48.432 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 24.2639ms
+2024-02-25 20:10:48.550 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 142.5110ms
+2024-02-25 20:10:48.908 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 20:10:48.972 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/favicon-32x32.png - -
+2024-02-25 20:10:48.999 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-02-25 20:10:48.999 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/favicon-32x32.png - - - 200 628 image/png 26.8628ms
+2024-02-25 20:10:49.061 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 153.3566ms
+2024-02-25 20:11:06.314 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:11:06.485 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:11:06.560 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:11:07.222 +05:30 [INF] Executed DbCommand (449ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:11:07.354 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.ArgumentException: An item with the same key has already been added. Key: CreatedDate
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.ArgumentException: An item with the same key has already been added. Key: CreatedDate
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:11:07.618 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 1047.1353ms
+2024-02-25 20:11:07.622 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:11:07.659 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: CreatedDate
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:11:07.688 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 1374.6632ms
+2024-02-25 20:19:54.237 +05:30 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:19:54.386 +05:30 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:19:54.395 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:19:54.400 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:19:54.451 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 20:19:54.497 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 20:19:55.241 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.325 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.331 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.339 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.346 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.355 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.364 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:19:55.447 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 20:19:55.878 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 20:19:55.881 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 20:19:55.893 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 20:19:55.897 +05:30 [INF] Hosting environment: Development
+2024-02-25 20:19:55.900 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 20:19:56.664 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 20:19:57.556 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 20:19:57.556 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 20:19:57.583 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 25.0969ms
+2024-02-25 20:19:57.583 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 919.2954ms
+2024-02-25 20:19:57.635 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 78.5162ms
+2024-02-25 20:19:57.992 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 20:19:58.208 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 215.9407ms
+2024-02-25 20:20:14.520 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:20:14.683 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:20:14.778 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:20:15.003 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:20:15.129 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.ArgumentException: An item with the same key has already been added. Key: CountryName
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.ArgumentException: An item with the same key has already been added. Key: CountryName
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:20:15.366 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 576.3428ms
+2024-02-25 20:20:15.370 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:20:15.406 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: CountryName
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:20:15.432 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 916.4452ms
+2024-02-25 20:21:17.405 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:21:17.407 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:21:17.407 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:21:17.440 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:21:17.447 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.ArgumentException: An item with the same key has already been added. Key: CreatedDate
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.ArgumentException: An item with the same key has already been added. Key: CreatedDate
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:21:17.593 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 185.6894ms
+2024-02-25 20:21:17.594 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:21:17.603 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: CreatedDate
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:21:17.606 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 200.6501ms
+2024-02-25 20:22:09.658 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:22:09.662 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:22:09.662 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:22:09.687 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:22:09.695 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'ConnectionsCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'ConnectionsCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:22:09.821 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 158.6233ms
+2024-02-25 20:22:09.821 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:22:09.828 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'ConnectionsCount' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:22:09.830 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 171.9195ms
+2024-02-25 20:24:31.230 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 20:24:31.232 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:24:31.236 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:24:31.277 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 1
+2024-02-25 20:24:31.282 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'FollowCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'FollowCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:24:31.412 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 175.4669ms
+2024-02-25 20:24:31.412 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:24:31.421 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'FollowCount' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:24:31.424 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 500 - text/plain;+charset=utf-8 193.8736ms
+2024-02-25 20:26:10.281 +05:30 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:26:10.381 +05:30 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:26:10.389 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:26:10.392 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:26:10.436 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 20:26:10.483 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 20:26:11.408 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.539 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.546 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.553 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.563 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.570 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.579 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:26:11.659 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 20:26:12.097 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 20:26:12.100 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 20:26:12.114 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 20:26:12.117 +05:30 [INF] Hosting environment: Development
+2024-02-25 20:26:12.120 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 20:26:12.914 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 20:26:13.679 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 20:26:13.681 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 748.4630ms
+2024-02-25 20:26:13.685 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 20:26:13.728 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 42.5245ms
+2024-02-25 20:26:13.766 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 87.6305ms
+2024-02-25 20:26:13.888 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 20:26:14.092 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 203.7943ms
+2024-02-25 20:26:27.037 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:26:27.175 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:26:27.234 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:26:27.467 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:26:27.595 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'ConnectionsCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'ConnectionsCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:26:27.836 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 592.2214ms
+2024-02-25 20:26:27.839 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:26:27.879 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'ConnectionsCount' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:26:27.908 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 871.5107ms
+2024-02-25 20:26:43.262 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:26:43.269 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:26:43.269 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:26:43.295 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:26:43.299 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:26:43.428 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 158.7916ms
+2024-02-25 20:26:43.429 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:26:43.436 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:26:43.439 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 178.2603ms
+2024-02-25 20:26:44.949 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:26:44.953 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:26:44.954 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:26:44.979 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:26:44.984 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:26:45.105 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 151.2398ms
+2024-02-25 20:26:45.105 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:26:45.114 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:26:45.117 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 169.1798ms
+2024-02-25 20:29:44.896 +05:30 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:29:45.002 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:29:45.011 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 20:29:45.014 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 20:29:45.051 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 20:29:45.092 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 20:29:45.790 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.881 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.888 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.894 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.902 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.909 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.917 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 20:29:45.991 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 20:29:46.400 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 20:29:46.403 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 20:29:46.418 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 20:29:46.422 +05:30 [INF] Hosting environment: Development
+2024-02-25 20:29:46.424 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 20:29:47.374 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 20:29:48.334 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 978.0733ms
+2024-02-25 20:29:48.377 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 20:29:48.377 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 20:29:48.392 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 15.4210ms
+2024-02-25 20:29:48.506 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 129.5573ms
+2024-02-25 20:29:48.688 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 20:29:48.925 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 236.8713ms
+2024-02-25 20:29:56.684 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 20:29:56.843 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:29:56.908 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 20:29:57.138 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2
+2024-02-25 20:29:57.243 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 20:29:57.478 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 556.3984ms
+2024-02-25 20:29:57.483 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 20:29:57.525 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 20:29:57.555 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 871.9474ms
+2024-02-25 21:47:22.017 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 21:47:22.114 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 21:47:22.122 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 21:47:22.125 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 21:47:22.177 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 21:47:22.219 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 21:47:22.958 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.073 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.081 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.094 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.104 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.114 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.128 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:47:23.192 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 21:47:23.565 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 21:47:23.568 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 21:47:23.585 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 21:47:23.590 +05:30 [INF] Hosting environment: Development
+2024-02-25 21:47:23.593 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 21:47:24.795 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 21:47:25.948 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 21:47:25.952 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 21:47:25.983 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 30.9860ms
+2024-02-25 21:47:25.992 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1213.6476ms
+2024-02-25 21:47:26.119 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 167.7094ms
+2024-02-25 21:47:26.299 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 21:47:26.716 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 416.5049ms
+2024-02-25 21:47:35.126 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 21:47:35.288 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:47:35.347 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 21:47:35.629 +05:30 [INF] Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__p_0
+2024-02-25 21:47:47.181 +05:30 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 1, False
+2024-02-25 21:47:51.540 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Healink.Business.Services.Dto.UserDetailsDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-25 21:47:51.605 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 16248.1528ms
+2024-02-25 21:47:51.607 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:47:51.629 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 200 - application/json;+charset=utf-8 16502.5659ms
+2024-02-25 21:48:07.908 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 21:48:07.910 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:48:07.910 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 21:48:07.927 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__p_0
+2024-02-25 21:48:12.156 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2, True
+2024-02-25 21:48:12.271 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 21:48:12.400 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 4489.9325ms
+2024-02-25 21:48:12.403 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:48:12.448 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'FirstName' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 21:48:12.457 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 4549.1610ms
+2024-02-25 21:49:26.041 +05:30 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 21:49:26.196 +05:30 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 21:49:26.205 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 21:49:26.209 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 21:49:26.261 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 21:49:26.330 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 21:49:27.175 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.266 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.274 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.282 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.290 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.298 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.307 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 21:49:27.400 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 21:49:27.802 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 21:49:27.804 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 21:49:27.818 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 21:49:27.822 +05:30 [INF] Hosting environment: Development
+2024-02-25 21:49:27.825 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 21:49:28.844 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 21:49:29.605 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 21:49:29.606 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 21:49:29.625 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 17.4945ms
+2024-02-25 21:49:29.635 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 804.7198ms
+2024-02-25 21:49:29.678 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 72.8272ms
+2024-02-25 21:49:29.869 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 21:49:30.156 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 287.4614ms
+2024-02-25 21:49:50.512 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 21:49:50.687 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:49:50.754 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 21:49:51.035 +05:30 [INF] Executed DbCommand (75ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__p_0
+2024-02-25 21:49:53.144 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2, True
+2024-02-25 21:49:53.261 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Healink.Data.DataContext'.
+System.InvalidOperationException: The required column 'FollowCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The required column 'FollowCount' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2024-02-25 21:49:53.428 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 2660.2754ms
+2024-02-25 21:49:53.433 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:49:53.484 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The required column 'FollowCount' was not present in the results of a 'FromSql' operation.
+   at Healink.Controllers.UserController.GetUser(Int32 userid) in C:\Healink\healink-server\Healink\Healink\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-25 21:49:53.514 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 500 - text/plain;+charset=utf-8 3002.3213ms
+2024-02-25 21:51:40.967 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/2 - -
+2024-02-25 21:51:40.977 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:51:40.979 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 21:51:40.994 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__p_0
+2024-02-25 21:51:43.049 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 2, True
+2024-02-25 21:51:43.073 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Healink.Business.Services.Dto.OrganizationDetailDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-25 21:51:43.128 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 2148.2952ms
+2024-02-25 21:51:43.128 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:51:43.128 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/2 - - - 200 - application/json;+charset=utf-8 2160.9057ms
+2024-02-25 21:52:20.425 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/users/1 - -
+2024-02-25 21:52:20.429 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:52:20.429 +05:30 [INF] Route matched with {action = "GetUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUser(Int32) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 21:52:20.439 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__p_0
+2024-02-25 21:52:24.349 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+Exec spGetUserDetails 1, False
+2024-02-25 21:52:24.350 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Healink.Business.Services.Dto.UserDetailsDto, Healink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-25 21:52:24.357 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 3927.1987ms
+2024-02-25 21:52:24.357 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
+2024-02-25 21:52:24.357 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/users/1 - - - 200 - application/json;+charset=utf-8 3932.4929ms
+2024-02-25 22:36:03.957 +05:30 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 22:36:04.110 +05:30 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 22:36:04.119 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-25 22:36:04.123 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-25 22:36:04.190 +05:30 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-25 22:36:04.241 +05:30 [INF] No migrations were applied. The database is already up to date.
+2024-02-25 22:36:05.042 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.155 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'superuser') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.164 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = N'healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.173 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [IndustryTypes] AS [i]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.182 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.190 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [States] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.203 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [OrganizationDetails] AS [o]
+        WHERE [o].[OrganizationName] = N'Healink') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-02-25 22:36:05.297 +05:30 [INF] User profile is available. Using 'C:\Users\Akhil\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-02-25 22:36:05.776 +05:30 [INF] Now listening on: https://localhost:7262
+2024-02-25 22:36:05.780 +05:30 [INF] Now listening on: http://localhost:5169
+2024-02-25 22:36:05.801 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-25 22:36:05.806 +05:30 [INF] Hosting environment: Development
+2024-02-25 22:36:05.810 +05:30 [INF] Content root path: C:\Healink\healink-server\Healink\Healink\
+2024-02-25 22:36:06.734 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/index.html - -
+2024-02-25 22:36:07.736 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - -
+2024-02-25 22:36:07.760 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/_vs/browserLink - -
+2024-02-25 22:36:07.779 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_framework/aspnetcore-browser-refresh.js - - - 200 12346 application/javascript;+charset=utf-8 40.4447ms
+2024-02-25 22:36:07.790 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/index.html - - - 200 - text/html;charset=utf-8 1066.7462ms
+2024-02-25 22:36:07.825 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.3349ms
+2024-02-25 22:36:08.055 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - -
+2024-02-25 22:36:08.269 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 214.4316ms
+2024-02-25 22:36:23.359 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/isduplicateusername?username=superuser - -
+2024-02-25 22:36:23.555 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.ChackDuplicateUserName (Healink)'
+2024-02-25 22:36:23.641 +05:30 [INF] Route matched with {action = "ChackDuplicateUserName", controller = "User"}. Executing controller action with signature Boolean ChackDuplicateUserName(System.String) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 22:36:24.186 +05:30 [INF] Executed DbCommand (156ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-02-25 22:36:24.388 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Boolean'.
+2024-02-25 22:36:24.425 +05:30 [INF] Executed action Healink.Controllers.UserController.ChackDuplicateUserName (Healink) in 770.7961ms
+2024-02-25 22:36:24.427 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.ChackDuplicateUserName (Healink)'
+2024-02-25 22:36:24.456 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/isduplicateusername?username=superuser - - - 200 - application/json;+charset=utf-8 1096.0979ms
+2024-02-25 22:36:30.819 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/api/User/isduplicateusername?username=superuse - -
+2024-02-25 22:36:30.848 +05:30 [INF] Executing endpoint 'Healink.Controllers.UserController.ChackDuplicateUserName (Healink)'
+2024-02-25 22:36:30.849 +05:30 [INF] Route matched with {action = "ChackDuplicateUserName", controller = "User"}. Executing controller action with signature Boolean ChackDuplicateUserName(System.String) on controller Healink.Controllers.UserController (Healink).
+2024-02-25 22:36:30.873 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-02-25 22:36:30.874 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Boolean'.
+2024-02-25 22:36:30.874 +05:30 [INF] Executed action Healink.Controllers.UserController.ChackDuplicateUserName (Healink) in 25.2117ms
+2024-02-25 22:36:30.874 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.ChackDuplicateUserName (Healink)'
+2024-02-25 22:36:30.874 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/api/User/isduplicateusername?username=superuse - - - 200 - application/json;+charset=utf-8 55.2241ms

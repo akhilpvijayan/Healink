@@ -31,17 +31,37 @@ namespace Healink.Business.Services.Services
             return await this._context.Users.ToListAsync();
         }
 
-        public async Task<ActionResult<IEnumerable<UserDto>>> GetUser(int userId)
+        public IEnumerable<object> GetUser(int userId)
         {
             try
             {
-                FormattableString sqlQuery = $"spGetUserDetails {userId}";
-                return await this._context.Database.ExecuteSqlAsync(sqlQuery);
+                var userRole = this._context.Users.FirstOrDefault(x => x.UserId == userId).RoleId;
+                bool isOrganizationalUser = false;
+                var sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
+                if (userRole != null && userRole == 3)
+                {
+                    isOrganizationalUser = true;
+                    sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
+                    return this._context.OrganizationDetailDto.FromSqlRaw(sqlQuery).ToList();
+                }
+                return this._context.UserDto.FromSqlRaw(sqlQuery).ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public bool CheckDuplicateUserName(string username)
+        {
+            bool isUsernameExist = false;
+            var user = this._context.Users.FirstOrDefault(x => x.Username == username);
+            if(user != null)
+            {
+                isUsernameExist = true;
+                return isUsernameExist;
+            }
+            return isUsernameExist;
         }
         #endregion
     }

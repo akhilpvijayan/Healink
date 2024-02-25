@@ -20,39 +20,26 @@ namespace Healink.Controllers
         #region properties
         private readonly DataContext _context;
         private readonly JwtSettings _jwtSettings;
+        private readonly IAuthorizationService _authService;
         #endregion
 
         #region constructor
-        public AuthorizationController(DataContext context, IOptions<JwtSettings> options)
+        public AuthorizationController(DataContext context, IOptions<JwtSettings> options, IAuthorizationService authService)
         {
             this._context = context;
             this._jwtSettings = options.Value;
+            this._authService = authService;
         }
         #endregion
 
         #region public functions
-        [HttpPost("generatetoken")]
-        public async Task<IActionResult> GenerateToken(string username, string password )
+        [HttpPost("login")]
+        public async Task<IActionResult> UserLogin(string username, string password)
         {
-            var user = await this._context.Users.FirstOrDefaultAsync(user => user.Username == username && Convert.ToBase64String(System.Security.Cryptography.SHA256.Create().ComputeHash(System.Text.Encoding.UTF8.GetBytes(user.Password))) == password);
-            if(user != null)
+            var token = _authService.generateToken(username, password);
+            if(token != null)
             {
-                //generate token
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var tokenKey = Encoding.UTF8.GetBytes(this._jwtSettings.securityKey);
-                var tokenDesc = new SecurityTokenDescriptor
-                {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                        new Claim(ClaimTypes.Name, user.Username),
-                        new Claim(ClaimTypes.Email, user.Email)
-                    }),
-                    Expires = DateTime.UtcNow.AddSeconds(30),
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
-                };
-                var token = tokenHandler.CreateToken(tokenDesc);
-                var finalToken = tokenHandler.WriteToken(token);
-                return Ok(finalToken); 
+                return Ok(token);
             }
             else
             {

@@ -62,7 +62,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Connection", b =>
@@ -95,7 +95,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Connections");
+                    b.ToTable("Connections", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Country", b =>
@@ -112,7 +112,7 @@ namespace Healink.Migrations
 
                     b.HasKey("CountryId");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Education", b =>
@@ -160,7 +160,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("Educations");
+                    b.ToTable("Educations", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Experience", b =>
@@ -215,7 +215,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Experiences");
+                    b.ToTable("Experiences", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.IndustryType", b =>
@@ -245,7 +245,7 @@ namespace Healink.Migrations
 
                     b.HasKey("IndustryTypeId");
 
-                    b.ToTable("IndustryTypes");
+                    b.ToTable("IndustryTypes", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Job", b =>
@@ -308,7 +308,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Jobs");
+                    b.ToTable("Jobs", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Message", b =>
@@ -342,7 +342,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.OrganizationDetail", b =>
@@ -421,7 +421,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("OrganizationDetails");
+                    b.ToTable("OrganizationDetails", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Post", b =>
@@ -463,7 +463,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Role", b =>
@@ -480,7 +480,7 @@ namespace Healink.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Skill", b =>
@@ -510,7 +510,7 @@ namespace Healink.Migrations
 
                     b.HasKey("SkillId");
 
-                    b.ToTable("Skills");
+                    b.ToTable("Skills", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.State", b =>
@@ -532,7 +532,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("States");
+                    b.ToTable("States", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.User", b =>
@@ -574,7 +574,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.UserDetail", b =>
@@ -644,7 +644,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserDetails");
+                    b.ToTable("UserDetails", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.UserSkill", b =>
@@ -667,7 +667,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("UserSkill");
+                    b.ToTable("UserSkill", (string)null);
                 });
 
             modelBuilder.Entity("Healink.Entities.Comment", b =>

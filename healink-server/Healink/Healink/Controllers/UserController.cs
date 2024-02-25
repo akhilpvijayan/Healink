@@ -51,6 +51,20 @@ namespace Healink.Controllers
                 throw ex;
             }
         }
+
+        [HttpGet]
+        [Route("isduplicateusername")]
+        public bool ChackDuplicateUserName(string username)
+        {
+            try
+            {
+                return _userService.CheckDuplicateUserName(username);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
     }

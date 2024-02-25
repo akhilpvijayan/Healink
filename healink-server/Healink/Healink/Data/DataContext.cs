@@ -1,4 +1,5 @@
-﻿using Healink.Entities;
+﻿using Healink.Business.Services.Dto;
+using Healink.Entities;
 using Healink.Xobjects.SeedScripts;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace Healink.Data
         public DbSet<UserSkill> UserSkill { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
+
+        public DbSet<UserDetailsDto> UserDto { get; set; }
+        public DbSet<OrganizationDetailDto> OrganizationDetailDto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,6 +78,9 @@ namespace Healink.Data
                .WithMany(u => u.UState)
                .HasForeignKey(c => c.StateId)
                .OnDelete(DeleteBehavior.Restrict); // Specify DeleteBehavior.Restrict
+
+            modelBuilder.Entity<UserDetailsDto>().ToView(null);
+            modelBuilder.Entity<OrganizationDetailDto>().ToView(null);
         }
     }
 
