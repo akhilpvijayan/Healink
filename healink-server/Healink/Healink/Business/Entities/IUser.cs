@@ -12,6 +12,8 @@
         bool IsActive { get; set; }
         bool IsVerified { get; set; }
         long RoleId { get; set; }
+        string RefreshToken { get; set; }
+        DateTime RefreshTokenExpiry { get; set; }
 
         #endregion
     }

@@ -1,8 +1,39 @@
-<div class="row">
-    <div class="header-login column">
-        <img src = "https://firebasestorage.googleapis.com/v0/b/turftime-745bc.appspot.com/o/087eed58-a8b9-485b-b0ad-e6e09d34c177.jpg?alt=media&token=a77792ac-f311-4f79-b6bd-5b24570fba88"
-    ></div>
-    <div class="column">
-        <h2>Healink</h2>
+<div class="login-box">
+    <div class="login-header">
+        <header>Connecting Care,<br> Empowering Careers.</header>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group pt-3">
+            <div class="input-box input-field">
+                <input formControlName="username" type="text" class="input-field form-control" placeholder="Username"
+                    autocomplete="off" required>
+            </div>
+        </div>
+        <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+            class="error">*Username is required</small>
+        <div class="form-group pt-3">
+            <div class="input-box input-field">
+                <input formControlName="password" type="password" class="input-field form-control" placeholder="Password"
+                    autocomplete="off" required>
+            </div>
+        </div>
+        <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+            class="error">*Password is required</small>
+        <div class="forgot">
+            <section>
+                <input type="checkbox" id="check">
+                <label for="check">Remember me</label>
+            </section>
+            <section>
+                <a href="#">Forgot password?</a>
+            </section>
+        </div>
+        <div class="input-submit">
+            <button [disabled]="loginForm.invalid" class="submit-btn btn" id="submit"></button>
+            <label for="submit">Sign In</label>
+        </div>
+    </form>
+    <div class="sign-up-link">
+        <p>Don't have account? <a href="#">Sign Up</a></p>
     </div>
 </div>

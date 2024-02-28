@@ -12,6 +12,8 @@ namespace Healink.Business.Services
         IEnumerable<object> GetUser(int userId);
 
         bool CheckDuplicateUserName(string username);
+
+        bool CheckDuplicateEmail(string email);
         #endregion
     }
 }

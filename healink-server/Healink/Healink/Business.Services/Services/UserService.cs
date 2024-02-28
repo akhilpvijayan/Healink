@@ -63,6 +63,18 @@ namespace Healink.Business.Services.Services
             }
             return isUsernameExist;
         }
+
+        public bool CheckDuplicateEmail(string email)
+        {
+            bool isEmailExist = false;
+            var user = this._context.Users.FirstOrDefault(x => x.Email == email);
+            if (user != null)
+            {
+                isEmailExist = true;
+                return isEmailExist;
+            }
+            return isEmailExist;
+        }
         #endregion
     }
 }

@@ -1,12 +1,12 @@
 ﻿using Healink.Business.Services;
 using Healink.Business.Services.Dto;
 using Healink.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Healink.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -34,6 +34,7 @@ namespace Healink.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("users/{userid}")]
         public async Task<IActionResult> GetUser(int userid)
         {
@@ -59,6 +60,20 @@ namespace Healink.Controllers
             try
             {
                 return _userService.CheckDuplicateUserName(username);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpGet]
+        [Route("isemailexist")]
+        public bool ChackDuplicateEmail(string email)
+        {
+            try
+            {
+                return _userService.CheckDuplicateEmail(email);
             }
             catch (Exception ex)
             {

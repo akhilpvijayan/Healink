@@ -28,6 +28,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+//JWT Auth
 var securityKey = builder.Configuration.GetValue<string>("Jwt:securityKey");
 builder.Services.AddAuthentication(options =>
 {
@@ -71,6 +72,7 @@ var jwtSetting = builder.Configuration.GetSection("Jwt");
 builder.Services.Configure<JwtSettings>(jwtSetting);
 
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IAuthorizationService, AuthorizationService>();
 
 
 //builder.Services.AddTransient<CustomMiddleWare>();

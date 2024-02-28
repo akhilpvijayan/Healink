@@ -1,5 +1,6 @@
 ﻿using Healink.Data;
 using Healink.Entities;
+using Healink.Helper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,12 +26,12 @@ namespace Healink.Xobjects.SeedScripts
             #region Users
             if (!context.Users.Any(o => o.Username == "superuser"))
             {
-                context.Users.AddRange(new User { Username = "superuser", Email = "sup@1.com", Password = Convert.ToBase64String(System.Security.Cryptography.SHA256.Create().ComputeHash(System.Text.Encoding.UTF8.GetBytes("superuser@1"))), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 1 });
+                context.Users.AddRange(new User { Username = "superuser", Email = "sup@1.com", Password = PasswordHasher.HashPassword("superuser@1"), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 1 });
                 context.SaveChanges();
             }
             if (!context.Users.Any(o => o.Username == "healink"))
             {
-                context.Users.AddRange(new User { Username = "healink", Email = "healink@gmail.com", Password = Convert.ToBase64String(System.Security.Cryptography.SHA256.Create().ComputeHash(System.Text.Encoding.UTF8.GetBytes("healink@1"))), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 3 });
+                context.Users.AddRange(new User { Username = "healink", Email = "healink@gmail.com", Password = PasswordHasher.HashPassword("healink@1"), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 3 });
                 context.SaveChanges();
             }
             #endregion
@@ -1100,6 +1101,30 @@ namespace Healink.Xobjects.SeedScripts
                     FollowCount = 0,
                     TagLine = "Connecting Care, Empowering Careers.",
                     UserId = 2,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    CreatedBy = 1,
+                    ModifiedBy = 1
+                });
+                context.SaveChanges();
+            }
+            #endregion
+
+            #region UserDetails
+            if (!context.UserDetails.Any())
+            {
+                context.UserDetails.AddRange(new UserDetail
+                {
+                    UserId = 1,
+                    FirstName = "Super",
+                    LastName = "User",
+                    ProfileImage = "https://ai-studio-assets.limewire.media/u/280cced9-e893-4ce9-9a51-09c40c1a57c3/image/087eed58-a8b9-485b-b0ad-e6e09d34c177?Expires=1708276067&Signature=AkkS9EZ5x4wWlZwkMbC3pWwrYq26HdbpQ1HEMsBdeedq9xB4TgOCb8DTDmd3LJhgOSsJ7qrlMYwlqMlSYSHGRPc8YpCLf0f99ERm62FAWkbdi1Q00-o4qfMjgIyo0wDcRG~YuStnstgkvV06PHzbC4lJO7j4zMw6vQ86DEQog16gDJPEC24wfAf7TT1s3mdU9yIXECfEQYYre51OKfJprVMKo53MWkKNcVlNdEzXN9TmXdU-UNdk8Kz6fclhhOQ1TVVcChVjXwgm78DBsyXRUXuwXpvqVSBsFbrNhs3ZaPb2PxDpl9sxGFxS6UhUZMy7J1Wyn0pl8Dugsn4D~bD88A__&Key-Pair-Id=K1U52DHN9E92VT",
+                    UserBio = "Your Career Guru",
+                    CountryId = 76,
+                    StateId = 17,
+                    Region = "Kochi",
+                    Specialization = "MBBS",
+                    ConnectionsCount = 0,
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
                     CreatedBy = 1,

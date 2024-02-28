@@ -1,8 +1,10 @@
 ﻿using Azure.Identity;
 using Healink.Business.Entities;
 using Healink.Business.Services;
+using Healink.Business.Services.Dto;
 using Healink.Data;
 using Healink.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +22,11 @@ namespace Healink.Controllers
         #region properties
         private readonly DataContext _context;
         private readonly JwtSettings _jwtSettings;
-        private readonly IAuthorizationService _authService;
+        private readonly Business.Services.IAuthorizationService _authService;
         #endregion
 
         #region constructor
-        public AuthorizationController(DataContext context, IOptions<JwtSettings> options, IAuthorizationService authService)
+        public AuthorizationController(DataContext context, IOptions<JwtSettings> options, Business.Services.IAuthorizationService authService)
         {
             this._context = context;
             this._jwtSettings = options.Value;
@@ -33,20 +35,60 @@ namespace Healink.Controllers
         #endregion
 
         #region public functions
+        [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<IActionResult> UserLogin(string username, string password)
+        public async Task<IActionResult> UserLogin([FromBody] UserCredentialsDto userDetails)
         {
-            var token = _authService.generateToken(username, password);
-            if(token != null)
+            try
             {
-                return Ok(token);
+                var user = _authService.GenerateToken(userDetails.UserName, userDetails.Password);
+                if (user.Result != null)
+                {
+                    return Ok(new
+                    {
+                        Message = "Login Success",
+                        AccessToken = user.Result.Item1.ToString(),
+                        RefreshToken = user.Result.Item2.ToString(),
+                        UserId = user.Result.Item3
+                    }); ;
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return Unauthorized();
+                throw ex;
             }
         }
 
-        #endregion
-    }
+        [HttpPost("refreshtoken")]
+        public async Task<IActionResult> RefreshToken(TokenApiDto tokenApiDto)
+        {
+            try
+            {
+                if (tokenApiDto != null)
+                {
+                    var tokens = await _authService.Refresh(tokenApiDto);
+                    if (tokens != null)
+                    {
+                        return Ok(new TokenApiDto()
+                        {
+                            AccessToken = tokens.Item1,
+                            RefreshToken = tokens.Item2,
+                        });
+                    };
+                }
+                return BadRequest();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
+
+            #endregion
+        }
 }

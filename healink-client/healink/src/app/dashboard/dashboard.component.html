@@ -1,0 +1,6 @@
+<button class="btn" (click)="signOut()">SignOut</button>
+
+<div class="container card-main" *ngFor="let details of this.userService.userDetails">
+    <tr>{{details}}</tr>
+
+</div>

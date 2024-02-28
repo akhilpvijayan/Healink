@@ -25,6 +25,8 @@ namespace Healink.Entities
         public bool IsVerified { get; set; }
         [ForeignKey("Role")]
         public long RoleId { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiry { get; set; }
         #endregion
 
         public virtual Role Role { get; set; }
