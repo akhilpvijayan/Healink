@@ -19,6 +19,8 @@
         </div>
         <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
             class="error">*Password is required</small>
+        <small *ngIf="isInvalidUser"
+            class="error">*Invalid Username or password</small>
         <div class="forgot">
             <section>
                 <input type="checkbox" id="check">

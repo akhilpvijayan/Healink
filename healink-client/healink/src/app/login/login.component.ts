@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit{
 
   loginForm!: FormGroup;
+  isInvalidUser = false;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit{
     });
   }
   onSubmit(){
+    this.isInvalidUser = false;
     if(this.loginForm.valid){
       this.authService.login(this.loginForm.value).subscribe({
         next: (result: any) => {
@@ -36,18 +38,20 @@ export class LoginComponent implements OnInit{
             this.authService.setToken(result.accessToken);
             this.authService.setUser(result.userId);
             this.authService.setRefreshToken(result.refreshToken);
+            this.toastr.success(result.message);
             this.loginForm.reset();
             this.router.navigateByUrl('home');
           } else {
-            console.error('Login failed: Invalid response from server');
+            this.toastr.error('Login failed: Invalid response from server.');
           }
         },
         error: (err: any) => {
-          console.error('Login failed:', err);
-          if (err.status === 401) {
-            console.error('Invalid credentials');
-          } else {
-            console.error('An error occurred during login');
+          if(err.status == 404){
+            this.toastr.error('Invalid credentials.');
+            this.isInvalidUser = true;
+          }
+          else {
+            this.toastr.error('An error occurred during login.');
           }
         }
       });

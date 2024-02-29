@@ -10,11 +10,15 @@ import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from '../Auth/auth.service';
 import { Router } from '@angular/router';
 import { TokenApi } from '../interfaces/token-api';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService, private route: Router) {}
+  constructor(
+    private authService: AuthService, 
+    private route: Router,
+    private toastr: ToastrService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authService.getToken();
@@ -61,7 +65,7 @@ export class TokenInterceptor implements HttpInterceptor {
       }),
       catchError((err)=>{
         return throwError(()=>{
-          console.log(err);
+          this.toastr.error("Timeout expired. Login again.")
           this.route.navigateByUrl('login');
         })
       })

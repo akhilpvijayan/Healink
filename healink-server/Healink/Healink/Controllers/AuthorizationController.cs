@@ -46,7 +46,7 @@ namespace Healink.Controllers
                 {
                     return Ok(new
                     {
-                        Message = "Login Success",
+                        Message = "Login Success.",
                         AccessToken = user.Result.Item1.ToString(),
                         RefreshToken = user.Result.Item2.ToString(),
                         UserId = user.Result.Item3

@@ -1,6 +1,16 @@
-<button class="btn" (click)="signOut()">SignOut</button>
-
-<div class="container card-main" *ngFor="let details of this.userService.userDetails">
-    <tr>{{details}}</tr>
-
-</div>
+<header class="header">
+    <nav>
+      <div class="logo">
+        <a href="">Hea<span>Link</span></a>
+      </div>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="menu">
+        <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Connect</a></li>
+      </ul>
+    </nav>
+  </header>
+  <app-post-list class="post"></app-post-list>
