@@ -26,12 +26,12 @@ namespace Healink.Xobjects.SeedScripts
             #region Users
             if (!context.Users.Any(o => o.Username == "superuser"))
             {
-                context.Users.AddRange(new User { Username = "superuser", Email = "sup@1.com", Password = PasswordHasher.HashPassword("superuser@1"), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 1 });
+                context.Users.AddRange(new User { Username = "superuser", Email = "sup@1.com", Password = PasswordHasher.HashPassword("superuser@1"), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 1, RefreshToken="ddaxcdfwev", RefreshTokenExpiry=DateTime.Now});
                 context.SaveChanges();
             }
             if (!context.Users.Any(o => o.Username == "healink"))
             {
-                context.Users.AddRange(new User { Username = "healink", Email = "healink@gmail.com", Password = PasswordHasher.HashPassword("healink@1"), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 3 });
+                context.Users.AddRange(new User { Username = "healink", Email = "healink@gmail.com", Password = PasswordHasher.HashPassword("healink@1"), LastLogin = DateTime.Now, CreatedDate = DateTime.Now, IsActive = true, IsVerified = true, RoleId = 3, RefreshToken = "jyhwjfne", RefreshTokenExpiry = DateTime.Now });
                 context.SaveChanges();
             }
             #endregion
