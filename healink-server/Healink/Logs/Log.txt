@@ -30634,3 +30634,37 @@ Exec spGetUserDetails 1, False
 2024-03-01 22:47:31.909 +05:30 [INF] Executed action Healink.Controllers.UserController.GetUser (Healink) in 4232.6098ms
 2024-03-01 22:47:31.909 +05:30 [INF] Executed endpoint 'Healink.Controllers.UserController.GetUser (Healink)'
 2024-03-01 22:47:31.909 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/users/1 - - - 200 - application/json;+charset=utf-8 4234.1440ms
+2024-03-01 23:58:57.148 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7262/users/1 - -
+2024-03-01 23:58:57.345 +05:30 [INF] CORS policy execution successful.
+2024-03-01 23:58:57.350 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7262/users/1 - - - 204 - - 208.7174ms
+2024-03-01 23:58:57.364 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7262/users/1 - -
+2024-03-01 23:58:57.385 +05:30 [INF] CORS policy execution successful.
+2024-03-01 23:58:57.438 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '01-03-2024 18:17:56', Current time: '01-03-2024 18:28:57'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2024-03-01 23:58:57.462 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '01-03-2024 18:17:56', Current time: '01-03-2024 18:28:57'.
+2024-03-01 23:58:57.477 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-03-01 23:58:57.479 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-03-01 23:58:57.479 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7262/users/1 - - - 401 0 - 119.8835ms
+2024-03-01 23:58:57.515 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7262/refreshtoken - -
+2024-03-01 23:58:57.516 +05:30 [INF] CORS policy execution successful.
+2024-03-01 23:58:57.516 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7262/refreshtoken - - - 204 - - 0.4148ms
+2024-03-01 23:58:57.523 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7262/refreshtoken application/json 336
+2024-03-01 23:58:57.523 +05:30 [INF] CORS policy execution successful.
+2024-03-01 23:58:57.523 +05:30 [INF] Executing endpoint 'Healink.Controllers.AuthorizationController.RefreshToken (Healink)'
+2024-03-01 23:58:57.570 +05:30 [INF] Route matched with {action = "RefreshToken", controller = "Authorization"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RefreshToken(Healink.Business.Services.Dto.TokenApiDto) on controller Healink.Controllers.AuthorizationController (Healink).
+2024-03-01 23:58:58.118 +05:30 [INF] Executed DbCommand (100ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedDate], [u].[Email], [u].[IsActive], [u].[IsVerified], [u].[LastLogin], [u].[Password], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-03-01 23:58:58.172 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-03-01 23:58:58.218 +05:30 [INF] Executed action Healink.Controllers.AuthorizationController.RefreshToken (Healink) in 645.3854ms
+2024-03-01 23:58:58.218 +05:30 [INF] Executed endpoint 'Healink.Controllers.AuthorizationController.RefreshToken (Healink)'
+2024-03-01 23:58:58.219 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7262/refreshtoken application/json 336 - 400 - application/problem+json;+charset=utf-8 696.3920ms

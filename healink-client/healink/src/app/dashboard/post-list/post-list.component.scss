@@ -32,3 +32,9 @@
   .btn b{
     opacity: .5;
   }
+
+  @media only screen and (max-width: 950px) {
+    * {
+        width: 90%;
+    }
+  }
