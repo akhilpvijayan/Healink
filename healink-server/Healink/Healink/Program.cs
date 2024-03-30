@@ -27,6 +27,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddMemoryCache();
+builder.Services.AddLazyCache();
 
 //JWT Auth
 var securityKey = builder.Configuration.GetValue<string>("Jwt:securityKey");
@@ -73,6 +75,13 @@ builder.Services.Configure<JwtSettings>(jwtSetting);
 
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAuthorizationService, AuthorizationService>();
+builder.Services.AddTransient<IPostService, PostService>();
+builder.Services.AddTransient<IConfigurationService, ConfigurationService>();
+builder.Services.AddTransient<ICountryService, CountryService>();
+builder.Services.AddTransient<IStateService, StateService>();
+builder.Services.AddTransient<IOrganizationService, OrganizationService>();
+builder.Services.AddTransient<IEducationService, EducationService>();
+builder.Services.AddTransient<IExperienceService, ExperienceService>();
 
 
 //builder.Services.AddTransient<CustomMiddleWare>();

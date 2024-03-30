@@ -20,16 +20,12 @@ namespace Healink.Controllers
     public class AuthorizationController : ControllerBase
     {
         #region properties
-        private readonly DataContext _context;
-        private readonly JwtSettings _jwtSettings;
         private readonly Business.Services.IAuthorizationService _authService;
         #endregion
 
         #region constructor
-        public AuthorizationController(DataContext context, IOptions<JwtSettings> options, Business.Services.IAuthorizationService authService)
+        public AuthorizationController(Business.Services.IAuthorizationService authService)
         {
-            this._context = context;
-            this._jwtSettings = options.Value;
             this._authService = authService;
         }
         #endregion
@@ -89,6 +85,28 @@ namespace Healink.Controllers
            
         }
 
-            #endregion
+        [HttpPost("signup")]
+        public async Task<IActionResult> SignUp([FromForm] SignUpUserDetailDto userDetails)
+        {
+            try
+            {
+                if (userDetails != null)
+                {
+                    var result = await _authService.SignUp(userDetails);
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    };
+                }
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
+
+        #endregion
+    }
 }

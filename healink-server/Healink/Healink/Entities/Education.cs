@@ -22,13 +22,19 @@ namespace Healink.Entities
         [Required]
         public DateTime GraduationstartDate { get; set; }
 
-        public DateTime GraduationEndDate { get; set; }
+        public DateTime? GraduationEndDate { get; set; } = null;
+
+        public string? GraduationDescription { get; set; } = null;
+
+        public long? OrgId { get; set; } = null;
 
         [Required]
         [ForeignKey("User")]
-        public long Userid { get; set; }
+        public long UserId { get; set; }
         #endregion
         public virtual User User { get; set; }
+        [InverseProperty("OrgDetails")]
+        public virtual OrganizationDetail OrganizationDetails { get; set; }
 
     }
 }

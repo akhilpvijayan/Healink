@@ -10,6 +10,7 @@ namespace Healink.Business.Services
         Task<Tuple<string, string>> Refresh(TokenApiDto tokenApiDto);
         Task<string> CreateRefreshToken();
         ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+        Task<long> SignUp(SignUpUserDetailDto userDetails);
         #endregion
     }
 }

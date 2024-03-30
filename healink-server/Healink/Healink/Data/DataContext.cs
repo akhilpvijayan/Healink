@@ -27,8 +27,12 @@ namespace Healink.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
 
-        public DbSet<UserDetailsDto> UserDto { get; set; }
+        public DbSet<UserDetailsDto> UserDetailsDto { get; set; }
+        public DbSet<UserDto> UserDto { get; set; }
+        public DbSet<UserExperienceDto> UserExperienceDto { get; set; }
+        public DbSet<UserEducationDto> UserEducationDto { get; set; }
         public DbSet<OrganizationDetailDto> OrganizationDetailDto { get; set; }
+        public DbSet<PostDto> PostDto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -79,8 +83,23 @@ namespace Healink.Data
                .HasForeignKey(c => c.StateId)
                .OnDelete(DeleteBehavior.Restrict); // Specify DeleteBehavior.Restrict
 
+            modelBuilder.Entity<Education>()
+               .HasOne(c => c.OrganizationDetails)
+               .WithMany(u => u.OrgDetails)
+               .HasForeignKey(c => c.OrgId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Experience>()
+               .HasOne(c => c.OrganizationDetails)
+               .WithMany(u => u.OrgExpDetails)
+               .HasForeignKey(c => c.CompanyId)
+               .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<UserDetailsDto>().ToView(null);
             modelBuilder.Entity<OrganizationDetailDto>().ToView(null);
+            modelBuilder.Entity<PostDto>().ToView(null);
+            modelBuilder.Entity<UserExperienceDto>().ToView(null);
+            modelBuilder.Entity<UserEducationDto>().ToView(null);
         }
     }
 

@@ -3,6 +3,7 @@ using Healink.Entities;
 using Healink.Helper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using static System.Net.WebRequestMethods;
 
 namespace Healink.Xobjects.SeedScripts
 {
@@ -1092,7 +1093,8 @@ namespace Healink.Xobjects.SeedScripts
                     OrganizationName = "Healink",
                     OrganizationWebsite = "https://www.healink.com",
                     OrganizationSize = 1,
-                    OrganizationLogo = "https://ai-studio-assets.limewire.media/u/280cced9-e893-4ce9-9a51-09c40c1a57c3/image/087eed58-a8b9-485b-b0ad-e6e09d34c177?Expires=1708276067&Signature=AkkS9EZ5x4wWlZwkMbC3pWwrYq26HdbpQ1HEMsBdeedq9xB4TgOCb8DTDmd3LJhgOSsJ7qrlMYwlqMlSYSHGRPc8YpCLf0f99ERm62FAWkbdi1Q00-o4qfMjgIyo0wDcRG~YuStnstgkvV06PHzbC4lJO7j4zMw6vQ86DEQog16gDJPEC24wfAf7TT1s3mdU9yIXECfEQYYre51OKfJprVMKo53MWkKNcVlNdEzXN9TmXdU-UNdk8Kz6fclhhOQ1TVVcChVjXwgm78DBsyXRUXuwXpvqVSBsFbrNhs3ZaPb2PxDpl9sxGFxS6UhUZMy7J1Wyn0pl8Dugsn4D~bD88A__&Key-Pair-Id=K1U52DHN9E92VT",
+                    OrganizationLogo = null,
+                    OrganizationCover = null,
                     OrganizationBio = "Your Gateway to Professional Success and Connection! Elevate your career with Healink, the ultimate platform for healthcare professionals",
                     CountryId = 76,
                     StateId = 17,
@@ -1118,13 +1120,15 @@ namespace Healink.Xobjects.SeedScripts
                     UserId = 1,
                     FirstName = "Super",
                     LastName = "User",
-                    ProfileImage = "https://ai-studio-assets.limewire.media/u/280cced9-e893-4ce9-9a51-09c40c1a57c3/image/087eed58-a8b9-485b-b0ad-e6e09d34c177?Expires=1708276067&Signature=AkkS9EZ5x4wWlZwkMbC3pWwrYq26HdbpQ1HEMsBdeedq9xB4TgOCb8DTDmd3LJhgOSsJ7qrlMYwlqMlSYSHGRPc8YpCLf0f99ERm62FAWkbdi1Q00-o4qfMjgIyo0wDcRG~YuStnstgkvV06PHzbC4lJO7j4zMw6vQ86DEQog16gDJPEC24wfAf7TT1s3mdU9yIXECfEQYYre51OKfJprVMKo53MWkKNcVlNdEzXN9TmXdU-UNdk8Kz6fclhhOQ1TVVcChVjXwgm78DBsyXRUXuwXpvqVSBsFbrNhs3ZaPb2PxDpl9sxGFxS6UhUZMy7J1Wyn0pl8Dugsn4D~bD88A__&Key-Pair-Id=K1U52DHN9E92VT",
+                    ProfileImage = null,
+                    ProfileCover = null,
                     UserBio = "Your Career Guru",
                     CountryId = 76,
                     StateId = 17,
                     Region = "Kochi",
                     Specialization = "MBBS",
                     ConnectionsCount = 0,
+                    Gender = "Male",
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now,
                     CreatedBy = 1,

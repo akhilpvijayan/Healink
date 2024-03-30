@@ -1,0 +1,11 @@
+<div id="boxes">
+    <div id="leftbox">
+        <div class="cancel">
+            <a routerLink="/login">Already have an Account?</a>
+        </div>
+        <app-sign-up-form (userFormChanged)="updateUserForm($event)"></app-sign-up-form>
+      </div>
+      <div id="rightbox">
+        <app-profile-preview [userForm]="userForm ? userForm.value : null"></app-profile-preview>
+      </div>      
+</div>

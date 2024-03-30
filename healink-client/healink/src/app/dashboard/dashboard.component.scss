@@ -1,111 +1,199 @@
-* {
+.header {
+    position:sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+    z-index: 999;
+    background-color: #ffffff;
+    left: 0;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
     text-decoration: none;
     list-style: none;
-  }
-  
-  .header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
-    z-index: 1;
-    background-color: #ffffffdf;
-    left: 0;
-    top: 0;
-  }
-  
-  nav {
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-  }
-  
-  .logo a {
+}
+
+.logo a .main-title {
     font-size: 24px;
     font-weight: bold;
     color: #000000;
-  }
-  
-  .logo a span {
-    color: #8739fa;
-  }
-  
-  .menu {
+    display: inline-block;
+    left: 20px;
+}
+
+.logo a span .title {
+    color: #00B4CC;
+}
+
+.menu {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .menu a {
+}
+
+.menu a {
     display: block;
     padding: 7px 15px;
     font-size: 17px;
     font-weight: 500;
     transition: 0.2s all ease-in-out;
     color: #000000;
-  }
-  
-  .menu:hover a {
+    list-style: none;
+}
+
+.menu:hover a {
     opacity: 0.4;
-  }
-  
-  .menu a:hover {
+}
+
+.menu a:hover {
     opacity: 1;
     color: #fff;
-  }
-  
-  .menu-icon {
-    display: none;
-  }
-  
-  #menu-toggle {
-    display: none;
-  }
-  
-  #menu-toggle:checked ~ .menu {
-    transform: scale(1, 1);
-  }
+}
 
-  .post{
-    display: grid;
-    place-items: center; 
-    padding-top: 20px;
-  }
-  
-  @media only screen and (max-width: 950px) {
+.menu-icon {
+    display: none;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+#menu-toggle:checked~.menu {
+    transform: scale(1, 1);
+}
+
+.image-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    margin: 0px;
+    object-fit: cover;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 2px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchTerm:focus {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: #010101;
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.wrap {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+#leftbox {
+    float: left;
+    width: 20%;
+    height: 100%;
+    padding: 5px;
+}
+
+#middlebox {
+    float: left;
+    width: 50%;
+    overflow-y: auto;
+    height: calc(100vh - 115px);
+    padding: 5px;
+}
+
+#rightbox {
+    float: left;
+    background: blue;
+    width: 28%;
+    height: 280px;
+}
+
+@media only screen and (max-width: 950px) {
     .menu {
-      flex-direction: column;
-      background-color: #ffffff;
-      align-items: start;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      z-index: 1;
-      transform: scale(1, 0);
-      transform-origin: top;
-      transition: transform 0.3s ease-in-out;
-      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        flex-direction: column;
+        background-color: #ffffff;
+        align-items: start;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
-  
+
     .menu a {
-      margin-left: 12px;
+        margin-left: 12px;
     }
-  
+
     .menu li {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
     }
-  
+
     .menu-icon {
-      display: block;
-      color: #010101;
-      font-size: 28px;
-      cursor: pointer;
+        display: block;
+        color: #010101;
+        font-size: 28px;
+        cursor: pointer;
     }
-  }
-  
+
+    .wrap {
+        width: 40%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo a .main-title {
+        display: none;
+    }
+
+    #leftbox {
+        display: none;
+    }
+
+    #middlebox {
+        width: 100%;
+    }
+
+    #rightbox {
+        display: none;
+    }
+}

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Healink.Business.Entities;
 using Healink.Business.Services.Dto;
 using Healink.Data;
 using Healink.Entities;
@@ -6,6 +7,7 @@ using Healink.Helper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MimeKit;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -140,6 +142,65 @@ namespace Healink.Business.Services.Services
                 throw new SecurityTokenException("Invalid Token");
             }
             return principal;
+        }
+
+        public async Task<long> SignUp(SignUpUserDetailDto userDetails)
+        {
+            try
+            {
+                User user = new User();
+                user.Username = userDetails.Username;
+                user.Password = userDetails.Password;
+                user.Email = userDetails.Email;
+                user.RoleId = userDetails.RoleId;
+                user.LastLogin = DateTime.Now;
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                byte[] profileImage = null;
+                byte[] profileCover = null;
+                using (var ms = new MemoryStream())
+                {
+                    if (userDetails.ProfileImage != null)
+                    {
+                        await userDetails.ProfileImage.CopyToAsync(ms);
+                        profileImage = ms.ToArray();
+                    }
+
+                    if (userDetails.ProfileCover != null)
+                    {
+                        await userDetails.ProfileCover.CopyToAsync(ms);
+                        profileCover = ms.ToArray();
+                    }
+                }
+
+                UserDetail userDetail = new UserDetail();
+                userDetail.UserId = user.UserId;
+                userDetail.FirstName = userDetails.FirstName;
+                userDetail.LastName = userDetails.LastName;
+                userDetail.CountryId = userDetails.CountryId;
+                userDetail.StateId = userDetails.StateId;
+                userDetail.UserBio = userDetails.UserBio;
+                userDetail.ProfileImage = profileImage;
+                userDetail.ProfileCover = profileCover;
+                userDetail.Gender = userDetails.Gender;
+                userDetail.Region = userDetails.Region;
+                userDetail.Specialization = userDetails.Specialization;
+                userDetail.CreatedDate = DateTime.Now;
+                userDetail.CreatedBy = userDetails.CreatedBy;
+                userDetail.ModifiedDate = DateTime.Now;
+                userDetail.ModifiedBy = userDetails.ModifiedBy;
+
+                _context.UserDetails.Add(userDetail);
+                await _context.SaveChangesAsync();
+
+                return userDetail.UserId;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 

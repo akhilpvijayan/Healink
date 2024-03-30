@@ -17,15 +17,13 @@ namespace Healink.Entities
         public string Password { get; set; }
         [Required]
         public DateTime LastLogin { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         [Required]
-        public DateTime CreatedDate { get; set; }
-        [Required]
-        public bool IsActive { get; set; }
-        [Required]
-        public bool IsVerified { get; set; }
+        public bool IsActive { get; set; } = true;
+        public bool IsVerified { get; set; } = false;
         [ForeignKey("Role")]
         public long RoleId { get; set; }
-        public string RefreshToken { get; set; } = null;
+        public string? RefreshToken { get; set; } = null;
         public DateTime RefreshTokenExpiry { get; set; }
         #endregion
 

@@ -14,9 +14,13 @@ namespace Healink.Business.Entities
 
         string LastName { get; set; }
 
-        string ProfileImage { get; set; }
+        byte[] ProfileImage { get; set; }
+
+        byte[] ProfileCover { get; set; }
 
         string UserBio { get; set; }
+
+        string Gender { get; set; }
 
         long CountryId { get; set; }
 
@@ -26,7 +30,7 @@ namespace Healink.Business.Entities
 
         string Specialization { get; set; }
 
-        int ConnectionsCount { get; set; }
+        int? ConnectionsCount { get; set; }
         #endregion
     }
 }

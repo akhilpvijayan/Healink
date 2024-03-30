@@ -16,7 +16,9 @@ namespace Healink.Business.Entities
 
         long OrganizationSize { get; set; }
 
-        string OrganizationLogo { get; set; }
+        byte[] OrganizationLogo { get; set; }
+
+        byte[] OrganizationCover { get; set; }
 
         string OrganizationBio { get; set; }
 

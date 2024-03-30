@@ -44,6 +44,14 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "LazyCache.AspNetCore": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -65,6 +73,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.Caching.Redis": {
               "target": "Package",

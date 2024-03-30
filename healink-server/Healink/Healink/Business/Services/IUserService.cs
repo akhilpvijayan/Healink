@@ -9,7 +9,9 @@ namespace Healink.Business.Services
         #region public functions
         Task<ActionResult<IEnumerable<User>>> GetAllUsers();
 
-        IEnumerable<object> GetUser(int userId);
+        UserDto GetUser(int userId);
+
+        Task<bool> UpdateUser(SignUpUserDetailDto userDetails, long userId);
 
         bool CheckDuplicateUserName(string username);
 

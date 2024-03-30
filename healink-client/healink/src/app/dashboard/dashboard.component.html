@@ -1,17 +1,42 @@
-<header class="header">
+<div class="header">
     <nav>
-      <div class="logo">
-        <a href="">Hea<span>Link</span></a>
-      </div>
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="menu-icon">&#9776;</label>
-      <ul class="menu">
-        <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Connect</a></li>
-        <li><button (click)="signOut()">SignOut</button></li>
-      </ul>
+        <div class="logo">
+            <a href="">
+                <img src="https://firebasestorage.googleapis.com/v0/b/turftime-745bc.appspot.com/o/087eed58-a8b9-485b-b0ad-e6e09d34c177.jpg?alt=media&token=a77792ac-f311-4f79-b6bd-5b24570fba88"
+                    class="image-cover">&nbsp;
+                <span class="main-title">Hea<span class="title">Link             <i class="material-icons home">home</i></span></span>
+            </a>
+        </div>
+        <div class="wrap">
+            <div class="search">
+               <input type="text" class="searchTerm" placeholder="What are you looking for?">
+               <button type="submit" class="searchButton">
+                 <i class="fa fa-search"></i> 
+              </button>
+            </div>
+         </div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul class="menu">
+            <li><a href="#">
+                Home</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Connect</a></li>
+            <li><a (click)="signOut()">SignOut</a></li>
+        </ul>
     </nav>
-  </header>
-  <app-post-list class="post"></app-post-list>
+</div>
+
+<div id="boxes">
+    <div id="leftbox">
+        <app-side-profile></app-side-profile>
+    </div>
+
+    <div id="middlebox">
+        <app-post-list class="post"></app-post-list>
+    </div>
+
+    <div id="rightbox">
+    </div>
+</div>

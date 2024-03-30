@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Healink.Business.Entities;
 using Healink.Business.Services.Dto;
 using Healink.Data;
 using Healink.Entities;
@@ -31,20 +32,16 @@ namespace Healink.Business.Services.Services
             return await this._context.Users.ToListAsync();
         }
 
-        public IEnumerable<object> GetUser(int userId)
+        public UserDto GetUser(int userId)
         {
             try
             {
-                var userRole = this._context.Users.FirstOrDefault(x => x.UserId == userId).RoleId;
-                bool isOrganizationalUser = false;
-                var sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
-                if (userRole != null && userRole == 3)
-                {
-                    isOrganizationalUser = true;
-                    sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
-                    return this._context.OrganizationDetailDto.FromSqlRaw(sqlQuery).ToList();
-                }
-                return this._context.UserDto.FromSqlRaw(sqlQuery).ToList();
+                var user = new UserDto();
+                user = GetUserPersonalDetails(userId);
+                user.Experience =  GetUserExperience(userId);
+                user.Education = GetUserEducation(userId);
+                return user;
+                
             }
             catch (Exception ex)
             {
@@ -74,6 +71,86 @@ namespace Healink.Business.Services.Services
                 return isEmailExist;
             }
             return isEmailExist;
+        }
+
+        public async Task<bool> UpdateUser(SignUpUserDetailDto userDetails, long userId)
+        {
+            try
+            {
+                var user = await this._context.UserDetails.FirstOrDefaultAsync(x => x.UserId == userId);
+                user.FirstName = userDetails.FirstName;
+                user.LastName = userDetails.LastName;
+                user.Specialization = userDetails.Specialization;
+                user.CountryId = userDetails.CountryId;
+                user.StateId = userDetails.StateId;
+                user.Region= userDetails.Region;
+                user.UserBio = userDetails.UserBio;
+                user.ModifiedBy = userId;
+                user.ModifiedDate = DateTime.Now;
+
+                byte[] profileImage = null;
+                byte[] profileCover = null;
+                if ((bool)userDetails.isProfilePictureUpdated)
+                {
+                    using (var msProfileImage = new MemoryStream())
+                    {
+                        if (userDetails.ProfileImage != null)
+                        {
+                            await userDetails.ProfileImage.CopyToAsync(msProfileImage);
+                            profileImage = msProfileImage.ToArray();
+                        }
+                    }
+                    user.ProfileImage = profileImage;
+                }
+                if ((bool)userDetails.isProfileCoverUpdated)
+                {
+                    using (var msProfileCover = new MemoryStream())
+                    {
+                        if (userDetails.ProfileCover != null)
+                        {
+                            await userDetails.ProfileCover.CopyToAsync(msProfileCover);
+                            profileCover = msProfileCover.ToArray();
+                        }
+                    }
+                    user.ProfileCover = profileCover;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region private functions
+        private UserDto GetUserPersonalDetails(long userId)
+        {
+            var userRole = this._context.Users.FirstOrDefault(x => x.UserId == userId).RoleId;
+            bool isOrganizationalUser = false;
+            var sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
+            if (userRole != null && userRole == 3)
+            {
+                isOrganizationalUser = true;
+                sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
+                return this._context.UserDto.FromSqlRaw(sqlQuery).AsEnumerable().SingleOrDefault();
+            }
+            return this._context.UserDto.FromSqlRaw(sqlQuery).AsEnumerable().SingleOrDefault();
+        }
+
+        private List<UserExperienceDto> GetUserExperience(long userId)
+        {
+            var sqlQuery = $"Exec spGetUserExperienceDetails {userId}";
+            return this._context.UserExperienceDto.FromSqlRaw(sqlQuery).ToList();
+        }
+
+        private List<UserEducationDto> GetUserEducation(long userId)
+        {
+            var sqlQuery = $"Exec spGetUserEducationDetails {userId}";
+            return this._context.UserEducationDto.FromSqlRaw(sqlQuery).ToList();
         }
         #endregion
     }

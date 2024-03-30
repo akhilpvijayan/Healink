@@ -1,0 +1,55 @@
+.container{
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.container .profile img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile{
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-name b{
+    font-size: large;
+}
+
+.profile-head{
+    opacity: .5;
+    font-size: small;
+    line-height: 1;
+}
+
+.submit-btn{
+    width: 100%;
+    height: 30px;
+    background: #00B4CC;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn:hover{
+    background: #000;
+    transform: scale(1.05,1);
+}
+
+.posts-btn{
+    width: 100%;
+    height: 30px;
+    background: #00b4cc00;
+    border: none;
+    border-radius: 30px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: .3s;
+}

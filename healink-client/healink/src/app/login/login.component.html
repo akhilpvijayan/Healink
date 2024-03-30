@@ -1,6 +1,6 @@
 <div class="login-box">
     <div class="login-header">
-        <header>Connecting Care,<br> Empowering Careers.</header>
+        <header>Connecting Care,<br> <b class="title">Empowering Careers.</b></header>
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group pt-3">
@@ -36,6 +36,6 @@
         </div>
     </form>
     <div class="sign-up-link">
-        <p>Don't have account? <a href="#">Sign Up</a></p>
+        <p>Don't have account? <a routerLink="/signup">Sign Up</a></p>
     </div>
 </div>

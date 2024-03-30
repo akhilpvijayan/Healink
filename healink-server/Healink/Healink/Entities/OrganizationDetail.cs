@@ -24,8 +24,9 @@ namespace Healink.Entities
         [Required]
         public long OrganizationSize { get; set; }
 
-        [Required]
-        public string OrganizationLogo { get; set; }
+        public byte[]? OrganizationLogo { get; set; } = null;
+
+        public byte[]? OrganizationCover { get; set; } = null;
 
         [Required]
         [MaxLength(500)]
@@ -58,5 +59,9 @@ namespace Healink.Entities
         public virtual Country UserCountry { get; set; }
         [ForeignKey("StateId")]
         public virtual State UserState { get; set; }
+        [InverseProperty("OrganizationDetails")]
+        public virtual ICollection<Education> OrgDetails { get; set; }
+        [InverseProperty("OrganizationDetails")]
+        public virtual ICollection<Experience> OrgExpDetails { get; set; }
     }
 }

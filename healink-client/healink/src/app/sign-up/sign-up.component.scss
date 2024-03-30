@@ -1,0 +1,32 @@
+#leftbox {
+  float: left;
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  background: rgb(255, 255, 255);
+}
+
+#rightbox {
+  float: left;
+  width: 50%;
+  overflow-y: auto;
+  height: 100vh;
+  background: rgb(255, 255, 255);
+}
+
+.cancel{
+  position:sticky;
+  top: 20px;
+  z-index: 9999; 
+  text-align: center;
+}
+
+@media only screen and (max-width: 950px) {
+  #leftbox {
+    width: 100%;
+}
+
+#rightbox {
+  display: none;
+}
+}

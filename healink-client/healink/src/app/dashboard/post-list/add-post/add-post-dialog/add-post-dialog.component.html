@@ -1,0 +1,27 @@
+<button class="cancel" id='close' (click)="closeDialog()">close</button>
+<div class="container">
+    <form [formGroup]="addPostForm" (ngSubmit)="onSubmit()">
+        <div class="form-group pt-3">
+            <div class="input-box textarea input-field">
+                <textarea formControlName="content" class="input-field form-control custom-textarea"
+                    (input)="adjustTextareaHeight($event)" placeholder="What do you want to talk about...."
+                    [style.height.px]="defaultHeight">
+                </textarea>
+            </div>
+        </div>
+        <small *ngIf="addPostForm.controls['content'].dirty && addPostForm.hasError('required','content')"
+            class="error">*Post content is required</small>
+            <div class="preview-container" *ngIf="imageUrl && isString(imageUrl)">
+                <img [src]="imageUrl" alt="Image Preview" class="img-preview">
+            </div>
+        <div class="photos form-group">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-image"></i> Upload Image
+            </label>
+            <input formcontrolname="contentImage" class="form-control" id="file-upload" type="file" style="display: none;" (change)="onFileSelected($event.target)">
+        </div>
+        <div class="input-submit">
+            <button [disabled]="addPostForm.invalid" class="submit-btn btn" id="submit">Post</button>
+        </div>
+    </form>
+</div>

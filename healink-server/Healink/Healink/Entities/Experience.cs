@@ -24,12 +24,13 @@ namespace Healink.Entities
         [Required]
         public DateTime StartDate { get; set; }
 
-        [Required]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; } = null;
 
         [Required]
         [MaxLength(200)]
-        public string Description { get; set; }
+        public string? Description { get; set; } = null;
+
+        public long? CompanyId { get; set; } = null;
 
         [Required]
         [ForeignKey("User")]
@@ -37,5 +38,7 @@ namespace Healink.Entities
         #endregion
 
         public virtual User User { get; set; }
+        [InverseProperty("OrgExpDetails")]
+        public virtual OrganizationDetail OrganizationDetails { get; set; }
     }
 }

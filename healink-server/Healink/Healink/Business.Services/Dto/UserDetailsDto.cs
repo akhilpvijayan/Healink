@@ -19,9 +19,14 @@ namespace Healink.Business.Services.Dto
         public long UserDetailId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string ProfileImage { get; set; }
+        public string? Gender { get; set; } = null;
+        public long? RoleId { get; set; } = null;
+        public byte[]? ProfileImage { get; set; } = null;
+        public byte[]? ProfileCover { get; set; } = null;
         public string UserBio { get; set; }
+        public long CountryId { get; set; }
         public string CountryName { get; set; }
+        public long StateId { get; set; }
         public string StateName { get; set; }
         public string Region { get; set; }
         public string Specialization { get; set; }

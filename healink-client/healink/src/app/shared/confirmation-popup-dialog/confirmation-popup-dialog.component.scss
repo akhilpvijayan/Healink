@@ -1,0 +1,47 @@
+.submit-btn-success{
+    width: 20%;
+    height: 30px;
+    background: #00B4CC;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn-error{
+    width: 20%;
+    height: 30px;
+    background: #7f1d1d8e;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn-success:hover{
+    background: #338d03;
+}
+
+.submit-btn-error:hover{
+    background: #ff0000;
+}
+
+.view-profile{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.header{
+    background-color: #00B4CC;
+   color: white;
+}
+
+.header h2{
+    padding: 10px;
+}
+
+.content b{
+    padding: 10px;
+}

@@ -110,6 +110,48 @@ namespace Healink.Migrations
                     b.ToView(null, (string)null);
                 });
 
+            modelBuilder.Entity("Healink.Business.Services.Dto.PostDto", b =>
+                {
+                    b.Property<int>("CommentCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ContentImage")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<long>("CreatedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("LikeCount")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ModifiedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("PostId")
+                        .HasColumnType("bigint");
+
+                    b.Property<byte[]>("ProfileLogo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.ToTable((string)null);
+
+                    b.ToView(null, (string)null);
+                });
+
             modelBuilder.Entity("Healink.Business.Services.Dto.UserDetailsDto", b =>
                 {
                     b.Property<int>("ConnectionsCount")
@@ -152,9 +194,8 @@ namespace Healink.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ProfileImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Region")
                         .IsRequired()
@@ -231,7 +272,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("Healink.Entities.Connection", b =>
@@ -264,7 +305,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Connections", (string)null);
+                    b.ToTable("Connections");
                 });
 
             modelBuilder.Entity("Healink.Entities.Country", b =>
@@ -281,7 +322,7 @@ namespace Healink.Migrations
 
                     b.HasKey("CountryId");
 
-                    b.ToTable("Countries", (string)null);
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("Healink.Entities.Education", b =>
@@ -306,7 +347,10 @@ namespace Healink.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("GraduationEndDate")
+                    b.Property<string>("GraduationDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("GraduationEndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("GraduationstartDate")
@@ -322,14 +366,19 @@ namespace Healink.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("Userid")
+                    b.Property<long?>("OrgId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
                     b.HasKey("EducationId");
 
-                    b.HasIndex("Userid");
+                    b.HasIndex("OrgId");
 
-                    b.ToTable("Educations", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Educations");
                 });
 
             modelBuilder.Entity("Healink.Entities.Experience", b =>
@@ -345,6 +394,9 @@ namespace Healink.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<long?>("CompanyId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
 
@@ -356,7 +408,7 @@ namespace Healink.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
@@ -382,9 +434,11 @@ namespace Healink.Migrations
 
                     b.HasKey("ExperienceId");
 
+                    b.HasIndex("CompanyId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("Experiences", (string)null);
+                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("Healink.Entities.IndustryType", b =>
@@ -414,7 +468,7 @@ namespace Healink.Migrations
 
                     b.HasKey("IndustryTypeId");
 
-                    b.ToTable("IndustryTypes", (string)null);
+                    b.ToTable("IndustryTypes");
                 });
 
             modelBuilder.Entity("Healink.Entities.Job", b =>
@@ -477,7 +531,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Jobs", (string)null);
+                    b.ToTable("Jobs");
                 });
 
             modelBuilder.Entity("Healink.Entities.Message", b =>
@@ -511,7 +565,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Messages", (string)null);
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("Healink.Entities.OrganizationDetail", b =>
@@ -545,9 +599,11 @@ namespace Healink.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("OrganizationLogo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("OrganizationCover")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("OrganizationLogo")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("OrganizationName")
                         .IsRequired()
@@ -590,7 +646,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("OrganizationDetails", (string)null);
+                    b.ToTable("OrganizationDetails");
                 });
 
             modelBuilder.Entity("Healink.Entities.Post", b =>
@@ -606,9 +662,8 @@ namespace Healink.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("ContentImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("ContentImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
@@ -632,7 +687,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Posts", (string)null);
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("Healink.Entities.Role", b =>
@@ -649,7 +704,7 @@ namespace Healink.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Healink.Entities.Skill", b =>
@@ -679,7 +734,7 @@ namespace Healink.Migrations
 
                     b.HasKey("SkillId");
 
-                    b.ToTable("Skills", (string)null);
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("Healink.Entities.State", b =>
@@ -701,7 +756,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("States", (string)null);
+                    b.ToTable("States");
                 });
 
             modelBuilder.Entity("Healink.Entities.User", b =>
@@ -733,7 +788,6 @@ namespace Healink.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RefreshToken")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("RefreshTokenExpiry")
@@ -750,7 +804,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Healink.Entities.UserDetail", b =>
@@ -761,7 +815,7 @@ namespace Healink.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UserDetailId"));
 
-                    b.Property<int>("ConnectionsCount")
+                    b.Property<int?>("ConnectionsCount")
                         .HasColumnType("int");
 
                     b.Property<long>("CountryId")
@@ -778,6 +832,10 @@ namespace Healink.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -788,9 +846,11 @@ namespace Healink.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ProfileImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("ProfileCover")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Region")
                         .IsRequired()
@@ -820,7 +880,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserDetails", (string)null);
+                    b.ToTable("UserDetails");
                 });
 
             modelBuilder.Entity("Healink.Entities.UserSkill", b =>
@@ -843,7 +903,7 @@ namespace Healink.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("UserSkill", (string)null);
+                    b.ToTable("UserSkill");
                 });
 
             modelBuilder.Entity("Healink.Entities.Comment", b =>
@@ -886,22 +946,36 @@ namespace Healink.Migrations
 
             modelBuilder.Entity("Healink.Entities.Education", b =>
                 {
+                    b.HasOne("Healink.Entities.OrganizationDetail", "OrganizationDetails")
+                        .WithMany("OrgDetails")
+                        .HasForeignKey("OrgId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Healink.Entities.User", "User")
                         .WithMany()
-                        .HasForeignKey("Userid")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("OrganizationDetails");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("Healink.Entities.Experience", b =>
                 {
+                    b.HasOne("Healink.Entities.OrganizationDetail", "OrganizationDetails")
+                        .WithMany("OrgExpDetails")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Healink.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("OrganizationDetails");
 
                     b.Navigation("User");
                 });
@@ -1061,6 +1135,13 @@ namespace Healink.Migrations
             modelBuilder.Entity("Healink.Entities.Country", b =>
                 {
                     b.Navigation("UCountry");
+                });
+
+            modelBuilder.Entity("Healink.Entities.OrganizationDetail", b =>
+                {
+                    b.Navigation("OrgDetails");
+
+                    b.Navigation("OrgExpDetails");
                 });
 
             modelBuilder.Entity("Healink.Entities.State", b =>

@@ -21,12 +21,17 @@ namespace Healink.Entities
         [MaxLength]
         public string LastName { get; set; }
 
-        [Required]
-        public string ProfileImage { get; set; }
+        public byte[]? ProfileImage { get; set; } = null;
+
+        public byte[]? ProfileCover { get; set; } = null;
 
         [Required]
         [MaxLength(100)]
         public string UserBio { get; set; }
+
+
+        [Required]
+        public string Gender { get; set; }
 
         [Required]
         [ForeignKey("UserCountry")]
@@ -42,8 +47,7 @@ namespace Healink.Entities
         [MaxLength(50)]
         public string Specialization { get; set; }
 
-        [Required]
-        public int ConnectionsCount { get; set; }
+        public int? ConnectionsCount { get; set; } = 0;
         #endregion
         public virtual User User { get; set; }
 

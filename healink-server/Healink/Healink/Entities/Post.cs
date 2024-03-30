@@ -15,8 +15,7 @@ namespace Healink.Entities
         [MaxLength(500)]
         public string Content { get; set; }
 
-        [Required]
-        public string ContentImage { get; set; }
+        public byte[]? ContentImage { get; set; } = null;
 
         public long LikeCount { get; set; } = 0;
 

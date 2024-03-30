@@ -1,0 +1,159 @@
+.container {
+    width: 100%;
+    border: none;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-darkblue-alpha);
+  }
+  .container-small-unit {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  
+  .label {
+    padding: 15px;
+    font-size: 15px;
+    color: var(--color-white);
+    text-transform: capitalize;
+  }
+  .label2 {
+    padding: 15px;
+    font-size: 20px;
+    color: var(--color-white);
+    text-transform: capitalize;
+  }
+  .input {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+  }
+  .container-placehold {
+    display: flex;
+    flex-direction: row;
+  }
+  .checkbox,
+  option {
+    min-width: 1.1em;
+    min-height: 1.1em;
+  }
+  textarea {
+    width: 90%;
+    min-height: 100px;
+    padding: 1.3em;
+    overflow: auto;
+    border-radius: 20px;
+  }
+  .btn {
+    width: 90%;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    font-size: large;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .btn:hover {
+    color: rgb(0, 255, 255);
+    background-color: rgb(44, 43, 43);
+  }
+  .form-control,
+  .option {
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .checkbox {
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    accent-color: #34495e;
+  }
+  .input {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .input:focus {
+    background-color: #ccc;
+  }
+  .input:checked {
+    background-color: #2196f3;
+  }
+  
+  .experience{
+    width: 90%;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .education{
+    width: 90%;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .date-field {
+    display: inline-block;
+    margin-right: 5px; 
+
+    .input{
+        width: 20%;
+    }
+  }
+  
+  .checkbox-container {
+    display: inline-block;
+    align-items: center;
+  }
+  
+  .checkbox {
+    margin-right: 5px;
+  }
+  
+  .add-experience{
+    width: 50%;
+    height: 40px;
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid #2f2f2f;
+    color: #2f2f2f;
+    border-radius: 14px;
+    padding: 10px 20px;
+
+    &:hover {
+		background: rgba(29, 161, 142, .1)
+	}
+  }
+  
+  .org-image{
+    width: 10px;
+    height: 10px;
+  }
+
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.error{
+    color: red
+}
+
+@media only screen and (max-width: 950px) {
+    .date-field {
+        display: block;
+    
+        .input{
+            width: 100%;
+            margin-top: 10px;
+        }
+      }
+  }

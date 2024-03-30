@@ -13,10 +13,9 @@ userDetail: any = [];
 constructor(private authService: AuthService, public userService: UserService){}
 
   ngOnInit(): void {
-    const user = localStorage.getItem("healink-user-id");
-    this.userId = user?parseInt(user, 10):0;
+    this.userId = this.userService.getUserId();
     this.userService.getUserDetail(this.userId).subscribe((res: any)=>{
-      this.userDetail = res[0];
+      this.userDetail;
     });
   }
 

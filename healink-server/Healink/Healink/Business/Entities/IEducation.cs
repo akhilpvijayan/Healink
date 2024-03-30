@@ -8,8 +8,10 @@
         string Degree { get; set; }
         string FieldOfStudy { get; set; }
         DateTime GraduationstartDate { get; set; }
-        DateTime GraduationEndDate { get; set; }
-        long Userid { get; set; }
+        DateTime? GraduationEndDate { get; set; }
+        long UserId { get; set; }
+        long? OrgId { get; set; }
+        string GraduationDescription { get; set; }
         #endregion
     }
 }

@@ -22,6 +22,7 @@ namespace Healink.Controllers
         #endregion
         #region public function
         [HttpGet]
+        [Authorize]
         [Route("users")]
         public async Task<IActionResult> GetAllUsers() 
         {
@@ -53,8 +54,28 @@ namespace Healink.Controllers
             }
         }
 
+        [HttpPut]
+        [Authorize]
+        [Route("user/{userid}")]
+        public async Task<IActionResult> UpdateUser([FromForm] SignUpUserDetailDto userDetails, long userid)
+        {
+            try
+            {
+                var user = _userService.UpdateUser(userDetails, userid);
+                if (user.Result != null)
+                {
+                    return Ok(user.Result);
+                }
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         [HttpGet]
-        [Route("isduplicateusername")]
+        [Route("isduplicateusername/{username}")]
         public bool ChackDuplicateUserName(string username)
         {
             try
@@ -68,7 +89,7 @@ namespace Healink.Controllers
         }
 
         [HttpGet]
-        [Route("isemailexist")]
+        [Route("isemailexist/{email}")]
         public bool ChackDuplicateEmail(string email)
         {
             try
