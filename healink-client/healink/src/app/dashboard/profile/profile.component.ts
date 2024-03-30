@@ -91,4 +91,8 @@ export class ProfileComponent implements OnInit{
       }
     });
   }
+
+  addEducation(){
+    
+  }
 }
