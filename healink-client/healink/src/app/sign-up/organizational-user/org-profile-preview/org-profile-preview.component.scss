@@ -1,0 +1,145 @@
+.preview{
+    padding-top: 5px;
+}
+
+.container{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    width: 99%;
+}
+
+.profile-preview {
+    position: relative;
+    width: 100%;
+  }
+  
+  .cover-photo {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+  }
+  
+  .cover-photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    object-position: center; 
+}
+
+  .profile-picture-container {
+    position: absolute;
+    top: 150px;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 100px; 
+    height: 100px; 
+    border-radius: 10%;
+    overflow: hidden;
+    border: 5px solid rgb(255, 255, 255);
+    z-index: 1;
+  }
+  
+  .profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-preview {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cover-photo:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  }
+
+  .personal-details{
+    padding-top: 100px;
+    padding-left: 10%;
+    background-color: rgba(127, 127, 127, 0);
+  }
+
+  .personal-details .full-name b{
+    font-size: 30px;
+  }
+
+  .personal-details .tagline{
+    top: 5px;
+    font-size: 14px;
+    color: rgb(52, 52, 52);
+  }
+
+  .personal-details .location{
+    font-size: 13px;
+    color: grey;
+  }
+
+  .location p {
+    margin: 5px 0; /* Adjust the top and bottom margins as needed */
+}
+
+  .button-row {
+    display: flex;
+  }
+  
+  .connect {
+    border: none;
+    border-radius: 14px;
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: #00B4CC; 
+    color: white;
+    text-align: center;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    height: 40px;
+    outline: none;
+  }
+
+  .message {
+    border-radius: 14px;
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: none; 
+    border: 2px solid #00B4CC;
+    color: #00B4CC;
+    height: 40px;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .more {
+    border-radius: 14px;
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: none; 
+    border: 2px solid #606060;
+    color: #606060;
+    height: 40px;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .oval-button:last-child {
+    margin-right: 0; 
+  }
+
+  .connections{
+    padding-top: 5px;
+  }
+  
+  .connections p{
+    color: grey;
+  }

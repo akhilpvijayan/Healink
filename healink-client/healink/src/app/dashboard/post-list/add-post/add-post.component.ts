@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-post',
@@ -8,9 +10,10 @@ import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.compon
   styleUrls: ['./add-post.component.scss']
 })
 export class AddPostComponent implements OnInit{
-
+  @Input() userDetail: any;
   constructor(
-    private dialog: MatDialog){}
+    private dialog: MatDialog,
+    private router: Router){}
 
   ngOnInit(): void {
   }
@@ -22,5 +25,9 @@ export class AddPostComponent implements OnInit{
       hasBackdrop: true,
       panelClass: 'custom-dialog-container'
     });
+  }
+
+  showProfile() {
+    this.router.navigate(['profile'], { queryParams: { userId: this.userDetail.userId } });
   }
 }

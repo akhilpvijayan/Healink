@@ -18,11 +18,14 @@ import { SideProfileComponent } from './dashboard/side-profile/side-profile.comp
 import {MatIconModule} from '@angular/material/icon';
 import { ConfirmationPopupDialogComponent } from './shared/confirmation-popup-dialog/confirmation-popup-dialog.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { ProfilePreviewComponent } from './sign-up/profile-preview/profile-preview.component';
+import { ProfilePreviewComponent } from './sign-up/personal-user/profile-preview/profile-preview.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { SignUpFormComponent } from './sign-up/sign-up-form/sign-up-form.component';
+import { SignUpFormComponent } from './sign-up/personal-user/sign-up-form/sign-up-form.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
-import { EditProfileDialogComponent } from './dashboard/profile/edit-profile-dialog/edit-profile-dialog.component'; 
+import { EditProfileDialogComponent } from './dashboard/profile/edit-profile-dialog/edit-profile-dialog.component';
+import { SignUpOptionDialogComponent } from './shared/sign-up-option-dialog/sign-up-option-dialog.component';
+import { OrgSignUpFormComponent } from './sign-up/organizational-user/org-sign-up-form/org-sign-up-form.component';
+import { OrgProfilePreviewComponent } from './sign-up/organizational-user/org-profile-preview/org-profile-preview.component'; 
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { EditProfileDialogComponent } from './dashboard/profile/edit-profile-dia
     ProfilePreviewComponent,
     SignUpFormComponent,
     ProfileComponent,
-    EditProfileDialogComponent
+    EditProfileDialogComponent,
+    SignUpOptionDialogComponent,
+    OrgSignUpFormComponent,
+    OrgProfilePreviewComponent
   ],
   imports: [
     BrowserModule,

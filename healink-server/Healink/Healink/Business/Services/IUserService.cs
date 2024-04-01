@@ -9,7 +9,9 @@ namespace Healink.Business.Services
         #region public functions
         Task<ActionResult<IEnumerable<User>>> GetAllUsers();
 
-        UserDto GetUser(int userId);
+        UserDto GetPersonalUser(int userId);
+
+        OrganizationDetailDto GetOrganizationPersonalDetails(long userId);
 
         Task<bool> UpdateUser(SignUpUserDetailDto userDetails, long userId);
 

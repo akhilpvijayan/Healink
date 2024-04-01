@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -7,6 +7,7 @@ import { PostService } from 'src/app/services/post.service';
 import { ReloadService } from 'src/app/services/reload.service';
 import { ConfirmationPopupDialogComponent } from 'src/app/shared/confirmation-popup-dialog/confirmation-popup-dialog.component';
 import { AddPostDialogComponent } from './add-post/add-post-dialog/add-post-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -14,7 +15,7 @@ import { AddPostDialogComponent } from './add-post/add-post-dialog/add-post-dial
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit, OnDestroy {
-
+  @Input() userDetail: any;
   postDetails: any = [];
 
   private reloadSubscription: Subscription;
@@ -22,7 +23,8 @@ export class PostListComponent implements OnInit, OnDestroy {
     private reloadService: ReloadService,
     private imgConverter: ImageConversionService,
     private dialog: MatDialog,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private router: Router) {
     this.reloadSubscription = this.reloadService.getReloadObservable()
       .subscribe((componentName: string) => {
         if (componentName === 'app-post-list') {
@@ -34,12 +36,17 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe((res: any) => {
       const promises = res.map((post: any) => {
-        if (post.contentImage != null) {
-          return this.imgConverter.convertImageToDataURL(post.contentImage).then((dataUrl: any) => {
+        const imageConversionPromise = post.contentImage != null ? 
+          this.imgConverter.convertImageToDataURL(post.contentImage).then((dataUrl: any) => {
             post.contentImage = dataUrl;
-          });
-        }
-        return true;
+          }) : Promise.resolve();
+    
+        const profileLogoConversionPromise = post.profileLogo != null ? 
+          this.imgConverter.convertImageToDataURL(post.profileLogo).then((dataUrl: any) => {
+            post.profileLogo = dataUrl;
+          }) : Promise.resolve();
+    
+        return Promise.all([imageConversionPromise, profileLogoConversionPromise]);
       });
 
       Promise.all(promises)
@@ -93,5 +100,9 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.reloadSubscription.unsubscribe();
+  }
+
+  showProfile(userId: number) {
+    this.router.navigate(['profile'], { queryParams: { userId: userId } });
   }
 }

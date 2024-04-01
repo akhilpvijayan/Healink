@@ -1,0 +1,104 @@
+<form class="container" [formGroup]="orgForm" (ngSubmit)="onSubmit()">
+    <div class="container-small-unit">
+        <label class="label" for="">First Name <span class="error">*</span></label>
+        <input formControlName="organizationName" class="input" type="text" placeholder="Enter the organization name" required />
+        <small *ngIf="orgForm.controls['organizationName'].dirty && orgForm.hasError('required','organizationName')"
+            class="error">*Organization Name is required</small>
+        <label class="label" for="">Username <span class="error">*</span></label>
+        <input formControlName="userName" class="input" type="text" placeholder="Enter username" required />
+        <small *ngIf="orgForm.controls['userName'].dirty && orgForm.hasError('required','userName')"
+            class="error">*UserName is required</small>
+        <small *ngIf="orgForm.controls['userName'].errors?.['userNameExists']" class="error">
+            Username already exists. Please choose another one.
+        </small>
+        <label class="label" for="">Password <span class="error">*</span></label>
+        <input formControlName="password" class="input" type="password" placeholder="Enter password" required />
+        <small *ngIf="orgForm.controls['password'].dirty && orgForm.hasError('required','password')"
+            class="error">*Password is required</small>
+        <label class="label" for="">Organization Logo</label>
+        <div class="head">
+            <label for="file-upload-profile-pic" class="custom-file-upload">
+                <i class="fas fa-image"></i> Upload Image
+            </label>
+            <input class="form-control" id="file-upload-profile-pic" type="file" style="display: none;"
+                (change)="onProfileImageFileSelected($event.target)">
+            <button id='close' (click)="removeProfileImage()" *ngIf="orgForm.controls['organizationLogo'].value">close</button>
+        </div>
+        <label class="label" for="">Organization Cover</label>
+        <div class="head">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-image"></i> Upload Image
+            </label>
+            <input class="form-control" id="file-upload" type="file" style="display: none;"
+                (change)="onProfileCoverFileSelected($event.target)">
+            <button id='close' (click)="removeProfileCover()" *ngIf="orgForm.controls['organizationCover'].value">close</button>
+        </div>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">EMail <span class="error">*</span></label>
+        <input formControlName="email" class="input" type="email" placeholder="Eg: john@gmal.com" required />
+        <small *ngIf="orgForm.controls['email'].dirty && orgForm.hasError('required','email')" class="error">*EMail is
+            required</small>
+        <small *ngIf="orgForm.controls['email'].errors?.['emailExists']" class="error">
+            Email already exists. Please choose another one.
+        </small>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Organization Website <span class="error">*</span>
+        </label>
+        <input formControlName="organizationWebsite" class="input" type="text" placeholder="http://healink.com"
+            required />
+            <small *ngIf="orgForm.controls['organizationWebsite'].dirty && orgForm.hasError('required','organizationWebsite')"
+                class="error">*Organization Website is required</small>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Organization size? <span class="error">*</span>
+        </label>
+        <ng-select formControlName="organizationSize" [items]="organizationSize" bindLabel="organizationSizeType" bindValue="organizationSizeId"
+            placeholder="Select Organization Size">
+            <small *ngIf="orgForm.controls['organizationSize'].dirty && orgForm.hasError('required','organizationSize')"
+                class="error">*Organization Size is required</small>
+        </ng-select>
+        <label class="label" for="">What is your organization type? <span class="error">*</span>
+        </label>
+        <ng-select formControlName="organizationType" [items]="industryTypes" bindLabel="industryName" bindValue="industryTypeId"
+            placeholder="Select Organization Type">
+            <small *ngIf="orgForm.controls['organizationType'].dirty && orgForm.hasError('required','organizationType')"
+                class="error">*Organization Type is required</small>
+        </ng-select>
+        <label class="label" for="">Which option best shows your current country? <span class="error">*</span>
+        </label>
+        <ng-select formControlName="countryId" [items]="countries" bindLabel="countryName" bindValue="countryId"
+            placeholder="Select Country">
+            <small *ngIf="orgForm.controls['countryId'].dirty && orgForm.hasError('required','countryId')"
+                class="error">*Country is required</small>
+        </ng-select>
+        <label class="label" for="" *ngIf="orgForm.controls['countryId'].value">Which is your state? <span class="error">*</span>
+        </label>
+        <ng-select formControlName="stateId" [items]="states" bindLabel="stateName" bindValue="stateId"
+            placeholder="Select State" *ngIf="orgForm.controls['countryId'].value">
+            <small *ngIf="orgForm.controls['stateId'].dirty && orgForm.hasError('required','stateId')"
+                class="error">*State is required</small>
+        </ng-select>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Region <span class="error">*</span></label>
+        <input formControlName="region" class="input" type="text" placeholder="Enter your region" required />
+        <small *ngIf="orgForm.controls['region'].dirty && orgForm.hasError('required','region')" class="error">*Region
+            is required</small>
+    </div>
+    <div class="container-small-unit">
+        <label class="label">Organization Tagline<span class="error">*</span></label>
+        <input formControlName="tagline" class="input" type="text" placeholder="Enter your tagline" required />
+        <small *ngIf="orgForm.controls['tagline'].dirty && orgForm.hasError('required','tagline')"
+            class="error">*Tagline is required</small>
+        <label class="label">Organization Bio<span class="error">*</span></label>
+    </div>
+    <div class="container-small-unit-textarea">
+        <textarea formControlName="organizationBio" class="input" type="organizationBio" name="text" id="" cols="30" rows="10"
+            placeholder="Enter your organization bio"></textarea>
+        <small *ngIf="orgForm.controls['organizationBio'].dirty && orgForm.hasError('required','organizationBio')"
+            class="error">*Organization Bio is required</small>
+    </div>
+    <button class="btn" [disabled]="orgForm.invalid" type="submit">submit</button>
+</form>

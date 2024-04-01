@@ -30,7 +30,7 @@ namespace Healink.Business.Services.Dto
         public string StateName { get; set; }
         public string Region { get; set; }
         public string Specialization { get; set; }
-        public int ConnectionsCount { get; set; }
+        public int? ConnectionsCount { get; set; }
         #endregion
     }
 }

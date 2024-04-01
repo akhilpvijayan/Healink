@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Healink-prod</_PublishTargetUrl>
-    <History>True|2024-03-01T15:35:51.3213321Z;</History>
+    <History>True|2024-04-01T15:38:22.0156251Z;True|2024-03-01T21:05:51.3213321+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

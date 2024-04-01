@@ -225,6 +225,36 @@
 		background: rgba(29, 161, 142, .1)
 	}
   }
+
+  #leftbox {
+    float: left;
+    width: 67%;
+    height: 100%;
+    padding: 5px;
+}
+
+#middlebox {
+    float: left;
+    width: 30%;
+    overflow-y: auto;
+    height: calc(100vh - 115px);
+    padding: 5px;
+}
+
+  //temporary css
+.container-temp {
+    position: relative;
+}
+.container-temp h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.container-temp p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
   
   @media only screen and (max-width: 950px) {
     .connect {
@@ -282,4 +312,12 @@
         border: 5px solid rgb(240, 240, 240);
         z-index: 1;
       }
+
+      #leftbox {
+        width: 100%;
+    }
+    
+    #middlebox {
+        display: none;
+    }
   }

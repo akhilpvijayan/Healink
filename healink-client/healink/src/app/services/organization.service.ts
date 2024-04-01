@@ -16,4 +16,16 @@ export class OrganizationService {
     getEducationalOrganizations() {
       return this.httpClient.get<any>(`${environment.apiUrl}organizations/education/`);
     }
+
+    getOrganizationTypes() {
+      return this.httpClient.get<any>(`${environment.apiUrl}organizations/types/`);
+    }
+
+    getOrganizationSizes() {
+      return this.httpClient.get<any>(`${environment.apiUrl}organizations/size/`);
+    }
+
+    addOrganizationr(data: any){
+      return this.httpClient.post<any>(`${environment.apiUrl}organization/`, data);
+    }
 }

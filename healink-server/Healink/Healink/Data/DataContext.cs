@@ -26,6 +26,7 @@ namespace Healink.Data
         public DbSet<UserSkill> UserSkill { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<OrganizationSize> OrganizationSize { get; set; }
 
         public DbSet<UserDetailsDto> UserDetailsDto { get; set; }
         public DbSet<UserDto> UserDto { get; set; }

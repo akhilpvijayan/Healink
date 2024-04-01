@@ -150,7 +150,7 @@ namespace Healink.Business.Services.Services
             {
                 User user = new User();
                 user.Username = userDetails.Username;
-                user.Password = userDetails.Password;
+                user.Password = PasswordHasher.HashPassword(userDetails.Password);
                 user.Email = userDetails.Email;
                 user.RoleId = userDetails.RoleId;
                 user.LastLogin = DateTime.Now;

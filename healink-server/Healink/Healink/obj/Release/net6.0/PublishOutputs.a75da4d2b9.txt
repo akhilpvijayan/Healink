@@ -7,6 +7,10 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Healink.
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\AutoMapper.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Azure.Core.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Azure.Identity.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Cryptography.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\LazyCache.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\LazyCache.AspNetCore.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\MailKit.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
@@ -41,6 +45,7 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsof
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\MimeKit.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Pipelines.Sockets.Unofficial.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Serilog.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Serilog.AspNetCore.dll
@@ -60,11 +65,14 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Swashbuc
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Drawing.Common.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Formats.Asn1.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Memory.Data.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Runtime.Caching.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Text.Encoding.CodePages.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Text.Encodings.Web.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Text.Json.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
@@ -78,7 +86,9 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Healink.deps.json

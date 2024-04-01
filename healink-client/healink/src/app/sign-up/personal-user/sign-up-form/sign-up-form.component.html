@@ -1,0 +1,206 @@
+<form class="container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="container-small-unit">
+        <label class="label" for="">First Name <span class="error">*</span></label>
+        <input formControlName="firstName" class="input" type="text" placeholder="Enter your first name" required />
+        <small *ngIf="userForm.controls['firstName'].dirty && userForm.hasError('required','firstName')"
+            class="error">*First Name is required</small>
+        <label class="label" for="">Last Name <span class="error">*</span></label>
+        <input formControlName="lastName" class="input" type="text" placeholder="Enter your last name" required />
+        <small *ngIf="userForm.controls['lastName'].dirty && userForm.hasError('required','lastName')"
+            class="error">*Last Name is required</small>
+        <label class="label" for="">Username <span class="error">*</span></label>
+        <input formControlName="userName" class="input" type="text" placeholder="Enter username" required />
+        <small *ngIf="userForm.controls['userName'].dirty && userForm.hasError('required','userName')"
+            class="error">*UserName is required</small>
+        <small *ngIf="userForm.controls['userName'].errors?.['userNameExists']" class="error">
+            Username already exists. Please choose another one.
+        </small>
+        <label class="label" for="">Password <span class="error">*</span></label>
+        <input formControlName="password" class="input" type="password" placeholder="Enter password" required />
+        <small *ngIf="userForm.controls['password'].dirty && userForm.hasError('required','password')"
+            class="error">*Password is required</small>
+        <label class="label" for="">Profile Image</label>
+        <div class="head">
+            <label for="file-upload-profile-pic" class="custom-file-upload">
+                <i class="fas fa-image"></i> Upload Image
+            </label>
+            <input class="form-control" id="file-upload-profile-pic" type="file" style="display: none;"
+                (change)="onProfileImageFileSelected($event.target)">
+            <button id='close' (click)="removeProfileImage()" *ngIf="userForm.controls['profileImage'].value">close</button>
+        </div>
+        <label class="label" for="">Cover Image</label>
+        <div class="head">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-image"></i> Upload Image
+            </label>
+            <input class="form-control" id="file-upload" type="file" style="display: none;"
+                (change)="onProfileCoverFileSelected($event.target)">
+            <button id='close' (click)="removeProfileCover()" *ngIf="userForm.controls['profileCover'].value">close</button>
+        </div>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">EMail <span class="error">*</span></label>
+        <input formControlName="email" class="input" type="email" placeholder="Eg: john@gmal.com" required />
+        <small *ngIf="userForm.controls['email'].dirty && userForm.hasError('required','email')" class="error">*EMail is
+            required</small>
+        <small *ngIf="userForm.controls['email'].errors?.['emailExists']" class="error">
+            Email already exists. Please choose another one.
+        </small>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Specialization <span class="error">*</span>
+        </label>
+        <input formControlName="specialization" class="input" type="text" placeholder="Eg: MBBS, MSC Nursing.."
+            required />
+        <small *ngIf="userForm.controls['specialization'].dirty && userForm.hasError('required','specialization')"
+            class="error">*Specialization is required</small>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Which option best shows your current country? <span class="error">*</span>
+        </label>
+        <ng-select formControlName="countryId" [items]="countries" bindLabel="countryName" bindValue="countryId"
+            placeholder="Select Country">
+            <small *ngIf="userForm.controls['countryId'].dirty && userForm.hasError('required','countryId')"
+                class="error">*Country is required</small>
+        </ng-select>
+        <label class="label" for="" *ngIf="userForm.controls['countryId'].value">Which is your state? <span class="error">*</span>
+        </label>
+        <ng-select formControlName="stateId" [items]="states" bindLabel="stateName" bindValue="stateId"
+            placeholder="Select State" *ngIf="userForm.controls['countryId'].value">
+            <small *ngIf="userForm.controls['stateId'].dirty && userForm.hasError('required','stateId')"
+                class="error">*State is required</small>
+        </ng-select>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Region <span class="error">*</span></label>
+        <input formControlName="region" class="input" type="text" placeholder="Enter your region" required />
+        <small *ngIf="userForm.controls['region'].dirty && userForm.hasError('required','region')" class="error">*Region
+            is required</small>
+    </div>
+    <div class="container-small-unit">
+        <label class="label" for="">Gender <span class="error">*</span>
+        </label>
+    </div>
+    <div class="container-small-unit">
+        <div class="container-placehold">
+            <input formControlName="gender" class="input" type="radio" name="gender" value="Male" />
+            <label class="label" for="">Male</label>
+        </div>
+        <div class="container-placehold">
+            <input formControlName="gender" class="input" type="radio" name="gender" value="Female" />
+            <label class="label" for="">Female</label>
+        </div>
+        <div class="container-placehold">
+            <input formControlName="gender" class="input" type="radio" name="gender" value="Others" />
+            <label class="label" for="">Others</label>
+        </div>
+        <label class="label">About Yourself <span class="error">*</span></label>
+    </div>
+    <div class="container-small-unit-textarea">
+        <textarea formControlName="userBio" class="input" type="text" name="userBio" id="" cols="30" rows="10"
+            placeholder="Enter your bio here"></textarea>
+        <small *ngIf="userForm.controls['userBio'].dirty && userForm.hasError('required','userBio')"
+            class="error">*About section is required</small>
+    </div>
+    <div formArrayName="experiences" class="experience">
+        <div *ngFor="let experience of experienceForms.controls; let i=index">
+            <div [formGroupName]="i" class="experience-item">
+                <div class="head">
+                    <h2>Experience {{i+1}}</h2>
+                    <button id='close' (click)="removeExperience(i)">close</button>
+                </div>
+                <div class="container-small-unit">
+                    <label class="label" for="">Title <span class="error">*</span></label>
+                    <input formControlName="title" class="input" type="text" placeholder="Enter your job title"
+                        required />
+                    <label class="label" for="">Company <span class="error">*</span></label>
+                    <ng-select formControlName="companyId" [items]="companies" bindLabel="organizationName"
+                        bindValue="organizationDetailId" placeholder="Select Company or Organization"
+                        (change)="setExpOrgName(i)">
+                        <ng-template #optionTemplate let-item="item">
+                            <img [src]="item.organizationLogo ? item.organizationLogo : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC'"
+                                alt="org-logo" class="org-image" />
+                            <span>{{ item.organizationName }}</span>
+                        </ng-template>
+                    </ng-select>
+                    <br>
+                    <input *ngIf="userForm.value.experiences[i].companyId == 0" formControlName="company" class="input"
+                        type="text" placeholder="Enter company name" required />
+                    <label class="label" for="">Location <span class="error">*</span></label>
+                    <input formControlName="location" class="input" type="text" placeholder="Enter company location"
+                        required />
+                    <label class="label" for="">Duration</label>
+                    <div class="date-field">
+                        <label class="label" for="">Start Date <span class="error">*</span></label>
+                        <input formControlName="startDate" class="input" type="date" required />
+                        <label class="label" for="">End Date</label>
+                        <input formControlName="endDate" class="input" type="date" [disabled]="isEndDateDisabled(i)" />
+                    </div>
+                    <div class="container-small-unit checkbox-container">
+                        <label class="label" for="current">Are you currently working here?</label>
+                        <input formControlName="current" class="checkbox" type="checkbox" id="current" #currentCheckbox
+                            (change)="onCheckboxChange(currentCheckbox.checked, i)" />
+                    </div>
+                    <label class="label">Description</label>
+                </div>
+                <div class="container-small-unit-textarea">
+                    <textarea formControlName="description" class="input" type="text" name="description" id="description" cols="30" rows="10"
+                        placeholder="Enter your experience summary here"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="add-experience" (click)="addExperience()">Add Experience</button>
+    <div formArrayName="educations" class="education">
+        <div *ngFor="let education of educationForms.controls; let i=index">
+            <div [formGroupName]="i" class="experience-item">
+                <div class="head">
+                    <h2>Education {{i+1}}</h2>
+                    <button id='close' (click)="removeEducation(i)">close</button>
+                </div>
+                <div class="container-small-unit">
+                    <label class="label" for="">Institution <span class="error">*</span></label>
+                    <ng-select formControlName="orgId" [items]="educationalOrgs" bindLabel="organizationName"
+                        bindValue="organizationDetailId" placeholder="Select Institution" (change)="setOrgName(i)">
+                        <ng-template #optionTemplate let-item="item">
+                            <img [src]="item.organizationLogo ? item.organizationLogo : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC'"
+                                alt="org-logo" class="org-image" />
+                            <span>{{ item.organizationName }}</span>
+                        </ng-template>
+                    </ng-select>
+                    <br>
+                    <input *ngIf="userForm.value.educations[i].orgId == 0" formControlName="institution" class="input"
+                        type="text" placeholder="Enter Institution name" required />
+                    <label class="label" for="">Degree <span class="error">*</span></label>
+                    <input formControlName="degree" class="input" type="text" placeholder="Enter the type of degree"
+                        required />
+                    <label class="label" for="">Field Of Study <span class="error">*</span></label>
+                    <input formControlName="fieldOfStudy" class="input" type="text"
+                        placeholder="Enter your Field of Study" required />
+                    <label class="label" for="">Duration</label>
+                    <div class="date-field">
+                        <label class="label" for="">Start Date <span class="error">*</span></label>
+                        <input formControlName="graduationStartDate" class="input" type="date" required />
+                        <label class="label" for="">End Date</label>
+                        <input formControlName="graduationEndDate" class="input" type="date"
+                            [disabled]="isEducationEndDateDisabled(i)" />
+                    </div>
+                    <div class="container-small-unit checkbox-container">
+                        <label class="label" for="current">Are you currently studying here?</label>
+                        <input formControlName="current" class="checkbox" type="checkbox" id="current"
+                            #currentCheckboxGraduation
+                            (change)="onEducationCheckboxChange(currentCheckboxGraduation.checked, i)" />
+                    </div>
+                    <label class="label">Description</label>
+                </div>
+                <div class="container-small-unit-textarea">
+                    <textarea formControlName="graduationDescription" class="input" type="text" name="graduationDescription"
+                        id="graduationDescription" cols="30" rows="10"
+                        placeholder="Enter your graduation summary here"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="add-experience" (click)="addEducation()">Add Education</button>
+    <button class="btn" [disabled]="userForm.invalid || experienceForms.invalid" type="submit">submit</button>
+</form>

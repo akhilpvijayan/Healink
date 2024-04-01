@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -68,5 +69,30 @@ export class UserService {
       months = months == 0 && years == 0 ? 1: months;
       return years > 0 ? `${years} yr ${months} mos` : `${months} mos`;
     }
+
+    // Custom validator function to check if username already exists
+  userNameExists(control: AbstractControl) {
+    return new Promise(resolve => {
+      if (!control.value) {
+        resolve(false);
+      } else {
+        this.isDuplicateUsername(control.value).subscribe((res: boolean) => {
+          resolve(res ? { userNameExists: true } : false);
+        });
+      }
+    });
+  }
+
+  emailExists(control: AbstractControl) {
+    return new Promise(resolve => {
+      if (!control.value) {
+        resolve(false);
+      } else {
+        this.isDuplicateEmail(control.value).subscribe((res: boolean) => {
+          resolve(res ? { emailExists: true } : false);
+        });
+      }
+    });
+  }
 
 }

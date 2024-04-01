@@ -32,7 +32,7 @@ namespace Healink.Business.Services.Services
             return await this._context.Users.ToListAsync();
         }
 
-        public UserDto GetUser(int userId)
+        public UserDto GetPersonalUser(int userId)
         {
             try
             {
@@ -47,6 +47,14 @@ namespace Healink.Business.Services.Services
             {
                 throw ex;
             }
+        }
+
+        public OrganizationDetailDto GetOrganizationPersonalDetails(long userId)
+        {
+            var userRole = this._context.Users.FirstOrDefault(x => x.UserId == userId).RoleId;
+            var isOrganizationalUser = true;
+            var sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
+            return this._context.OrganizationDetailDto.FromSqlRaw(sqlQuery).AsEnumerable().SingleOrDefault();
         }
 
         public bool CheckDuplicateUserName(string username)
@@ -127,17 +135,12 @@ namespace Healink.Business.Services.Services
         #endregion
 
         #region private functions
+
         private UserDto GetUserPersonalDetails(long userId)
         {
             var userRole = this._context.Users.FirstOrDefault(x => x.UserId == userId).RoleId;
-            bool isOrganizationalUser = false;
+            var isOrganizationalUser = false;
             var sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
-            if (userRole != null && userRole == 3)
-            {
-                isOrganizationalUser = true;
-                sqlQuery = $"Exec spGetUserDetails {userId}, {isOrganizationalUser}";
-                return this._context.UserDto.FromSqlRaw(sqlQuery).AsEnumerable().SingleOrDefault();
-            }
             return this._context.UserDto.FromSqlRaw(sqlQuery).AsEnumerable().SingleOrDefault();
         }
 

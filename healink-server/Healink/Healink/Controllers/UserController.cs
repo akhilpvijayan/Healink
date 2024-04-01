@@ -1,5 +1,6 @@
 ﻿using Healink.Business.Services;
 using Healink.Business.Services.Dto;
+using Healink.Data;
 using Healink.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,12 +13,14 @@ namespace Healink.Controllers
     {
         #region properties
         private IUserService _userService;
+        private readonly DataContext _context;
         #endregion
 
         #region constructor
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, DataContext context)
         {
             _userService = userService;
+            this._context = context;
         }
         #endregion
         #region public function
@@ -37,16 +40,39 @@ namespace Healink.Controllers
         [HttpGet]
         [Authorize]
         [Route("users/{userid}")]
-        public async Task<IActionResult> GetUser(int userid)
+        public async Task<IActionResult> GetUser(int userId)
         {
             try
             {
-                var user = _userService.GetUser(userid);
-                if (user != null)
+                var userRole = this._context.Users.FirstOrDefault(x => x.UserId == userId).RoleId;
+                if (userRole != null && userRole == 3)
                 {
-                    return Ok(user);
+                    var user = _userService.GetOrganizationPersonalDetails(userId);
+                    if (user != null)
+                    {
+                        return Ok(user);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
-                return NotFound();
+                else if(userRole != null)
+                {
+                    var user = _userService.GetPersonalUser(userId);
+                    if (user != null)
+                    {
+                        return Ok(user);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
             catch(Exception ex)
             {

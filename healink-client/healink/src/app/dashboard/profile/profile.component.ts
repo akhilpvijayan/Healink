@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { AddPostDialogComponent } from '../post-list/add-post/add-post-dialog/add-post-dialog.component';
 import { SignUpComponent } from 'src/app/sign-up/sign-up.component';
-import { SignUpFormComponent } from 'src/app/sign-up/sign-up-form/sign-up-form.component';
+import { SignUpFormComponent } from 'src/app/sign-up/personal-user/sign-up-form/sign-up-form.component';
 import { EditProfileDialogComponent } from './edit-profile-dialog/edit-profile-dialog.component';
 import { ImageConversionService } from 'src/app/services/image-conversion.service';
 
@@ -15,6 +15,7 @@ import { ImageConversionService } from 'src/app/services/image-conversion.servic
 })
 export class ProfileComponent implements OnInit{
   userDetail: any;
+  loggedInUser: any;
   userId: any = null;
   userDetailClone: any;
   showEditButton: boolean = false;
@@ -26,6 +27,7 @@ export class ProfileComponent implements OnInit{
 
 
   ngOnInit(): void {
+    this.loggedInUser = this.userService.getUserId();
     this.route.queryParams.subscribe(params => {
       this.userId =  params['userId'];
     });
@@ -93,6 +95,6 @@ export class ProfileComponent implements OnInit{
   }
 
   addEducation(){
-    
+
   }
 }

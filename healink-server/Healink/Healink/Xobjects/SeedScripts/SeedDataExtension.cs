@@ -1137,6 +1137,22 @@ namespace Healink.Xobjects.SeedScripts
                 context.SaveChanges();
             }
             #endregion
+
+            #region OrganizationSizes
+            if (!context.OrganizationSize.Any())
+            {
+                context.OrganizationSize.AddRange(new OrganizationSize{OrganizationSizeType = "0-1"});
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "2-10" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "11-50" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "51-200" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "201-500" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "501-1000" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "1001-5000" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "5001-10000" });
+                context.OrganizationSize.AddRange(new OrganizationSize { OrganizationSizeType = "10000+" });
+                context.SaveChanges();
+            }
+            #endregion
         }
     }
 }

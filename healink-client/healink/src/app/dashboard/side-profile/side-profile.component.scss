@@ -6,10 +6,16 @@
     border-radius: 10px;
 }
 
-.container .profile img{
+.container .profile .personal-img{
     width: 80px;
     height: 80px;
     border-radius: 50%;
+}
+
+.container .profile .org-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
 }
 
 .profile{

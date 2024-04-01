@@ -107,3 +107,13 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\refint\Healink.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\Healink.pdb
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\Healink.genruntimeconfig.cache
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\ref\Healink.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\BouncyCastle.Cryptography.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\LazyCache.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\LazyCache.AspNetCore.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\MailKit.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\MimeKit.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\System.Formats.Asn1.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\System.Text.Encoding.CodePages.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Healink\healink-server\Healink\Healink\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll

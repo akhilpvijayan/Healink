@@ -30,13 +30,18 @@
 
 <div id="boxes">
     <div id="leftbox">
-        <app-side-profile></app-side-profile>
+        <app-side-profile [userDetail]="userDetail"></app-side-profile>
     </div>
 
     <div id="middlebox">
-        <app-post-list class="post"></app-post-list>
+        <app-post-list class="post" [userDetail]="userDetail"></app-post-list>
     </div>
 
     <div id="rightbox">
+        <div class="container-temp">
+            <h1>Coming Soon</h1>
+            <p>We are working on something awesome and will be back shortly!</p>
+        </div>
+    
     </div>
 </div>

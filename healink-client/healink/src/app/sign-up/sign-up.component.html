@@ -1,11 +1,20 @@
 <div id="boxes">
-    <div id="leftbox">
+    <div id="leftbox" *ngIf="userType == 2">
         <div class="cancel">
             <a routerLink="/login">Already have an Account?</a>
         </div>
         <app-sign-up-form (userFormChanged)="updateUserForm($event)"></app-sign-up-form>
-      </div>
-      <div id="rightbox">
+    </div>
+    <div id="rightbox" *ngIf="userType == 2">
         <app-profile-preview [userForm]="userForm ? userForm.value : null"></app-profile-preview>
-      </div>      
+    </div>
+    <div id="leftbox" *ngIf="userType == 3">
+        <div class="cancel">
+            <a routerLink="/login">Already have an Account?</a>
+        </div>
+        <app-org-sign-up-form (orgFormChanged)="updateOrgForm($event)"></app-org-sign-up-form>
+    </div>
+    <div id="rightbox" *ngIf="userType == 3">
+        <app-org-profile-preview [orgForm]="orgForm ? orgForm.value : null"></app-org-profile-preview>
+    </div>
 </div>
