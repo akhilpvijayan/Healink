@@ -8,6 +8,10 @@ namespace Healink.Business.Services
     {
         #region public functions
         Task<ActionResult<IEnumerable<User>>> GetAllUsers();
+        Task<List<UserDetail>> GetPersonalUsers(long userId);
+        Task<List<OrganizationDetail>> GetOrganizationalUsers(long userId);
+        Task<List<UserDetail>> GetAllPersonalUsers();
+        Task<List<OrganizationDetail>> GetAllOrganizationalUsers();
 
         UserDto GetPersonalUser(int userId);
 

@@ -8,6 +8,7 @@ namespace Healink.Business.Services
     {
         #region public functions
         IEnumerable<object> GetAllPosts();
+        IEnumerable<object> GetPosts(long? userId = null);
         Task<bool> AddPost(AddPostDto postdetails);
         Task<bool> UpdatePost(UpdatePostDto postdetails);
 

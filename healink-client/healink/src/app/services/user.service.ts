@@ -15,6 +15,14 @@ export class UserService {
       return this.httpClient.get<any>(`${environment.apiUrl}users/`+userId);
     }
 
+    getPersonalUsers(userId: any) {
+      return this.httpClient.get<any>(`${environment.apiUrl}users/personal/`+userId);
+    }
+
+    getOrganizationalUsers(userId: any) {
+      return this.httpClient.get<any>(`${environment.apiUrl}users/organizational/`+userId);
+    }
+
     getUserId(){
       const user = localStorage.getItem("healink-user-id");
       return user?parseInt(user, 10):0;
@@ -46,6 +54,10 @@ export class UserService {
 
     formatMonthYear(date: string): string {
       return formatDate(date, 'MMM yyyy', 'en-US');
+    }
+
+    isChatExist(userId: number, targetId: number){
+      return this.httpClient.get<any>(`${environment.apiUrl}chats/exists/`+userId+`/`+targetId);
     }
   
     calculateDuration(startDate: string, endDate: string, current: boolean): string {

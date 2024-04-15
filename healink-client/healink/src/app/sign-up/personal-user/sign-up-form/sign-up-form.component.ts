@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Auth/auth.service';
 import { CountryService } from 'src/app/services/country.service';
 import { ImageConversionService } from 'src/app/services/image-conversion.service';
 import { OrganizationService } from 'src/app/services/organization.service';
@@ -34,7 +36,9 @@ export class SignUpFormComponent {
     private userService: UserService,
     private toastr: ToastrService,
     private organizationService: OrganizationService,
-    private imgConverter: ImageConversionService) { }
+    private imgConverter: ImageConversionService,
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -312,17 +316,21 @@ export class SignUpFormComponent {
       this.userService.addUser(this.saveFileInfo()).subscribe((res: any) => {
         if (res) {
           const userId = res;
-          this.userService.addUserExperience(this.experienceForms.value, userId).subscribe((res: any)=>{
-            if(res){
-              this.userService.addUserEducation(this.educationForms.value, userId).subscribe((res: any)=>{
-                if(res){
-                  this.toastr.success("User created successfully");
-                }
+          this.authService.setToken(res.accessToken);
+          this.authService.setUser(res.userId);
+          this.authService.setRefreshToken(res.refreshToken);
+          this.toastr.success(res.message);
+          this.userForm.reset();
+          this.router.navigateByUrl('home');
+          this.toastr.success("User created successfully");
+          this.userService.addUserExperience(this.experienceForms?.value, userId).subscribe((exRes: any) => {
+            if (exRes) {
+              this.userService.addUserEducation(this.educationForms?.value, userId).subscribe((edRes: any) => {
               })
             }
           });
         }
-        else{
+        else {
           this.toastr.error("Create user failed");
         }
       })

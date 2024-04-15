@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { FormGroup } from '@angular/forms';
 import { ImageConversionService } from '../services/image-conversion.service';
 import { Enums } from '../shared/enums';
+import { SignalRService } from '../shared/signaal-r.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,10 +16,12 @@ userId: any;
 userDetail: any = [];
 constructor(private authService: AuthService,
    public userService: UserService,
-   private imgConverter: ImageConversionService){}
+   private imgConverter: ImageConversionService,
+   private signalRService: SignalRService){}
 
   ngOnInit(): void {
     this.userId = this.userService.getUserId();
+    this.signalRService.startConnection();
     this.userService.getUserDetail(this.userId).subscribe((res: any)=>{
       this.userDetail = res;
       if(this.userDetail?.profileImage != null && this.userDetail.RoleId != Enums.Role.OrganizationalUser){
@@ -33,9 +36,4 @@ constructor(private authService: AuthService,
       }
     });
   }
-
-  signOut(){
-    this.authService.signOut();
-  }
-
 }

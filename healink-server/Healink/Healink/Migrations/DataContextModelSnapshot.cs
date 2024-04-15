@@ -24,6 +24,9 @@ namespace Healink.Migrations
 
             modelBuilder.Entity("Healink.Business.Services.Dto.OrganizationDetailDto", b =>
                 {
+                    b.Property<long>("CountryId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("CountryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -64,12 +67,14 @@ namespace Healink.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("OrganizationCover")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<long>("OrganizationDetailId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("OrganizationLogo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("OrganizationLogo")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("OrganizationName")
                         .IsRequired()
@@ -86,9 +91,15 @@ namespace Healink.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long>("RoleId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("RoleName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("StateId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("StateName")
                         .IsRequired()
@@ -157,7 +168,7 @@ namespace Healink.Migrations
 
             modelBuilder.Entity("Healink.Business.Services.Dto.UserDetailsDto", b =>
                 {
-                    b.Property<int>("ConnectionsCount")
+                    b.Property<int?>("ConnectionsCount")
                         .HasColumnType("int");
 
                     b.Property<long>("CountryId")
@@ -252,7 +263,7 @@ namespace Healink.Migrations
 
             modelBuilder.Entity("Healink.Business.Services.Dto.UserDto", b =>
                 {
-                    b.Property<int>("ConnectionsCount")
+                    b.Property<int?>("ConnectionsCount")
                         .HasColumnType("int");
 
                     b.Property<long>("CountryId")
@@ -340,7 +351,9 @@ namespace Healink.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("UserDto");
+                    b.ToTable((string)null);
+
+                    b.ToView(null, (string)null);
                 });
 
             modelBuilder.Entity("Healink.Business.Services.Dto.UserEducationDto", b =>
@@ -448,6 +461,41 @@ namespace Healink.Migrations
                     b.ToTable((string)null);
 
                     b.ToView(null, (string)null);
+                });
+
+            modelBuilder.Entity("Healink.Entities.Chats", b =>
+                {
+                    b.Property<long>("ChatId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ChatId"));
+
+                    b.Property<long>("CreatedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("ModifiedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("ReceivedUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SendUserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("ChatId");
+
+                    b.HasIndex("ReceivedUserId");
+
+                    b.HasIndex("SendUserId");
+
+                    b.ToTable("Chats");
                 });
 
             modelBuilder.Entity("Healink.Entities.Comment", b =>
@@ -760,6 +808,9 @@ namespace Healink.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("MessageId"));
 
+                    b.Property<long>("ChatId")
+                        .HasColumnType("bigint");
+
                     b.Property<bool>("IsRead")
                         .HasColumnType("bit");
 
@@ -778,6 +829,8 @@ namespace Healink.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MessageId");
+
+                    b.HasIndex("ChatId");
 
                     b.HasIndex("ReceiverId");
 
@@ -1141,6 +1194,25 @@ namespace Healink.Migrations
                     b.ToTable("UserSkill");
                 });
 
+            modelBuilder.Entity("Healink.Entities.Chats", b =>
+                {
+                    b.HasOne("Healink.Entities.User", "ReceivedUser")
+                        .WithMany("UserReceived")
+                        .HasForeignKey("ReceivedUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Healink.Entities.User", "SendUser")
+                        .WithMany("UserSend")
+                        .HasForeignKey("SendUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ReceivedUser");
+
+                    b.Navigation("SendUser");
+                });
+
             modelBuilder.Entity("Healink.Entities.Comment", b =>
                 {
                     b.HasOne("Healink.Entities.Post", "Post")
@@ -1236,6 +1308,12 @@ namespace Healink.Migrations
 
             modelBuilder.Entity("Healink.Entities.Message", b =>
                 {
+                    b.HasOne("Healink.Entities.Chats", "Chat")
+                        .WithMany("UserChatId")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("Healink.Entities.User", "Receiver")
                         .WithMany("ReceivedMessages")
                         .HasForeignKey("ReceiverId")
@@ -1247,6 +1325,8 @@ namespace Healink.Migrations
                         .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Chat");
 
                     b.Navigation("Receiver");
 
@@ -1367,6 +1447,11 @@ namespace Healink.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Healink.Entities.Chats", b =>
+                {
+                    b.Navigation("UserChatId");
+                });
+
             modelBuilder.Entity("Healink.Entities.Country", b =>
                 {
                     b.Navigation("UCountry");
@@ -1397,6 +1482,10 @@ namespace Healink.Migrations
                     b.Navigation("UserComment");
 
                     b.Navigation("UserJob");
+
+                    b.Navigation("UserReceived");
+
+                    b.Navigation("UserSend");
                 });
 #pragma warning restore 612, 618
         }

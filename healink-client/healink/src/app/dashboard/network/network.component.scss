@@ -1,0 +1,24 @@
+#leftbox {
+    float: left;
+    width: 20%;
+    height: 100%;
+    padding: 5px;
+}
+
+#rightbox {
+    float: left;
+    width: 78%;
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+    padding: 5px;
+}
+
+@media only screen and (max-width: 950px) {
+    #leftbox {
+        display: none;
+    }
+
+    #rightbox {
+        width: 98%;
+    }
+}

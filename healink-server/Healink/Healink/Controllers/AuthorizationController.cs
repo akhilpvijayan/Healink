@@ -95,7 +95,13 @@ namespace Healink.Controllers
                     var result = await _authService.SignUp(userDetails);
                     if (result != null)
                     {
-                        return Ok(result);
+                        return Ok(new
+                        {
+                            Message = "Login Success.",
+                            AccessToken = result.Item1.ToString(),
+                            RefreshToken = result.Item2.ToString(),
+                            UserId = result.Item3
+                        });
                     };
                 }
                 return BadRequest();

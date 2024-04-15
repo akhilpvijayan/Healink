@@ -23,7 +23,9 @@ export class AddPostComponent implements OnInit{
       width:'600px',
       height:'90%',
       hasBackdrop: true,
-      panelClass: 'custom-dialog-container'
+      panelClass: 'custom-dialog-container',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
     });
   }
 

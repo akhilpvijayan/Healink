@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -25,7 +25,28 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
 import { EditProfileDialogComponent } from './dashboard/profile/edit-profile-dialog/edit-profile-dialog.component';
 import { SignUpOptionDialogComponent } from './shared/sign-up-option-dialog/sign-up-option-dialog.component';
 import { OrgSignUpFormComponent } from './sign-up/organizational-user/org-sign-up-form/org-sign-up-form.component';
-import { OrgProfilePreviewComponent } from './sign-up/organizational-user/org-profile-preview/org-profile-preview.component'; 
+import { OrgProfilePreviewComponent } from './sign-up/organizational-user/org-profile-preview/org-profile-preview.component';
+import { UserPostsComponent } from './dashboard/profile/user-posts/user-posts.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component'; 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
+import { NetworkComponent } from './dashboard/network/network.component';
+import { NotificationsComponent } from './dashboard/notifications/notifications.component';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import { NetworksListComponent } from './dashboard/network/networks-list/networks-list.component';
+import { NetworkSideBarComponent } from './dashboard/network/network-side-bar/network-side-bar.component';
+import { InvitationsComponent } from './dashboard/network/invitations/invitations.component';
+import { InvitationsListComponent } from './dashboard/network/invitations-list/invitations-list.component';
+import { NetworksComponent } from './dashboard/network/networks/networks.component';
+import { CustomLoaderComponent } from './shared/custom-loader/custom-loader.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ChatsComponent } from './dashboard/chats/chats.component';
+import { ChatDetailsComponent } from './dashboard/chats/chat-details/chat-details.component';
+import { UsersDialogComponent } from './dashboard/chats/users-dialog/users-dialog.component';
+import { MessagesComponent } from './dashboard/messages/messages.component';
 
 
 @NgModule({
@@ -45,7 +66,21 @@ import { OrgProfilePreviewComponent } from './sign-up/organizational-user/org-pr
     EditProfileDialogComponent,
     SignUpOptionDialogComponent,
     OrgSignUpFormComponent,
-    OrgProfilePreviewComponent
+    OrgProfilePreviewComponent,
+    UserPostsComponent,
+    NavBarComponent,
+    NetworkComponent,
+    NotificationsComponent,
+    NetworksListComponent,
+    NetworkSideBarComponent,
+    InvitationsComponent,
+    InvitationsListComponent,
+    NetworksComponent,
+    CustomLoaderComponent,
+    ChatsComponent,
+    ChatDetailsComponent,
+    UsersDialogComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -54,12 +89,21 @@ import { OrgProfilePreviewComponent } from './sign-up/organizational-user/org-pr
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-bottom-right'
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
     }),
     BrowserAnimationsModule,
     MatDialogModule,
     MatIconModule,
-    NgSelectModule 
+    NgSelectModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatListModule,
+    MatCardModule,
+    NgxSpinnerModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

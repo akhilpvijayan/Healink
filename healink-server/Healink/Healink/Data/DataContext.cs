@@ -27,12 +27,14 @@ namespace Healink.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<OrganizationSize> OrganizationSize { get; set; }
+        public DbSet<Chats> Chats { get; set; }
 
         public DbSet<UserDetailsDto> UserDetailsDto { get; set; }
         public DbSet<UserDto> UserDto { get; set; }
         public DbSet<UserExperienceDto> UserExperienceDto { get; set; }
         public DbSet<UserEducationDto> UserEducationDto { get; set; }
         public DbSet<OrganizationDetailDto> OrganizationDetailDto { get; set; }
+        public DbSet<ChatsDto> ChatsDto { get; set; }
         public DbSet<PostDto> PostDto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -96,11 +98,31 @@ namespace Healink.Data
                .HasForeignKey(c => c.CompanyId)
                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Chats>()
+               .HasOne(c => c.SendUser)
+               .WithMany(u => u.UserSend)
+               .HasForeignKey(c => c.SendUserId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Chats>()
+               .HasOne(c => c.ReceivedUser)
+               .WithMany(u => u.UserReceived)
+               .HasForeignKey(c => c.ReceivedUserId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Message>()
+               .HasOne(c => c.Chat)
+               .WithMany(u => u.UserChatId)
+               .HasForeignKey(c => c.ChatId)
+               .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<UserDetailsDto>().ToView(null);
             modelBuilder.Entity<OrganizationDetailDto>().ToView(null);
             modelBuilder.Entity<PostDto>().ToView(null);
             modelBuilder.Entity<UserExperienceDto>().ToView(null);
             modelBuilder.Entity<UserEducationDto>().ToView(null);
+            modelBuilder.Entity<UserDto>().ToView(null);
+            modelBuilder.Entity<ChatsDto>().ToView(null);
         }
     }
 

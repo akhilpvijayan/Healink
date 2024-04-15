@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ImageConversionService } from 'src/app/services/image-conversion.service';
 import { PostService } from 'src/app/services/post.service';
@@ -26,9 +27,14 @@ export class AddPostDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<AddPostDialogComponent>,
     private reloadService: ReloadService,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private imgConverter: ImageConversionService) { }
+    private imgConverter: ImageConversionService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(()=>{
+      this.spinner.hide();
+    }, 150)
     this.initializeForm();
     this.selectedFile = this.data?.postDetails.contentImage ?? this.data.postDetails.contentImage;
     this.imageUrl = this.data?.postDetails?.contentImage ?? this.imgConverter.convertImageToDataURL(this.data.postDetails.contentImage)
@@ -73,6 +79,7 @@ export class AddPostDialogComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner.show();
     if (this.addPostForm.valid) {
       if(this.data?.postDetails?.postId != null){
         this.postService.updatePost(this.saveFileInfo()).subscribe((res: any) => {
@@ -80,6 +87,7 @@ export class AddPostDialogComponent implements OnInit {
             this.toastr.warning("Post updated successfully");
             this.closeDialog();
             this.triggerReload();
+            this.spinner.hide();
           }
         })
       }
@@ -89,6 +97,7 @@ export class AddPostDialogComponent implements OnInit {
             this.toastr.success("New post created successfully");
             this.closeDialog();
             this.triggerReload();
+            this.spinner.hide();
           }
         });
       }

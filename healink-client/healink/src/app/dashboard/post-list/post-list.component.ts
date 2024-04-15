@@ -7,7 +7,8 @@ import { PostService } from 'src/app/services/post.service';
 import { ReloadService } from 'src/app/services/reload.service';
 import { ConfirmationPopupDialogComponent } from 'src/app/shared/confirmation-popup-dialog/confirmation-popup-dialog.component';
 import { AddPostDialogComponent } from './add-post/add-post-dialog/add-post-dialog.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-post-list',
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 export class PostListComponent implements OnInit, OnDestroy {
   @Input() userDetail: any;
   postDetails: any = [];
+  userId: any;
 
   private reloadSubscription: Subscription;
   constructor(private postService: PostService,
@@ -24,7 +26,9 @@ export class PostListComponent implements OnInit, OnDestroy {
     private imgConverter: ImageConversionService,
     private dialog: MatDialog,
     private toastr: ToastrService,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService) {
     this.reloadSubscription = this.reloadService.getReloadObservable()
       .subscribe((componentName: string) => {
         if (componentName === 'app-post-list') {
@@ -34,30 +38,78 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.postService.getAllPosts().subscribe((res: any) => {
-      const promises = res.map((post: any) => {
-        const imageConversionPromise = post.contentImage != null ? 
-          this.imgConverter.convertImageToDataURL(post.contentImage).then((dataUrl: any) => {
-            post.contentImage = dataUrl;
-          }) : Promise.resolve();
-    
-        const profileLogoConversionPromise = post.profileLogo != null ? 
-          this.imgConverter.convertImageToDataURL(post.profileLogo).then((dataUrl: any) => {
-            post.profileLogo = dataUrl;
-          }) : Promise.resolve();
-    
-        return Promise.all([imageConversionPromise, profileLogoConversionPromise]);
-      });
-
-      Promise.all(promises)
-        .then(() => {
-          // All FileReader operations completed and setting postdetails
-          this.postDetails = res;
-        })
-        .catch(error => {
-          console.error('Error converting images:', error);
-        });
+    this.spinner.show();
+    this.route.queryParams.subscribe(params => {
+      this.userId =  params['q'];
     });
+    if(this.userId){
+      this.postService.getPosts(this.userId).subscribe((res: any) => {
+        if(res[0]){
+          const promises = res.map((post: any) => {
+            const imageConversionPromise = post.contentImage != null ? 
+              this.imgConverter.convertImageToDataURL(post.contentImage).then((dataUrl: any) => {
+                post.contentImage = dataUrl;
+              }) : Promise.resolve();
+        
+            const profileLogoConversionPromise = post.profileLogo != null ? 
+              this.imgConverter.convertImageToDataURL(post.profileLogo).then((dataUrl: any) => {
+                post.profileLogo = dataUrl;
+              }) : Promise.resolve();
+        
+            return Promise.all([imageConversionPromise, profileLogoConversionPromise]);
+          });
+    
+          Promise.all(promises)
+            .then(() => {
+              // All FileReader operations completed and setting postdetails
+              this.postDetails = res;
+              this.spinner.hide();
+            })
+            .catch(error => {
+              console.error('Error converting images:', error);
+              this.spinner.hide();
+            });
+        }
+        else{
+          this.toastr.warning("No posts found");
+          this.spinner.hide();
+        }
+      });
+    }
+    else{
+      this.postService.getAllPosts().subscribe((res: any) => {
+        if(res[0]){
+        const promises = res.map((post: any) => {
+          const imageConversionPromise = post.contentImage != null ? 
+            this.imgConverter.convertImageToDataURL(post.contentImage).then((dataUrl: any) => {
+              post.contentImage = dataUrl;
+            }) : Promise.resolve();
+      
+          const profileLogoConversionPromise = post.profileLogo != null ? 
+            this.imgConverter.convertImageToDataURL(post.profileLogo).then((dataUrl: any) => {
+              post.profileLogo = dataUrl;
+            }) : Promise.resolve();
+      
+          return Promise.all([imageConversionPromise, profileLogoConversionPromise]);
+        });
+  
+        Promise.all(promises)
+          .then(() => {
+            // All FileReader operations completed and setting postdetails
+            this.postDetails = res;
+            this.spinner.hide();
+          })
+          .catch(error => {
+            console.error('Error converting images:', error);
+            this.spinner.hide();
+          });
+        }
+        else{
+          this.toastr.warning("No posts found");
+          this.spinner.hide();
+        }
+      });
+    }
 
   }
 
@@ -67,6 +119,8 @@ export class PostListComponent implements OnInit, OnDestroy {
       height: '90%', 
       hasBackdrop: true, 
       panelClass: 'custom-dialog-container' ,
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
       data: {
         postDetails: this.postDetails.find((post: any) => post.postId === postId)
       }
@@ -79,6 +133,8 @@ export class PostListComponent implements OnInit, OnDestroy {
       height: '170px',
       hasBackdrop: true,
       panelClass: 'custom-dialog-container',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
       data: {
         message: 'Are you sure want to Delete this post?.'
       }

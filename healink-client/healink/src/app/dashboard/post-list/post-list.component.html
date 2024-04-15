@@ -1,4 +1,7 @@
-<div class="facebook-post">
+<ngx-spinner>
+<span class="blinking-main-title blinking-text">Hea<span class="title">Link</span></span>
+</ngx-spinner>
+<div class="facebook-post" *ngIf="!this.userId ">
     <app-add-post class="post" [userDetail]="userDetail"></app-add-post>
 </div>
 <div class="facebook-post" *ngFor="let post of this.postDetails">
@@ -15,14 +18,19 @@
             <div class="post-details">1 hour ago <i class="fa fa-clock"></i></div>
         </div>
         <div class="more">
-            <div class="more" style="position: relative;">
-                <span class="more_icon">
-                    <i class="fas fa-trash" (click)="deletePost(post.postId)"></i>&nbsp;&nbsp;
-                    <i class="fas fa-pen" (click)="updatePost(post.postId)"></i>&nbsp;&nbsp;
-                    <!-- <i class="fa-regular fa-bookmark"></i>
-                    <i class="fa-solid fa-bookmark"></i> -->
-                </span>
-            </div>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="updatePost(post.postId)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="deletePost(post.postId)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
             
         </div>
         

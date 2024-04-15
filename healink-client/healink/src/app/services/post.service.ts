@@ -13,6 +13,10 @@ export class PostService {
       return this.httpClient.get<any>(`${environment.apiUrl}posts/`);
     }
 
+    getPosts(userId: number) {
+      return this.httpClient.get<any>(`${environment.apiUrl}posts/${userId}`);
+    }
+
     addPost(data: any){
       return this.httpClient.post<any>(`${environment.apiUrl}post/`, data);
     }

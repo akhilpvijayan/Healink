@@ -15,7 +15,7 @@
         </div>
         <hr>
         <div class="posts">
-            <button class="posts-btn" id="post">My Posts</button>
+            <button class="posts-btn" id="post" (click)="showPosts()">My Posts</button>
         </div>
     </div>
     <div class="profile" *ngIf="userDetail?.roleId == 3">

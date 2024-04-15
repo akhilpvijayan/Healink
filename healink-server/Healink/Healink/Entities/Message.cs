@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Healink.Business.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Healink.Entities
 {
-    public class Message
+    public class Message: IMessage
     {
         #region properties
         [Key]
@@ -26,6 +27,10 @@ namespace Healink.Entities
         [Required]
         [ForeignKey("Receiver")]
         public long ReceiverId { get; set; }
+
+        [Required]
+        [ForeignKey("Chat")]
+        public long ChatId { get; set; }
         #endregion
 
         [InverseProperty("SentMessages")]
@@ -33,5 +38,8 @@ namespace Healink.Entities
 
         [InverseProperty("ReceivedMessages")]
         public virtual User Receiver { get; set; }
+
+        [InverseProperty("UserChatId")]
+        public virtual Chats Chat { get; set; }
     }
 }

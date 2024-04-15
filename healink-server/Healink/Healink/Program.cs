@@ -30,6 +30,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddMemoryCache();
 builder.Services.AddLazyCache();
 
+builder.Services.AddSignalR();
+
 //JWT Auth
 var securityKey = builder.Configuration.GetValue<string>("Jwt:securityKey");
 builder.Services.AddAuthentication(options =>
@@ -53,9 +55,10 @@ builder.Services.AddAuthentication(options =>
 //Here using this default cors policy
 builder.Services.AddCors(p => p.AddDefaultPolicy(build =>
 {
-    build.WithOrigins("*") //Allow any domain
+    build.WithOrigins("http://localhost:4200")
     .AllowAnyHeader().
-    AllowAnyMethod();
+    AllowAnyMethod()
+    .AllowCredentials();
 }));
 
 var autoMapper = new MapperConfiguration(item => item.AddProfile(new AutoMapperHandler()));
@@ -82,6 +85,7 @@ builder.Services.AddTransient<IStateService, StateService>();
 builder.Services.AddTransient<IOrganizationService, OrganizationService>();
 builder.Services.AddTransient<IEducationService, EducationService>();
 builder.Services.AddTransient<IExperienceService, ExperienceService>();
+builder.Services.AddTransient<IChatService, ChatService>();
 
 
 //builder.Services.AddTransient<CustomMiddleWare>();
@@ -96,11 +100,16 @@ if (app.Environment.IsDevelopment())
     //app.UseClassWithNoImplementationMiddleWare();
 }
 app.UseCors();
-
 app.UseHttpsRedirection();
-app.UseAuthentication();
+app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("chatHub"); 
+});
 
 app.MapControllers();
 
@@ -115,8 +124,9 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        throw ex;
+        throw;
     }
 }
+
 
 app.Run();

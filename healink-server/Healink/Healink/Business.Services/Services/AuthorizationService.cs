@@ -54,7 +54,7 @@ namespace Healink.Business.Services.Services
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Email, user.Email)
                             }),
-                            Expires = DateTime.UtcNow.AddSeconds(60),
+                            Expires = DateTime.UtcNow.AddSeconds(600),
                             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
                         };
                         var token = tokenHandler.CreateToken(tokenDesc);
@@ -144,7 +144,7 @@ namespace Healink.Business.Services.Services
             return principal;
         }
 
-        public async Task<long> SignUp(SignUpUserDetailDto userDetails)
+        public async Task<Tuple<string, string, long>> SignUp(SignUpUserDetailDto userDetails)
         {
             try
             {
@@ -195,7 +195,7 @@ namespace Healink.Business.Services.Services
                 _context.UserDetails.Add(userDetail);
                 await _context.SaveChangesAsync();
 
-                return userDetail.UserId;
+                return await GenerateToken(userDetails.Username, userDetails.Password);
             }
             catch(Exception ex)
             {

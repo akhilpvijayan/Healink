@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CountryService } from 'src/app/services/country.service';
 import { ImageConversionService } from 'src/app/services/image-conversion.service';
@@ -37,9 +38,11 @@ export class EditProfileDialogComponent {
     private organizationService: OrganizationService,
     private imgConverter: ImageConversionService,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<EditProfileDialogComponent>) { }
+    private dialogRef: MatDialogRef<EditProfileDialogComponent>,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.initializeForm();
     this.profileCover = this.data?.profileDetails?.profileCover ? this.data.profileDetails.profileCover : null;
     this.profileImage = this.data?.profileDetails?.profileImage ? this.data.profileDetails.profileImage : null;
@@ -77,6 +80,7 @@ export class EditProfileDialogComponent {
 
     this.organizationService.getOrganizationForSignup().subscribe((res: any) => {
       this.companies = res;
+      this.spinner.hide();
       this.companies.forEach((company: any) => {
         if (company.organizationLogo) {
           return this.imgConverter.convertImageToDataURL(company.organizationLogo).then((dataUrl: any) => {
@@ -93,6 +97,7 @@ export class EditProfileDialogComponent {
 
     this.organizationService.getEducationalOrganizations().subscribe((res: any) => {
       this.educationalOrgs = res;
+      this.spinner.hide();
       this.educationalOrgs.forEach((eduOrg: any) => {
         if (eduOrg.organizationLogo) {
           return this.imgConverter.convertImageToDataURL(eduOrg.organizationLogo).then((dataUrl: any) => {

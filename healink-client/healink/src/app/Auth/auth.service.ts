@@ -3,12 +3,15 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { TokenApi } from '../interfaces/token-api';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private isLoggedInSubject = new Subject<void>();
 
+  signOutObservable$ = this.isLoggedInSubject.asObservable();
   constructor(
     private httpClient: HttpClient,
     private router: Router) { }
@@ -24,6 +27,7 @@ export class AuthService {
 
   setToken(tokenValue: string){
     localStorage.setItem('healink-token', tokenValue);
+    this.isLoggedInSubject.next();
   }
 
   setUser(userId: number){
@@ -41,6 +45,7 @@ export class AuthService {
   signOut(){
     localStorage.clear();
     this.router.navigateByUrl('login');
+    this.isLoggedInSubject.next();
   }
 
   renewToken(tokenApi: TokenApi){

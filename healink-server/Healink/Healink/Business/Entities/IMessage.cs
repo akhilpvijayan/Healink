@@ -9,6 +9,7 @@
         bool IsRead { get; set; }
         long SenderId { get; set; }
         long ReceiverId { get; set; }
+        long ChatId { get; set; }
         #endregion
     }
 }

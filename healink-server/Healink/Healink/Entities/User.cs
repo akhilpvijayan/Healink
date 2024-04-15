@@ -46,5 +46,11 @@ namespace Healink.Entities
 
         [InverseProperty("User")]
         public virtual ICollection<Job> UserJob { get; set; }
+
+        [InverseProperty("SendUser")]
+        public virtual ICollection<Chats> UserSend { get; set; }
+
+        [InverseProperty("ReceivedUser")]
+        public virtual ICollection<Chats> UserReceived { get; set; }
     }
 }

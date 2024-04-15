@@ -1,0 +1,19 @@
+#leftbox {
+    float: left;
+    width: 20%;
+    height: 100vh;
+}
+
+#middlebox {
+    float: left;
+    width: 50%;
+    overflow-y: auto;
+    height: 98vh;
+    padding: 5px;
+}
+
+#rightbox {
+    float: left;
+    width: 28%;
+    height: 100vh;
+}

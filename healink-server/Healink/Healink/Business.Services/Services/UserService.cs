@@ -5,6 +5,8 @@ using Healink.Data;
 using Healink.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel;
 
 namespace Healink.Business.Services.Services
 {
@@ -30,6 +32,32 @@ namespace Healink.Business.Services.Services
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
             return await this._context.Users.ToListAsync();
+        }
+
+        public async Task<List<UserDetail>> GetPersonalUsers(long userId)
+        {
+            return await this._context.UserDetails
+                .Where(x=>x.UserId != userId)
+                .Take(9)
+                .ToListAsync();
+        }
+
+        public async Task<List<OrganizationDetail>> GetOrganizationalUsers(long userId)
+        {
+            return await this._context.OrganizationDetails
+                .Where(x => x.UserId != userId)
+                .Take(9)
+                .ToListAsync();
+        }
+
+        public async Task<List<UserDetail>> GetAllPersonalUsers()
+        {
+            return await this._context.UserDetails.ToListAsync();
+        }
+
+        public async Task<List<OrganizationDetail>> GetAllOrganizationalUsers()
+        {
+            return await this._context.OrganizationDetails.ToListAsync();
         }
 
         public UserDto GetPersonalUser(int userId)

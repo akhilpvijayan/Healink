@@ -39,6 +39,58 @@ namespace Healink.Controllers
 
         [HttpGet]
         [Authorize]
+        [Route("users/personal/{userId}")]
+        public async Task<IActionResult> GetPersonalUsers(long userId)
+        {
+            var users = await _userService.GetPersonalUsers(userId);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("users/organizational/{userId}")]
+        public async Task<IActionResult> GetOrganizationalUsers(long userId)
+        {
+            var users = await _userService.GetOrganizationalUsers(userId);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("users/personals")]
+        public async Task<IActionResult> GetAllPersonalUsers()
+        {
+            var users = await _userService.GetAllPersonalUsers();
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("users/organizationals")]
+        public async Task<IActionResult> GetAllOrganizationalUsers()
+        {
+            var users = await _userService.GetAllOrganizationalUsers();
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        [Authorize]
         [Route("users/{userid}")]
         public async Task<IActionResult> GetUser(int userId)
         {

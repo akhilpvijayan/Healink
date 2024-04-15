@@ -16,4 +16,8 @@ export class SideProfileComponent{
   showProfile() {
     this.router.navigate(['profile'], { queryParams: { userId: this.userService.getUserId() } });
   }
+
+  showPosts(){
+    this.router.navigate(['posts'], { queryParams: { q: this.userService.getUserId() } });
+  }
 }

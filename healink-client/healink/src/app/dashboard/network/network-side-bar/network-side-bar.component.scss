@@ -1,0 +1,35 @@
+.container{
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.header{
+    font-weight: 500;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.connections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    &:hover{
+        background-color: rgba(128, 128, 128, 0.389);
+    }
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.right p {
+    margin-left: 10px;
+}

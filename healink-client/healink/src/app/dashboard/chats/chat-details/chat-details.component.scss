@@ -1,0 +1,118 @@
+.container{
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 99%;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .message-area {
+    background-color: #b6b6b6d4;
+    height: 80%;
+    margin: 0;
+    overflow-y: auto;
+  }
+
+  .message {
+    display: flex;
+    margin: 10px;
+  }
+  
+  .sent .message-content {
+    max-width: 70%; 
+    margin-left: auto;
+    background-color: #215023;
+    color: white;
+  }
+  
+  .received .message-content {
+    max-width: 70%;
+    background-color: #fff;
+  }
+  
+  .message-content {
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    height: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .message-area .message:last-child {
+    margin-bottom: 5px;
+  }
+
+  .message-input {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd;
+  }
+
+  .message-input textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+  }
+
+  .message-input button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .left{
+    float: left;
+    text-align: left;
+  }
+
+  .header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.no-chats-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    p{
+        font-weight: 500;
+        color: grey;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .container{
+        height: 97%;
+        border: none;
+    }
+}

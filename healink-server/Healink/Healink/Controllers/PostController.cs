@@ -44,6 +44,29 @@ namespace Healink.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet("posts/{userId}")]
+        public async Task<IActionResult> GetPosts(long userId)
+        {
+            try
+            {
+                var posts = _postService.GetPosts(userId);
+                if (posts != null)
+                {
+                    return Ok(posts);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [Authorize]
         [HttpPost("post")]
         public IActionResult AddPost([FromForm] AddPostDto postdetails)
         {
@@ -62,6 +85,7 @@ namespace Healink.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("post")]
         public IActionResult UpdatePost([FromForm] UpdatePostDto postdetails)
         {

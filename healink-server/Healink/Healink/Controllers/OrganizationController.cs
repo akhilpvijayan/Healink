@@ -117,13 +117,13 @@ namespace Healink.Controllers
                     var result = await _orgService.SignUpOrganization(orgDetails);
                     if (result != null)
                     {
-                        return Ok(Ok(new
+                        return Ok(new
                         {
                             Message = "Login Success.",
                             AccessToken = result.Item1.ToString(),
                             RefreshToken = result.Item2.ToString(),
                             UserId = result.Item3
-                        }));
+                        });
                     };
                 }
                 return BadRequest();

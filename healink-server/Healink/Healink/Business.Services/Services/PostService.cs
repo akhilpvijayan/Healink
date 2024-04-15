@@ -40,6 +40,20 @@ namespace Healink.Business.Services.Services
             }
         }
 
+        public IEnumerable<object> GetPosts(long? userId = null)
+        {
+            try
+            {
+                var sqlQuery = $"Exec spGetPostDetails {userId}";
+                var posts = this._context.PostDto.FromSqlRaw(sqlQuery).ToList();
+                return posts;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<bool> AddPost(AddPostDto postdetails)
         {
             using (var ms = new MemoryStream())

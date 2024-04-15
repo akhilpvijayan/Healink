@@ -69,3 +69,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .edit i {
     font-size: 1.5em;
 }
+
+.blinking-main-title {
+	font-size: 50px;
+	font-weight: bold;
+	color: #ffffff;
+	display: inline-block;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+  }
+  
+  span .title {
+	color: #00B4CC;
+  }
+  
+  @keyframes blink {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+  }
+  
+  .blinking-text {
+	animation: blink 1.5s infinite;
+  }

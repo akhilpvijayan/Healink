@@ -7,6 +7,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { SignUpOptionDialogComponent } from '../shared/sign-up-option-dialog/sign-up-option-dialog.component';
 import { Enums } from '../shared/enums';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private dialog: MatDialog,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -40,6 +42,8 @@ export class LoginComponent implements OnInit {
       width: '500px',
       height: '300px',
       hasBackdrop: true,
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result == Enums.Role.PersonalUser || result == Enums.Role.OrganizationalUser) {
@@ -49,6 +53,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner.show();
     this.isInvalidUser = false;
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
@@ -60,17 +65,21 @@ export class LoginComponent implements OnInit {
             this.toastr.success(result.message);
             this.loginForm.reset();
             this.router.navigateByUrl('home');
+            this.spinner.hide();
           } else {
             this.toastr.error('Login failed: Invalid response from server.');
+            this.spinner.hide();
           }
         },
         error: (err: any) => {
           if (err.status == 404) {
             this.toastr.error('Invalid credentials.');
             this.isInvalidUser = true;
+            this.spinner.hide();
           }
           else {
             this.toastr.error('An error occurred during login.');
+            this.spinner.hide();
           }
         }
       });

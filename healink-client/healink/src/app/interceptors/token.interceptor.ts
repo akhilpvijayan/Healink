@@ -11,6 +11,7 @@ import { AuthService } from '../Auth/auth.service';
 import { Router } from '@angular/router';
 import { TokenApi } from '../interfaces/token-api';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -18,7 +19,8 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(
     private authService: AuthService, 
     private route: Router,
-    private toastr: ToastrService) {}
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authService.getToken();
@@ -40,6 +42,8 @@ export class TokenInterceptor implements HttpInterceptor {
               return this.handleUnauthError(request, next);
             }
           }
+          this.authService.signOut();
+          this.spinner.hide();
           return throwError(()=> new Error("Unexpected Error occured"));
         })
       );
@@ -65,8 +69,10 @@ export class TokenInterceptor implements HttpInterceptor {
       }),
       catchError((err)=>{
         return throwError(()=>{
-          this.toastr.error("Timeout expired. Login again.")
+          this.toastr.error("Timeout expired. Login again.");
+          this.authService.signOut();
           this.route.navigateByUrl('login');
+          this.spinner.hide();
         })
       })
     )
