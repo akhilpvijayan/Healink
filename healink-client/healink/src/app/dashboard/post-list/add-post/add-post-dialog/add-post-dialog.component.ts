@@ -86,7 +86,7 @@ export class AddPostDialogComponent implements OnInit {
           if (res) {
             this.toastr.warning("Post updated successfully");
             this.closeDialog();
-            this.triggerReload();
+            this.triggerUpdateReload(this.data?.postDetails?.postId);
             this.spinner.hide();
           }
         })
@@ -110,6 +110,10 @@ export class AddPostDialogComponent implements OnInit {
 
   triggerReload(): void {
     this.reloadService.reloadComponent('app-post-list');
+  }
+
+  triggerUpdateReload(postId : number): void {
+    this.reloadService.reloadComponent('app-post-list-update', { key: postId });
   }
 
   isString(value: any): boolean {

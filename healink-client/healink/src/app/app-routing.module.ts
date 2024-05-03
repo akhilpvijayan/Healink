@@ -10,6 +10,7 @@ import { NotificationsComponent } from './dashboard/notifications/notifications.
 import { NetworkComponent } from './dashboard/network/network.component';
 import { InvitationsListComponent } from './dashboard/network/invitations-list/invitations-list.component';
 import { MessagesComponent } from './dashboard/messages/messages.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'users/personal', component: NetworkComponent, canActivate: [AuthGuard] },
   { path: 'users/organizational', component: NetworkComponent, canActivate: [AuthGuard] },
   { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

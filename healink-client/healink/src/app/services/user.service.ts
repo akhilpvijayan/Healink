@@ -26,6 +26,10 @@ export class UserService {
     getUserId(){
       const user = localStorage.getItem("healink-user-id");
       return user?parseInt(user, 10):0;
+    }    
+    
+    getConnectionStatus(userId: any, targetUserId: any) {
+      return this.httpClient.get<any>(`${environment.apiUrl}connection/status/`+userId+`/`+targetUserId);
     }
 
     addUser(data: any){

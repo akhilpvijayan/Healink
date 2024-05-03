@@ -10,32 +10,40 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE PROCEDURE [dbo].[spGetMessageDetails]
-	 (@ChatId BIGINT,
-	 @UserId BIGINT)
+	 (@Skip INT,
+    @Take INT,
+	@ChatId BIGINT,
+	@UserId BIGINT)
         AS
         BEGIN
 
-		SELECT
-			@ChatId ChatId,
-			MS.MessageContent,
-			MS.ReceiverId,
-			MS.IsRead,
-			MS.SenderId,
-			MS.Timestamp,
-			UD.FirstName,
-			UD.LastName,
-			UD.ProfileImage
-		FROM [HLOperational]..Chats CS
-		INNER JOIN [HLOperational]..Messages MS ON MS.ChatId = CS.ChatId
-		INNER JOIN UserDetails UD ON UD.UserId =
-		CASE WHEN 
-			MS.ReceiverId = @UserId
-			THEN MS.SenderId
-		ELSE
-			MS.ReceiverId
-		END
-		WHERE CS.ChatId = @ChatId
-		ORDER BY MS.Timestamp;
+		SELECT *
+			FROM (
+				SELECT
+					@ChatId AS ChatId,
+					MS.MessageContent,
+					MS.ReceiverId,
+					MS.IsRead,
+					MS.SenderId,
+					MS.Timestamp,
+					UD.FirstName,
+					UD.LastName,
+					UD.ProfileImage
+				FROM [HLOperational]..Chats CS
+				INNER JOIN [HLOperational]..Messages MS ON MS.ChatId = CS.ChatId
+				INNER JOIN UserDetails UD ON UD.UserId =
+					CASE WHEN 
+						MS.ReceiverId = @UserId
+						THEN MS.SenderId
+					ELSE
+						MS.ReceiverId
+					END
+				WHERE CS.ChatId = @ChatId
+				ORDER BY MS.Timestamp DESC
+				OFFSET @Skip ROWS
+				FETCH NEXT @Take ROWS ONLY
+			) AS Q
+			ORDER BY Timestamp ASC;
 
 		END
 GO

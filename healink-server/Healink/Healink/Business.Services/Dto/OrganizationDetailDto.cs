@@ -19,7 +19,7 @@ namespace Healink.Business.Services.Dto
         public long OrganizationDetailId { get; set; }
         public string OrganizationName { get; set; }
         public string OrganizationWebsite { get; set; }
-        public long OrganizationSize { get; set; }
+        public string OrganizationSize { get; set; }
         public byte[]? OrganizationLogo { get; set; } = null;
         public byte[]? OrganizationCover { get; set; } = null;
         public string OrganizationBio { get; set; }

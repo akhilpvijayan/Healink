@@ -46,6 +46,7 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsof
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\MimeKit.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Pipelines.Sockets.Unofficial.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Serilog.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\Serilog.AspNetCore.dll
@@ -68,6 +69,7 @@ C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.D
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Formats.Asn1.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Memory.Data.dll
+C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Runtime.Caching.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 C:\Healink\healink-server\Healink\Healink\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll

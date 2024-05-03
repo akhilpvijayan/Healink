@@ -52,5 +52,8 @@ namespace Healink.Entities
 
         [InverseProperty("ReceivedUser")]
         public virtual ICollection<Chats> UserReceived { get; set; }
+
+        [InverseProperty("LikedUserId")]
+        public virtual ICollection<Likes> LikedUser { get; set; }
     }
 }

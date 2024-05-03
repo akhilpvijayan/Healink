@@ -28,7 +28,7 @@ export class EditProfileDialogComponent {
   currentDate: Date = new Date();
   isProfilePictureUpdated: any = false;
   isProfileCoverUpdated: any = false;
-  
+
   constructor(
     private countryService: CountryService,
     private stateService: StateService,
@@ -48,6 +48,12 @@ export class EditProfileDialogComponent {
     this.profileImage = this.data?.profileDetails?.profileImage ? this.data.profileDetails.profileImage : null;
     this.countryService.getAllCountries().subscribe((res: any) => {
       this.countries = res;
+      if (this.data.section == 10) {
+        this.addExperience();
+      }
+      if (this.data.section == 11) {
+        this.addEducation();
+      }
     });
 
     const countryControl = this.userForm.get('countryId');
@@ -116,7 +122,7 @@ export class EditProfileDialogComponent {
   getStateByCountryId(selectedCountry: any, isInit: boolean) {
     this.stateService.getstateByCountryId(selectedCountry).subscribe((res: any) => {
       this.states = res;
-      if(isInit){
+      if (isInit) {
         this.userForm.patchValue({
           stateId: this.data?.profileDetails?.stateId
         });
@@ -137,6 +143,8 @@ export class EditProfileDialogComponent {
       specialization: [this.data?.profileDetails?.specialization, Validators.required],
       countryName: [this.data?.profileDetails?.countryName, Validators.required],
       stateName: [this.data?.profileDetails?.stateName, Validators.required],
+      experiences: this.data.section == 10 ? this.formBuilder.array([]) : this.data?.profileDetails?.experience?.[0] ?? this.formBuilder.array([]),
+      educations: this.data.section == 11 ? this.formBuilder.array([]) : this.data?.profileDetails?.education?.[0] ?? this.formBuilder.array([])
     });
   }
 
@@ -284,11 +292,11 @@ export class EditProfileDialogComponent {
     this.isProfileCoverUpdated = true;
   }
 
-  closeDialog(isSaved: boolean){
+  closeDialog(isSaved: boolean) {
     this.dialogRef.close(isSaved);
   }
 
-  setFormData(){
+  setFormData() {
     const formData: FormData = new FormData();
     formData.append('firstName', this.userForm.value.firstName);
     formData.append('lastName', this.userForm.value.lastName);
@@ -304,17 +312,41 @@ export class EditProfileDialogComponent {
     return formData;
   }
 
-  onSubmit(){
-    if (this.userForm.valid) {
+  onSubmit() {
+    if (this.userForm.valid && this.data.section !== 10 && this.data.section !== 11) {
       this.userService.updateUser(this.setFormData(), this.data?.profileDetails?.userId).subscribe((res: any) => {
         if (res) {
           this.closeDialog(true);
           this.toastr.success("User details updated successfully");
         }
-        else{
+        else {
           this.toastr.error("Update user failed");
         }
       })
     }
+    if (this.experienceForms.valid && this.data.section === 10) {
+      this.userService.addUserExperience(this.experienceForms?.value, this.data?.profileDetails?.userId).subscribe((exRes: any) => {
+        if (exRes) {
+          this.closeDialog(true);
+          this.toastr.success("Experience details added successfully");
+        }
+        else {
+          this.toastr.error("Adding experience failed");
+        }
+      }
+      )
+    };
+    if (this.educationForms.valid && this.data.section === 11) {
+      this.userService.addUserEducation(this.educationForms?.value, this.data?.profileDetails?.userId).subscribe((exRes: any) => {
+        if (exRes) {
+          this.closeDialog(true);
+          this.toastr.success("Education details added successfully");
+        }
+        else {
+          this.toastr.error("Adding education failed");
+        }
+      }
+      )
+    };
   }
 }

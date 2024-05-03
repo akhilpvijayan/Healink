@@ -1,5 +1,5 @@
 <ngx-spinner>
-<span class="blinking-main-title blinking-text">Hea<span class="title">Link</span></span>
+    <span class="blinking-main-title blinking-text">Hea<span class="title">Link</span></span>
 </ngx-spinner>
 <div class="facebook-post" *ngIf="!this.userId ">
     <app-add-post class="post" [userDetail]="userDetail"></app-add-post>
@@ -11,29 +11,29 @@
         </div>
         <div class="post-profile-pic" *ngIf="!post.profileLogo">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC"
-            (click)="showProfile(post.userId)">
+                (click)="showProfile(post.userId)">
         </div>
         <div>
             <div (click)="showProfile(post.userId)"><strong>{{post.fullName}}</strong></div>
             <div class="post-details">1 hour ago <i class="fa fa-clock"></i></div>
         </div>
-        <div class="more">
+        <div class="more" *ngIf="loggedInUser === post.userId">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu">
+            </button>
+            <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="updatePost(post.postId)">
-                  <mat-icon>edit</mat-icon>
-                  <span>Edit</span>
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
                 </button>
                 <button mat-menu-item (click)="deletePost(post.postId)">
-                  <mat-icon>delete</mat-icon>
-                  <span>Delete</span>
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
                 </button>
-              </mat-menu>
-            
+            </mat-menu>
+
         </div>
-        
+
     </div>
     <div class="facebook-post-content">
         {{post.content}}
@@ -41,16 +41,30 @@
     <div class="facebook-post-image" *ngIf="post.contentImage != null">
         <img src="{{post.contentImage}}">
     </div>
+    <div class="counts">
+        <div class="like-count">
+            <ng-container *ngIf="post.likeCount !== null && post.likeCount > 0">
+                <span *ngIf="!post.isLikedByMe">({{post.likeCount}}) people liked this</span>
+                <span *ngIf="post.isLikedByMe && post.likeCount > 1">You and {{post.likeCount - 1}} others liked this</span>
+                <span *ngIf="post.isLikedByMe && post.likeCount === 1">You liked this</span>
+            </ng-container>
+        </div>
+        <div class="comment-count">
+            <ng-container>
+                <span (click)="addComment(post.postId)" *ngIf="post.commentCount != 1">{{post.commentCount ?? 0}} comments</span>
+                <span (click)="addComment(post.postId)" *ngIf="post.commentCount === 1">{{post.commentCount}} comment</span>
+            </ng-container>
+        </div>
+    </div>
     <div class="facebook-post-footer">
-        <span class="action-button"><i class="fa fa-thumbs-up"></i> Likes
-            <ng-container
-            *ngIf="post.likeCount !== null && post.likeCount > 0">
-            ({{post.likeCount}})
-        </ng-container></span>
-        <span class="action-button"><i class="fa fa-comment"></i> Comments <ng-container
-            *ngIf="post.commentCount !== null && post.commentCount > 0">
-            ({{post.commentCount}})
-        </ng-container></span>
+        <span class="action-button" (click)="addLike(post.postId)">
+            <span *ngIf="!post.isLikedByMe"><i class="fa fa-thumbs-up"></i> Like</span>
+            <span style="color: #00B4CC;" *ngIf="post.isLikedByMe"><i class="fa-solid fa-thumbs-up"></i> Like</span>
+        </span>
+        <span class="action-button" (click)="addComment(post.postId)"><i class="fa fa-comment"></i> Comment <ng-container
+                *ngIf="post.commentCount !== null && post.commentCount > 0">
+                ({{post.commentCount}})
+            </ng-container></span>
         <span class="action-button"><i class="fa fa-share"></i> Share</span>
     </div>
 </div>

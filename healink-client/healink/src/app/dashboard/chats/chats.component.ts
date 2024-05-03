@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UsersDialogComponent } from './users-dialog/users-dialog.component';
 import { ChatService } from 'src/app/services/chat.service';
@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ImageConversionService } from 'src/app/services/image-conversion.service';
 import { SignalRService } from 'src/app/shared/signaal-r.service';
 import { ToastrService } from 'ngx-toastr';
+import { ChatDetailsComponent } from './chat-details/chat-details.component';
 
 @Component({
   selector: 'app-chats',
@@ -14,10 +15,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ChatsComponent implements OnInit{
   showDetails = false;
-  chats: any;
+  chats: any = [];
   targetUser: any;
   chatId: any;
   userId: any;
+  skip = 0;
+  take = 10;
 
   constructor(private dialog: MatDialog,
     private chatService: ChatService,
@@ -47,7 +50,7 @@ export class ChatsComponent implements OnInit{
   }
 
   getAllChats(){
-    this.chatService.getAllChats(this.userService.getUserId()).subscribe((res: any)=>{
+    this.chatService.getAllChats(this.skip, this.take, this.userService.getUserId()).subscribe((res: any)=>{
       if(res){
         const promises = res.map((user: any) => {
           const imageConversionPromise = user.profileImage != null ? 

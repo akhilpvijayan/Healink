@@ -15,6 +15,7 @@ export class NavBarComponent implements OnInit, OnDestroy{
   private signOutSubscription: Subscription | undefined;
   isLoggedIn = false;
   isNoNotifications = false;
+  searchContent: string = '';
   constructor(private authService: AuthService,
     private router: Router,
     private userService: UserService,
@@ -69,5 +70,11 @@ export class NavBarComponent implements OnInit, OnDestroy{
         this.authService.signOut();
       }
     });
+  }
+
+  search(){
+    if(this.searchContent){
+      this.router.navigate(['search'], { queryParams: { q: this.searchContent } });
+    }
   }
 }

@@ -22,6 +22,43 @@ namespace Healink.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Healink.Business.Services.Dto.ChatsDto", b =>
+                {
+                    b.Property<long>("ChatId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<long>("ReceiverId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SenderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.ToTable((string)null);
+
+                    b.ToView(null, (string)null);
+                });
+
             modelBuilder.Entity("Healink.Business.Services.Dto.OrganizationDetailDto", b =>
                 {
                     b.Property<long>("CountryId")
@@ -80,8 +117,9 @@ namespace Healink.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("OrganizationSize")
-                        .HasColumnType("bigint");
+                    b.Property<string>("OrganizationSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OrganizationWebsite")
                         .IsRequired()
@@ -142,6 +180,9 @@ namespace Healink.Migrations
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsLikedByMe")
+                        .HasColumnType("bit");
 
                     b.Property<long>("LikeCount")
                         .HasColumnType("bigint");
@@ -561,9 +602,8 @@ namespace Healink.Migrations
                     b.Property<long>("SenderId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("Status")
+                        .HasColumnType("bigint");
 
                     b.HasKey("ConnectionId");
 
@@ -798,6 +838,29 @@ namespace Healink.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("Healink.Entities.Likes", b =>
+                {
+                    b.Property<long>("LikeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LikeId"));
+
+                    b.Property<long>("PostId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("LikeId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Likes");
                 });
 
             modelBuilder.Entity("Healink.Entities.Message", b =>
@@ -1306,6 +1369,25 @@ namespace Healink.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Healink.Entities.Likes", b =>
+                {
+                    b.HasOne("Healink.Entities.Post", "LikedPostId")
+                        .WithMany("LikedPost")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Healink.Entities.User", "LikedUserId")
+                        .WithMany("LikedUser")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("LikedPostId");
+
+                    b.Navigation("LikedUserId");
+                });
+
             modelBuilder.Entity("Healink.Entities.Message", b =>
                 {
                     b.HasOne("Healink.Entities.Chats", "Chat")
@@ -1464,6 +1546,11 @@ namespace Healink.Migrations
                     b.Navigation("OrgExpDetails");
                 });
 
+            modelBuilder.Entity("Healink.Entities.Post", b =>
+                {
+                    b.Navigation("LikedPost");
+                });
+
             modelBuilder.Entity("Healink.Entities.State", b =>
                 {
                     b.Navigation("UState");
@@ -1471,6 +1558,8 @@ namespace Healink.Migrations
 
             modelBuilder.Entity("Healink.Entities.User", b =>
                 {
+                    b.Navigation("LikedUser");
+
                     b.Navigation("ReceivedMessages");
 
                     b.Navigation("ReceivedUser");

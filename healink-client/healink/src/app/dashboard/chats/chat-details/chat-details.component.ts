@@ -12,6 +12,7 @@ import { SignalRService } from 'src/app/shared/signaal-r.service';
 })
 export class ChatDetailsComponent implements OnInit {
   @ViewChild('messageArea') messageArea!: ElementRef;
+  @ViewChild(ChatDetailsComponent) chatsDetailsComponent!: ChatDetailsComponent;
   @Output() isReturn = new EventEmitter<boolean>();
   @Input() targetUser: any;
   @Input() chatId: any;
@@ -19,6 +20,8 @@ export class ChatDetailsComponent implements OnInit {
   messages: Message[] = [];
   userId: any;
   userDetails: any;
+  skip = 0;
+  take = 10;
 
   constructor(private signalRService: SignalRService,
     private userService: UserService,
@@ -36,21 +39,21 @@ export class ChatDetailsComponent implements OnInit {
       }
     });
     if (this.chatId != null) {
-      this.setMessages();
+      this.setMessages(false);
     }
     else {
       this.userService.isChatExist(this.userId, this.targetUser).subscribe((res: any) => {
         if (res > 0) {
           this.chatId = res;
         }
-        this.setMessages();
+        this.setMessages(false);
       })
     }
   }
 
-  setMessages() {
+  setMessages(isOnScroll: boolean) {
     if (this.chatId != null) {
-      this.chatService.getAllMessages(this.chatId, this.userId).subscribe((res: any) => {
+      this.chatService.getAllMessages(this.skip, this.take, this.chatId, this.userId).subscribe((res: any) => {
         if (res) {
           const promises = res.map((user: any) => {
             const imageConversionPromise = user.profileImage != null ?
@@ -64,10 +67,12 @@ export class ChatDetailsComponent implements OnInit {
 
           Promise.all(promises)
             .then(() => {
-              this.messages = res;
-              setTimeout(() => {
-                this.scrollToBottom();
-              }, 100);
+              this.messages = [...res, ...this.messages];
+              if(!isOnScroll){
+                setTimeout(() => {
+                  this.scrollToBottom();
+                }, 100);
+              }
             })
             .catch(error => {
               console.error('Error converting images:', error);
@@ -112,4 +117,28 @@ export class ChatDetailsComponent implements OnInit {
   goBack() {
     this.isReturn.emit(true);
   }
+
+  onWindowScroll() {
+    this.skip += this.take;
+    this.setMessages(true);
+    }
+  
+    ngAfterViewInit(): void {
+      // Add scroll event listener to the middlebox element
+      this.messageArea.nativeElement.addEventListener('scroll', this.onScroll);
+    }
+    
+    ngOnDestroy(): void {
+      // Remove scroll event listener when the component is destroyed
+      this.messageArea.nativeElement.removeEventListener('scroll', this.onScroll);
+    }
+    
+    onScroll = (): void => {
+      const middlebox = this.messageArea.nativeElement;
+      const scrollPosition = middlebox.scrollTop;
+      
+      if (scrollPosition === 0) {
+        this.onWindowScroll();
+      }
+    };
 }

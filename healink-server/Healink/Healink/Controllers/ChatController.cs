@@ -31,9 +31,9 @@ namespace Healink.Controllers
 
         [Authorize]
         [HttpGet("messages/{chatId}/{userId}")]
-        public List<ChatsDto> GetMessages(long chatId, long userId)
+        public List<ChatsDto> GetMessages([FromQuery] int skip, [FromQuery] int take, long chatId, long userId)
         {
-            return this._chatService.GetMessages(chatId, userId);
+            return this._chatService.GetMessages(skip, take, chatId, userId);
         }
 
         [Authorize]

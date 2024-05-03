@@ -17,6 +17,8 @@ namespace Healink.Business.Services
 
         OrganizationDetailDto GetOrganizationPersonalDetails(long userId);
 
+        long GetConnectionStatus(long userId, long targetId);
+
         Task<bool> UpdateUser(SignUpUserDetailDto userDetails, long userId);
 
         bool CheckDuplicateUserName(string username);

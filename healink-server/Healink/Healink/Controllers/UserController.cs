@@ -132,6 +132,21 @@ namespace Healink.Controllers
             }
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("connection/status/{userId}/{targetId}")]
+        public long GetConnectionStatus(long userId, long targetId)
+        {
+            try
+            {
+                return _userService.GetConnectionStatus(userId, targetId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         [HttpPut]
         [Authorize]
         [Route("user/{userid}")]

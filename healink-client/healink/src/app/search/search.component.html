@@ -1,0 +1,8 @@
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="All"><app-search-all [searchQuery]="searchQuery" (invokeParentFunction)="navigateToPeopleTab($event)"></app-search-all></mat-tab>
+        <mat-tab label="Posts"><app-search-posts [searchQuery]="searchQuery"></app-search-posts></mat-tab>
+        <mat-tab label="People"><app-search-personal-users [searchQuery]="searchQuery"></app-search-personal-users></mat-tab>
+        <mat-tab label="Organizations"><app-search-organizational-users [searchQuery]="searchQuery"></app-search-organizational-users></mat-tab>
+      </mat-tab-group>
+</div>

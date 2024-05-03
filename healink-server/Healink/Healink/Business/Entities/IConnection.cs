@@ -8,7 +8,7 @@
         DateTime AcceptedDate { get; set; }
         long SenderId { get; set; }
         long ReceiverId { get; set; }
-        string Status { get; set; }
+        long Status { get; set; }
         #endregion
     }
 }

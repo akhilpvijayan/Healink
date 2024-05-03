@@ -85,6 +85,16 @@ namespace Healink.Business.Services.Services
             return this._context.OrganizationDetailDto.FromSqlRaw(sqlQuery).AsEnumerable().SingleOrDefault();
         }
 
+        public long GetConnectionStatus(long userId, long targetId)
+        {
+            var status = this._context.Connections.FirstOrDefault(x => x.SenderId == userId && x.ReceiverId == targetId);
+            if(status != null)
+            {
+                return status.Status;
+            }
+            return 0;
+        }
+
         public bool CheckDuplicateUserName(string username)
         {
             bool isUsernameExist = false;

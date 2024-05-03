@@ -26,11 +26,11 @@ namespace Healink.Business.Services.Services
         }
         #endregion
         #region public functions
-        public IEnumerable<object> GetAllPosts()
+        public IEnumerable<object> GetAllPosts(int skip, int take, long userId)
         {
             try
             {
-                var sqlQuery = $"Exec spGetPostDetails";
+                var sqlQuery = $"EXEC spGetPostDetails {skip},{take},{false},{userId}";
                 var posts = this._context.PostDto.FromSqlRaw(sqlQuery).ToList();
                 return posts;
             }
@@ -40,11 +40,25 @@ namespace Healink.Business.Services.Services
             }
         }
 
-        public IEnumerable<object> GetPosts(long? userId = null)
+        public IEnumerable<object> GetPosts(int skip, int take, long userId)
         {
             try
             {
-                var sqlQuery = $"Exec spGetPostDetails {userId}";
+                var sqlQuery = $"Exec spGetPostDetails {skip},{take},{true},{userId}";
+                var posts = this._context.PostDto.FromSqlRaw(sqlQuery).ToList();
+                return posts;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IEnumerable<object> GetPost(int postId)
+        {
+            try
+            {
+                var sqlQuery = $"Exec spGetSinglePostDetails {postId}";
                 var posts = this._context.PostDto.FromSqlRaw(sqlQuery).ToList();
                 return posts;
             }
@@ -120,6 +134,22 @@ namespace Healink.Business.Services.Services
                 return true;
             }
             return false;
+        }
+
+        public IEnumerable<object> GetComments(int skip, int take, long postId)
+        {
+            try
+            {
+                return _context.Comments.Where(x => x.PostId == postId)
+                                        .OrderBy(x => x.ModifiedDate)
+                                        .Skip(skip)
+                                        .Take(take)
+                                        .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
     }

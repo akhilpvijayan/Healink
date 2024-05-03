@@ -19,11 +19,8 @@ export class ProfileComponent implements OnInit {
   loggedInUser: any;
   userId: any = null;
   userDetailClone: any;
-  showEditButton: boolean = false;
-  showCoverEditButton: boolean = false;
   constructor(private userService: UserService,
     private route: ActivatedRoute,
-    private dialog: MatDialog,
     private imgConverter: ImageConversionService,
     private spinner: NgxSpinnerService) { }
 
@@ -39,10 +36,34 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserDetail() {
-    this.userService.getUserDetail(this.userId).subscribe((res: any) => {
+    this.userService.getUserDetail(this.userId).subscribe(async (res: any) => {
       if (res) {
         this.userDetail = res;
         this.userDetailClone = res;
+        if (this.userDetail?.experience) {
+          for (const experienceItem of this.userDetail.experience) {
+            if (experienceItem?.companyLogo) {
+              try {
+                const dataUrl = await this.imgConverter.convertImageToDataURL(experienceItem.companyLogo);
+                experienceItem.companyLogo = dataUrl;
+              } catch (error) {
+                console.error('Error converting image to data URL:', error);
+              }
+            }
+          }
+        }
+        if (this.userDetail?.education) {
+          for (const experienceItem of this.userDetail.education) {
+            if (experienceItem?.orgLogo) {
+              try {
+                const dataUrl = await this.imgConverter.convertImageToDataURL(experienceItem.orgLogo);
+                experienceItem.orgLogo = dataUrl;
+              } catch (error) {
+                console.error('Error converting image to data URL:', error);
+              }
+            }
+          }
+        }
         if (this.userDetail.profileImage != null) {
           this.imgConverter.convertImageToDataURL(this.userDetail.profileImage).then((profileImageUrl: any) => {
             this.userDetail.profileImage = profileImageUrl;
@@ -53,60 +74,18 @@ export class ProfileComponent implements OnInit {
             this.userDetail.profileCover = profileCoverUrl;
           });
         }
+        if (this.userDetail.organizationLogo != null) {
+          this.imgConverter.convertImageToDataURL(this.userDetail.organizationLogo).then((profileImageUrl: any) => {
+            this.userDetail.organizationLogo = profileImageUrl;
+          });
+        }
+        if (this.userDetail.organizationCover != null) {
+          this.imgConverter.convertImageToDataURL(this.userDetail.organizationCover).then((profileImageUrl: any) => {
+            this.userDetail.organizationCover = profileImageUrl;
+          });
+        }
         this.spinner.hide();
       }
     });
-  }
-
-  formatMonthYear(date: string): string {
-    return this.userService.formatMonthYear(date);
-  }
-
-  calculateDuration(startDate: string, endDate: string, current: boolean): string {
-    return this.userService.calculateDuration(startDate, endDate, current);
-  }
-
-  editProfile(editSectionType: number) {
-    let dialogWidth = '600px';
-    let dialogHeight = '90%';
-
-    // Adjust dimensions based on section type
-    if (editSectionType === 8) {
-      dialogWidth = '600px';
-      dialogHeight = '47%';
-    }
-    else if (editSectionType === 9) {
-      dialogWidth = '600px';
-      dialogHeight = '80%';
-    }
-
-    // Configure dialog
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = dialogWidth;
-    dialogConfig.height = dialogHeight;
-    dialogConfig.hasBackdrop = true;
-    dialogConfig.panelClass = 'custom-dialog-container';
-    dialogConfig.enterAnimationDuration= '300ms';
-    dialogConfig.exitAnimationDuration = '300ms';
-    dialogConfig.data = {
-      profileDetails: this.userDetailClone,
-      section: editSectionType
-    };
-
-    const dialogRef = this.dialog.open(EditProfileDialogComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.getUserDetail();
-      }
-    });
-  }
-
-  addEducation() {
-
-  }
-
-  addExperience() {
-
   }
 }

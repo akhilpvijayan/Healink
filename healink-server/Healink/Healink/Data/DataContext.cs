@@ -28,6 +28,7 @@ namespace Healink.Data
         public DbSet<State> States { get; set; }
         public DbSet<OrganizationSize> OrganizationSize { get; set; }
         public DbSet<Chats> Chats { get; set; }
+        public DbSet<Likes> Likes { get; set; }
 
         public DbSet<UserDetailsDto> UserDetailsDto { get; set; }
         public DbSet<UserDto> UserDto { get; set; }
@@ -114,6 +115,18 @@ namespace Healink.Data
                .HasOne(c => c.Chat)
                .WithMany(u => u.UserChatId)
                .HasForeignKey(c => c.ChatId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Likes>()
+               .HasOne(c => c.LikedPostId)
+               .WithMany(u => u.LikedPost)
+               .HasForeignKey(c => c.PostId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Likes>()
+               .HasOne(c => c.LikedUserId)
+               .WithMany(u => u.LikedUser)
+               .HasForeignKey(c => c.UserId)
                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<UserDetailsDto>().ToView(null);

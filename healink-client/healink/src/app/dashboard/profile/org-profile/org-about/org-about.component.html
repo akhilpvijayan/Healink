@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="overview">
+        <h2>Overview</h2>
+        <p>{{userDetail?.organizationBio}}</p>
+    </div>
+    <div class="website">
+        <h4>Website</h4>
+        <b><a href="{{userDetail?.organizationWebsite}}" target="_blank">{{userDetail?.organizationWebsite}}</a></b>
+    </div>
+    <div class="org-type">
+        <h4>Industry Type</h4>
+        <p>{{userDetail?.industryName}}</p>
+    </div>
+    <div class="org-size">
+        <h4>Organization Size</h4>
+        <p>{{userDetail?.organizationSize}} Employees</p>
+    </div>
+    <div class="org-hq">
+        <h4>HeadQuarters</h4>
+        <p>{{ userDetail?.countryName ? userDetail.countryName +
+            (userDetail.stateName ? ', ' + userDetail.stateName : '') +
+            (userDetail.region ? ', ' + userDetail.region : '')
+            : '' }}</p>
+    </div>
+</div>

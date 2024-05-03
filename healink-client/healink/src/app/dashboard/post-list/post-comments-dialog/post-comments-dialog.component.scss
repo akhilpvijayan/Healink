@@ -1,0 +1,186 @@
+.container{
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    height: 94%;
+    overflow: hidden;
+}
+
+.comment{
+    width: 80%;
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+  .message-area {
+    background-color: #ffffffd4;
+    height: 90%;
+    margin: 0;
+    overflow-y: auto;
+  }
+
+  .message {
+    display: flex;
+    margin: 10px;
+  }
+  
+  .sent .message-content {
+    max-width: 70%; 
+    margin-left: auto;
+    background-color: #215023;
+    color: white;
+  }
+  
+  .received .message-content {
+    max-width: 70%;
+    background-color: #fff;
+  }
+  
+  .message-content {
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    height: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .message-area .message:last-child {
+    margin-bottom: 5px;
+  }
+
+  .message-input {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd;
+  }
+
+  .message-input textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+  }
+
+  .message-input button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .left{
+    float: left;
+    text-align: left;
+  }
+
+  .header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.no-chats-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    p{
+        font-weight: 500;
+        color: grey;
+    }
+}
+
+.comment {
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 96%;
+  }
+  
+  .image-cover{
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+  }
+
+  .comment img {
+    background-color: #eaeaea;
+    color: #000000;
+    border: none;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+
+  .comment .textarea {
+    background-color: #f6f6f6;
+    color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 8px 5px;
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .textarea .more {
+    margin-left: 90%;
+  }
+
+  .editedContent{
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    width: 80%;
+  }
+
+  .edit {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    margin-left: 0px;
+    border-radius: 5px;
+    width: 50px;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .cancel{
+    top: 5px;
+    left: 95%;
+  }
+
+@media only screen and (max-width: 950px) {
+    .container{
+        height: 97%;
+        border: none;
+    }
+
+    .cancel{
+      left: 90%;
+    }
+
+    .textarea .more {
+      margin-left: 85%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+  .textarea .more {
+    margin-left: 80%;
+  }
+
+  .comment{
+    width: 85%;
+}
+}

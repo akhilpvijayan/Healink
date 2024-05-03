@@ -47,6 +47,18 @@ import { ChatsComponent } from './dashboard/chats/chats.component';
 import { ChatDetailsComponent } from './dashboard/chats/chat-details/chat-details.component';
 import { UsersDialogComponent } from './dashboard/chats/users-dialog/users-dialog.component';
 import { MessagesComponent } from './dashboard/messages/messages.component';
+import { PostCommentsDialogComponent } from './dashboard/post-list/post-comments-dialog/post-comments-dialog.component';
+import { OrgProfileComponent } from './dashboard/profile/org-profile/org-profile.component';
+import { PersonalProfileComponent } from './dashboard/profile/personal-profile/personal-profile.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { OrgAboutComponent } from './dashboard/profile/org-profile/org-about/org-about.component';
+import { OrgPostsComponent } from './dashboard/profile/org-profile/org-posts/org-posts.component';
+import { OrgJobsComponent } from './dashboard/profile/org-profile/org-jobs/org-jobs.component';
+import { SearchComponent } from './search/search.component';
+import { SearchAllComponent } from './search/search-all/search-all.component';
+import { SearchPostsComponent } from './search/search-posts/search-posts.component';
+import { SearchPersonalUsersComponent } from './search/search-personal-users/search-personal-users.component';
+import { SearchOrganizationalUsersComponent } from './search/search-organizational-users/search-organizational-users.component';
 
 
 @NgModule({
@@ -80,7 +92,18 @@ import { MessagesComponent } from './dashboard/messages/messages.component';
     ChatsComponent,
     ChatDetailsComponent,
     UsersDialogComponent,
-    MessagesComponent
+    MessagesComponent,
+    PostCommentsDialogComponent,
+    OrgProfileComponent,
+    PersonalProfileComponent,
+    OrgAboutComponent,
+    OrgPostsComponent,
+    OrgJobsComponent,
+    SearchComponent,
+    SearchAllComponent,
+    SearchPostsComponent,
+    SearchPersonalUsersComponent,
+    SearchOrganizationalUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +125,7 @@ import { MessagesComponent } from './dashboard/messages/messages.component';
     MatBadgeModule,
     MatListModule,
     MatCardModule,
+    MatTabsModule,
     NgxSpinnerModule,
     FormsModule
   ],

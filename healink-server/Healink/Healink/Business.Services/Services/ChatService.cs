@@ -31,9 +31,9 @@ namespace Healink.Business.Services.Services
             return this._context.ChatsDto.FromSqlRaw(sqlQuery).AsEnumerable().ToList();
         }
 
-        public List<ChatsDto> GetMessages(long chatId, long userId)
+        public List<ChatsDto> GetMessages(int skip, int take, long chatId, long userId)
         {
-            var sqlQuery = $"Exec spGetMessageDetails {chatId}, {userId}";
+            var sqlQuery = $"Exec spGetMessageDetails {skip}, {take}, {chatId}, {userId}";
             return this._context.ChatsDto.FromSqlRaw(sqlQuery).AsEnumerable().ToList();
         }
 

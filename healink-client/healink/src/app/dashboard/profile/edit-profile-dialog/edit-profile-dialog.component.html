@@ -81,6 +81,106 @@
         <small *ngIf="userForm.controls['userBio'].dirty && userForm.hasError('required','userBio')"
             class="error">*About section is required</small>
     </div>
+    <div formArrayName="experiences" class="experience" *ngIf="data.section == 10">
+        <div *ngFor="let experience of experienceForms.controls; let i=index">
+            <div [formGroupName]="i" class="experience-item">
+                <div class="head">
+                    <h2>Experience {{i+1}}</h2>
+                    <button id='close' (click)="removeExperience(i)">close</button>
+                </div>
+                <div class="container-small-unit">
+                    <label class="label" for="">Title <span class="error">*</span></label>
+                    <input formControlName="title" class="input" type="text" placeholder="Enter your job title"
+                        required />
+                    <label class="label" for="">Company <span class="error">*</span></label>
+                    <ng-select formControlName="companyId" [items]="companies" bindLabel="organizationName"
+                        bindValue="organizationDetailId" placeholder="Select Company or Organization"
+                        (change)="setExpOrgName(i)">
+                        <ng-template #optionTemplate let-item="item">
+                            <img [src]="item.organizationLogo ? item.organizationLogo : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC'"
+                                alt="org-logo" class="org-image" />
+                            <span>{{ item.organizationName }}</span>
+                        </ng-template>
+                    </ng-select>
+                    <br>
+                    <input *ngIf="userForm.value.experiences[i].companyId == 0" formControlName="company" class="input"
+                        type="text" placeholder="Enter company name" required />
+                    <label class="label" for="">Location <span class="error">*</span></label>
+                    <input formControlName="location" class="input" type="text" placeholder="Enter company location"
+                        required />
+                    <label class="label" for="">Duration</label>
+                    <div class="date-field">
+                        <label class="label" for="">Start Date <span class="error">*</span></label>
+                        <input formControlName="startDate" class="input" type="date" required />
+                        <label class="label" for="">End Date</label>
+                        <input formControlName="endDate" class="input" type="date" [disabled]="isEndDateDisabled(i)" />
+                    </div>
+                    <div class="container-small-unit checkbox-container">
+                        <label class="label" for="current">Are you currently working here?</label>
+                        <input formControlName="current" class="checkbox" type="checkbox" id="current" #currentCheckbox
+                            (change)="onCheckboxChange(currentCheckbox.checked, i)" />
+                    </div>
+                    <label class="label">Description</label>
+                </div>
+                <div class="container-small-unit-textarea">
+                    <textarea formControlName="description" class="input" type="text" name="description" id="description" cols="30" rows="10"
+                        placeholder="Enter your experience summary here"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="add-experience" (click)="addExperience()" *ngIf="data.section == 10">Add Experience</button>
+    <div formArrayName="educations" class="education" *ngIf="data.section == 11">
+        <div *ngFor="let education of educationForms.controls; let i=index">
+            <div [formGroupName]="i" class="experience-item">
+                <div class="head">
+                    <h2>Education {{i+1}}</h2>
+                    <button id='close' (click)="removeEducation(i)">close</button>
+                </div>
+                <div class="container-small-unit">
+                    <label class="label" for="">Institution <span class="error">*</span></label>
+                    <ng-select formControlName="orgId" [items]="educationalOrgs" bindLabel="organizationName"
+                        bindValue="organizationDetailId" placeholder="Select Institution" (change)="setOrgName(i)">
+                        <ng-template #optionTemplate let-item="item">
+                            <img [src]="item.organizationLogo ? item.organizationLogo : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC'"
+                                alt="org-logo" class="org-image" />
+                            <span>{{ item.organizationName }}</span>
+                        </ng-template>
+                    </ng-select>
+                    <br>
+                    <input *ngIf="userForm.value.educations[i].orgId == 0" formControlName="institution" class="input"
+                        type="text" placeholder="Enter Institution name" required />
+                    <label class="label" for="">Degree <span class="error">*</span></label>
+                    <input formControlName="degree" class="input" type="text" placeholder="Enter the type of degree"
+                        required />
+                    <label class="label" for="">Field Of Study <span class="error">*</span></label>
+                    <input formControlName="fieldOfStudy" class="input" type="text"
+                        placeholder="Enter your Field of Study" required />
+                    <label class="label" for="">Duration</label>
+                    <div class="date-field">
+                        <label class="label" for="">Start Date <span class="error">*</span></label>
+                        <input formControlName="graduationStartDate" class="input" type="date" required />
+                        <label class="label" for="">End Date</label>
+                        <input formControlName="graduationEndDate" class="input" type="date"
+                            [disabled]="isEducationEndDateDisabled(i)" />
+                    </div>
+                    <div class="container-small-unit checkbox-container">
+                        <label class="label" for="current">Are you currently studying here?</label>
+                        <input formControlName="current" class="checkbox" type="checkbox" id="current"
+                            #currentCheckboxGraduation
+                            (change)="onEducationCheckboxChange(currentCheckboxGraduation.checked, i)" />
+                    </div>
+                    <label class="label">Description</label>
+                </div>
+                <div class="container-small-unit-textarea">
+                    <textarea formControlName="graduationDescription" class="input" type="text" name="graduationDescription"
+                        id="graduationDescription" cols="30" rows="10"
+                        placeholder="Enter your graduation summary here"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="add-experience" (click)="addEducation()" *ngIf="data.section == 11">Add Education</button>
     <div class="input-submit">
         <button [disabled]="userForm.invalid" class="submit-btn btn" id="submit">Save</button>&nbsp;
         <button class="cancel" type="button" (click)="closeDialog(false)">Cancel</button>

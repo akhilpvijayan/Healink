@@ -24,8 +24,11 @@ namespace Healink.Entities
         [ForeignKey("Receiver")]
         public long ReceiverId { get; set; }
 
+        //Accepted = 1
+        //Rejected/Not Connected = 0
+        //Pending = 2
         [Required]
-        public string Status { get; set; }
+        public long Status { get; set; }
         #endregion
 
         [InverseProperty("SentUser")]

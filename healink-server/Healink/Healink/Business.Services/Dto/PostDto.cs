@@ -15,6 +15,7 @@ namespace Healink.Business.Services.Dto
         public string FullName { get; set; }
         public byte[]? ProfileLogo { get; set; } = null;
         public int CommentCount { get; set; }
+        public bool IsLikedByMe { get; set; }
         #endregion
     }
 }

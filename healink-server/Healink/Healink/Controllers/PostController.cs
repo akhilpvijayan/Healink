@@ -23,12 +23,12 @@ namespace Healink.Controllers
 
         #region public functions
         [Authorize]
-        [HttpGet("posts")]
-        public async Task<IActionResult> GetAllPosts()
+        [HttpGet("posts/all/{userId}")]
+        public async Task<IActionResult> GetAllPosts([FromQuery] int skip, [FromQuery] int take, long userId)
         {
             try
             {
-                var posts =  _postService.GetAllPosts();
+                var posts =  _postService.GetAllPosts(skip, take, userId);
                 if (posts != null)
                 {
                     return Ok(posts);
@@ -46,11 +46,33 @@ namespace Healink.Controllers
 
         [Authorize]
         [HttpGet("posts/{userId}")]
-        public async Task<IActionResult> GetPosts(long userId)
+        public async Task<IActionResult> GetPosts([FromQuery] int skip, [FromQuery] int take, long userId)
         {
             try
             {
-                var posts = _postService.GetPosts(userId);
+                var posts = _postService.GetPosts(skip, take, userId);
+                if (posts != null)
+                {
+                    return Ok(posts);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [Authorize]
+        [HttpGet("post/{postId}")]
+        public async Task<IActionResult> GetPost(int postId)
+        {
+            try
+            {
+                var posts = _postService.GetPost(postId);
                 if (posts != null)
                 {
                     return Ok(posts);
@@ -110,6 +132,28 @@ namespace Healink.Controllers
 
             return NotFound();
         }
-        #endregion
-    }
+
+        [Authorize]
+        [HttpGet("comments/{postId}")]
+        public async Task<IActionResult> GetComments([FromQuery] int skip, [FromQuery] int take, long postId)
+        {
+            try
+            {
+                var posts = _postService.GetComments(skip, take, postId);
+                if (posts != null)
+                {
+                    return Ok(posts);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+            #endregion
+        }
 }

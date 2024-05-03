@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Healink.Business.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Healink.Entities
 {
-    public class State
+    public class State: IState
     {
         #region properties
         [Key]

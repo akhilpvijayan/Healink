@@ -10,11 +10,11 @@ export class ChatService {
   constructor(
     private httpClient: HttpClient) { }
 
-    getAllChats(userId: number) {
+    getAllChats(skip: number, take: number, userId: number) {
       return this.httpClient.get<any>(`${environment.apiUrl}chats/`+userId);
     }
 
-    getAllMessages(chatId: number, userId: number) {
-      return this.httpClient.get<any>(`${environment.apiUrl}messages/`+chatId+`/`+userId);
+    getAllMessages(skip: number, take: number, chatId: number, userId: number) {
+      return this.httpClient.get<any[]>(`${environment.apiUrl}messages/${chatId}/${userId}?skip=${skip}&take=${take}`);
     }
 }

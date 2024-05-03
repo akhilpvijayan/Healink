@@ -55,7 +55,7 @@ builder.Services.AddAuthentication(options =>
 //Here using this default cors policy
 builder.Services.AddCors(p => p.AddDefaultPolicy(build =>
 {
-    build.WithOrigins("http://localhost:4200")
+    build.WithOrigins("http://localhost:4200", "https://healinkweb.vercel.app")
     .AllowAnyHeader().
     AllowAnyMethod()
     .AllowCredentials();
@@ -86,6 +86,7 @@ builder.Services.AddTransient<IOrganizationService, OrganizationService>();
 builder.Services.AddTransient<IEducationService, EducationService>();
 builder.Services.AddTransient<IExperienceService, ExperienceService>();
 builder.Services.AddTransient<IChatService, ChatService>();
+builder.Services.AddTransient<ISearchService, SearchService>();
 
 
 //builder.Services.AddTransient<CustomMiddleWare>();

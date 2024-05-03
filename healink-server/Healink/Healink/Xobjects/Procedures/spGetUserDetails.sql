@@ -68,7 +68,7 @@ CREATE PROCEDURE [dbo].[spGetUserDetails]
 				OD.OrganizationBio,
 				CT.CountryId,
 				CT.CountryName,
-				OD.OrganizationSize,
+				OS.OrganizationSizeType OrganizationSize,
 				ST.StateId,
 				ST.StateName,
 				OD.Region,
@@ -84,6 +84,7 @@ CREATE PROCEDURE [dbo].[spGetUserDetails]
 				INNER JOIN Roles RL ON RL.RoleId = US.RoleId
 				INNER JOIN Countries CT ON CT.CountryId =OD.CountryId
 				INNER JOIN States ST ON OD.StateId =ST.StateId
+				INNER JOIN OrganizationSize OS ON OS.OrganizationSizeId = OD.OrganizationSize
 				WHERE US.UserId = @UserId
         END
 GO

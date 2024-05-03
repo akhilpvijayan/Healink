@@ -7,12 +7,13 @@ namespace Healink.Business.Services
     public interface IPostService
     {
         #region public functions
-        IEnumerable<object> GetAllPosts();
-        IEnumerable<object> GetPosts(long? userId = null);
+        IEnumerable<object> GetAllPosts(int skip, int take, long userId);
+        IEnumerable<object> GetPosts(int skip, int take, long userId);
+        IEnumerable<object> GetPost(int postId);
         Task<bool> AddPost(AddPostDto postdetails);
         Task<bool> UpdatePost(UpdatePostDto postdetails);
-
         Task<bool> DeletePost(int postId);
+        IEnumerable<object> GetComments(int skip, int take, long postId);
         #endregion
     }
 }

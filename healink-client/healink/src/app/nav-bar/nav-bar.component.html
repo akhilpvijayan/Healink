@@ -6,8 +6,8 @@
         <span class="main-title">H<span class="title">L</span></span>
     </a>
     <div class="search">
-        <input type="text" class="searchTerm" placeholder="What are you looking for?">
-        <button type="submit" class="searchButton">
+        <input type="text" class="searchTerm" [(ngModel)]="searchContent" placeholder="What are you looking for?">
+        <button type="submit" class="searchButton" (click)="search()">
             <i class="fa fa-search"></i>
         </button>
     </div>
@@ -26,12 +26,12 @@
         </button>
     </div>
 
-    <div class="icon-button nav-button">
+    <!-- <div class="icon-button nav-button">
         <button mat-button class="icon-button-content">
             <mat-icon matBadge="">business_center</mat-icon>
             <span class="icon-label">Jobs</span>
         </button>
-    </div>
+    </div> -->
 
     <div class="icon-button">
         <button mat-button class="icon-button-content" (click)="showMessages()">
@@ -39,21 +39,21 @@
             <span class="icon-label nav-button">Messages</span>
         </button>
     </div>
-
+<!-- 
     <div class="icon-button nav-button" (click)="showNotifications()">
         <button mat-button class="icon-button-content">
             <mat-icon matBadge="2" matBadgeSize="small" matBadgeColor="accent"
                 [matBadgeHidden]="isNoNotifications">notifications</mat-icon>
             <span class="icon-label">Notifications</span>
         </button>
-    </div>
+    </div>-->
     <button [matMenuTriggerFor]="profileMenu" mat-button class="nav-button"><img
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC"
             alt="Profile Picture" class="profile-photo nav-button"></button>
     <mat-menu #profileMenu="matMenu" class="nav-button">
         <button mat-menu-item (click)="showProfile()" class="nav-button"><mat-icon> person_pin</mat-icon>View
             Profile</button>
-        <button mat-menu-item (click)="showProfile()" class="nav-button"> <mat-icon>settings</mat-icon>Settings</button>
+        <!-- <button mat-menu-item (click)="showProfile()" class="nav-button"> <mat-icon>settings</mat-icon>Settings</button> -->
         <button mat-menu-item (click)="signOut()" class="nav-button"><mat-icon>exit_to_app</mat-icon>Sign Out</button>
     </mat-menu>
 </mat-toolbar>
@@ -71,7 +71,7 @@
             <span class="icon-label">Network</span>
         </button>
     </div>
-
+<!-- 
     <div class="icon-button">
         <button mat-button class="icon-button-content">
             <mat-icon matBadge="">business_center</mat-icon>
@@ -85,13 +85,13 @@
                 [matBadgeHidden]="isNoNotifications">notifications</mat-icon>
             <span class="icon-label">Notifications</span>
         </button>
-    </div>
+    </div> -->
     <button [matMenuTriggerFor]="profileMenu" mat-button><img
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAAAMFBMVEW6urr///+3t7fT09P39/f8/Py+vr60tLTm5ub09PTFxcXX19fBwcHv7+/Q0NDg4ODkTEn6AAADiklEQVR4nO2bi27rIAxAExcI4fn/fzsouWu7R8PTZLo+07RO6rYjEwzYbFkIgiAIgiAIgiAIYgYifgpxvLoosAUA0pfZMj8gguFinJd2Z4ztVnpnlmB6rZCCcN7y9RluvRMXiiiA0J+K/PhMolrAVUSFZkntOZjHt0xfY9BB7+s7dj0/mmDkyt9a8lWayZ7g2Ilk1GRupiaA5hmS4UNPnERRMg8+7+EEn+kY8ZM04VYgua63KZrgcof7GPQpU8icz+4XyZWZCZayKJIRiS+p16JQ3t+tsSXN+2XxZ3bkMd98aSjv7/cbpiQsFZGMLJjzHHSlJeoSJGqeysiOudssTOgPuEO0LFnAX/F4ktUDjjrkqnbAAwpr/hRuhl5B2xqFlF49e/D2mZttiKXFWn6gfvKE6YOW11mDJcOS/BuWoiERrRwrYbZZIkn+kRFvmuOM8uWLZf2WKBwk0bJ67U49grdbVw2WCkuy7pibwDzsltc1/oFY3ygtZD1ALWmZ2ryOWdESRfXVZzxgHnVFeQHm/hO4zZ9NVtWJ0FL6gap5MhleskyArxhxxJLBgSjfclj8liQUlw44WsHgWVOvPF80vHVCY0oUb42i5IwutChZzuW8Pnm+5oQuyie5+YjP6kIemlld3Ykd3QN1njct9pLzHQD/frFkfv41mDhz1bt9nFfLBe6T3QXUL/Fkd8f5kgnYhJZfj2y71OJq191gMU5bm2LKrNXOoLbzsoElXhiMLwC2ayoS/yXwYLbKVyDKLcIo5ZzTifBKKSPiFLqAb/ATyul40/bbxp3zePNWOyWmhjb8bXWTliW93zZHnFl5U8sc0ZjF5fO6+EMsn9dKiZ3l45nH3GRp3YDJm8E7+wjYjGc1tUHOvNlw6lkAKh13KupEAakwntDg2NKUigM/unogQJzszLM8vRg67OBa2mYP9pGFa4jX51tapQkeL9uP0+wTyMQ+RhEyzrQl2BGTaFMxku3DnYi/Z1fd69eg2Ld/6GiSjA9n72hCQ1Pvd/bOmjU9iTO69yyqu1BndK3FVfcdz+h5H7OiH5FLv75FrPMPkuzYE4BxoQzB7GQJbqDkunbaeAwNZbdgVjVG8+nUQm25l5NDn/lTf5UkD9nDMiTLUXko0SVlDn4sOz2YLZfTs+ixSg7OlpEOGbPpCn0eHS7akyVZkiVZkiVZkiVZkiVZkiVZkiVZkiVZXtjyA2TTMEwct/vIAAAAAElFTkSuQmCC"
             alt="Profile Picture" class="profile-photo"></button>
     <mat-menu #profileMenu="matMenu">
         <button mat-menu-item (click)="showProfile()"><mat-icon> person_pin</mat-icon>View Profile</button>
-        <button mat-menu-item (click)="showProfile()"> <mat-icon>settings</mat-icon>Settings</button>
+        <!-- <button mat-menu-item (click)="showProfile()"> <mat-icon>settings</mat-icon>Settings</button> -->
         <button mat-menu-item (click)="signOut()"><mat-icon>exit_to_app</mat-icon>Sign Out</button>
     </mat-menu>
 </mat-toolbar>

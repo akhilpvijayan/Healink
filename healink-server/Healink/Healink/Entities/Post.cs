@@ -25,5 +25,8 @@ namespace Healink.Entities
         #endregion
 
         public virtual User User { get; set; }
+
+        [InverseProperty("LikedPostId")]
+        public virtual ICollection<Likes> LikedPost { get; set; }
     }
 }
