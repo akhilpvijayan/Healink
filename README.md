@@ -16,7 +16,7 @@ https://healinkweb.vercel.app/login
 
 **Frontend**: HTML, SCSS, Angular, Typescript
 
-**Backend**: .NET, C#, SQL
+**Backend**: .NET, C#, SQL, T-SQL
 
 **Authentication**: JSON Web Tokens (JWT)
 
@@ -31,8 +31,6 @@ To run HeaLink locally, follow these steps:
 git clone https://github.com/akhilpvijayan/Healink.git
 
 **Install Dependencies**:
-
-cd healink
 
 npm install
 
