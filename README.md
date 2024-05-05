@@ -20,7 +20,11 @@ https://healinkweb.vercel.app/login
 
 **Authentication**: JSON Web Tokens (JWT)
 
+**Caching**: In-Memory caching
+
 **Real-time Communication**: SignalR
+
+**Logging**: SeriLog
 
 # Getting Started
 
