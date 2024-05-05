@@ -2,6 +2,8 @@
 
 HeaLink is a professional networking platform designed specifically for medical professionals, providing a dedicated space to connect, collaborate, and share knowledge within the healthcare community.
 
+https://healinkweb.vercel.app/login
+
 # Features
 **Profiles**: Create detailed professional profiles highlighting your expertise, qualifications, and medical interests.
 
@@ -24,7 +26,7 @@ To run HeaLink locally, follow these steps:
 
 **Clone the Repository**:
 
-git clone https://github.com/yourusername/healink.git
+git clone https://github.com/akhilpvijayan/Healink.git
 
 **Install Dependencies**:
 
