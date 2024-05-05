@@ -8,9 +8,13 @@ HeaLink is a professional networking platform designed specifically for medical 
 **Messaging**: Communicate securely with other members via private messaging.
 
 # Technologies Used
+
 **Frontend**: HTML, SCSS, Angular, Typescript
+
 **Backend**: .NET, C#, SQL
+
 **Authentication**: JSON Web Tokens (JWT)
+
 **Real-time Communication**: SignalR
 
 
