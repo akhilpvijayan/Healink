@@ -26,6 +26,8 @@ https://healinkweb.vercel.app/login
 
 **Logging**: SeriLog
 
+**Message Encryption :  AES Encryption
+
 # Getting Started
 
 To run HeaLink locally, follow these steps:
