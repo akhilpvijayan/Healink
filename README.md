@@ -26,7 +26,7 @@ https://healinkweb.vercel.app/login
 
 **Logging**: SeriLog
 
-**Message Encryption :  AES Encryption
+**Message Encryption** :  AES Encryption
 
 # Getting Started
 
