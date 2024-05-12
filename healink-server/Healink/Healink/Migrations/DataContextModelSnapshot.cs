@@ -27,6 +27,10 @@ namespace Healink.Migrations
                     b.Property<long>("ChatId")
                         .HasColumnType("bigint");
 
+                    b.Property<byte[]>("EncryptedMessageContent")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -39,7 +43,6 @@ namespace Healink.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MessageContent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("ProfileImage")
@@ -877,10 +880,14 @@ namespace Healink.Migrations
                     b.Property<bool>("IsRead")
                         .HasColumnType("bit");
 
-                    b.Property<string>("MessageContent")
+                    b.Property<byte[]>("MessageAesKey")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("MessageContent")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("varbinary(500)");
 
                     b.Property<long>("ReceiverId")
                         .HasColumnType("bigint");

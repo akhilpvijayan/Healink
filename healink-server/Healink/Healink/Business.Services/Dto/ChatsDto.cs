@@ -7,7 +7,8 @@ namespace Healink.Business.Services.Dto
     {
         #region properties
         public long ChatId { get; set; }
-        public string MessageContent { get; set; }
+        public string? MessageContent { get; set; } = null;
+        public byte[] EncryptedMessageContent { get; set; }
         public long ReceiverId { get; set; }
         public long SenderId { get; set; }
         public bool IsRead { get; set; }

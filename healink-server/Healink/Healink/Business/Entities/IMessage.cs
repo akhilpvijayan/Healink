@@ -4,12 +4,13 @@
     {
         #region properties
         long MessageId { get; set; }
-        string MessageContent { get; set; }
+        byte[] MessageContent { get; set; }
         DateTime Timestamp { get; set; }
         bool IsRead { get; set; }
         long SenderId { get; set; }
         long ReceiverId { get; set; }
         long ChatId { get; set; }
+        byte[] MessageAesKey { get; set; }
         #endregion
     }
 }

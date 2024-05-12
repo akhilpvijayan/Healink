@@ -12,7 +12,7 @@ namespace Healink.Entities
 
         [Required]
         [MaxLength(500)]
-        public string MessageContent { get; set; }
+        public byte[] MessageContent { get; set; }
 
         [Required]
         public DateTime Timestamp { get; set; }
@@ -31,6 +31,8 @@ namespace Healink.Entities
         [Required]
         [ForeignKey("Chat")]
         public long ChatId { get; set; }
+
+        public byte[] MessageAesKey { get; set; }
         #endregion
 
         [InverseProperty("SentMessages")]

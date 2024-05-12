@@ -2,6 +2,7 @@
 using Healink.Business.Services.Dto;
 using Healink.Data;
 using Healink.Entities;
+using Healink.Helper;
 using Microsoft.EntityFrameworkCore;
 
 namespace Healink.Business.Services.Services
@@ -28,13 +29,23 @@ namespace Healink.Business.Services.Services
         public List<ChatsDto> GetChats(long userId)
         {
             var sqlQuery = $"Exec spGetChatDetails {userId}";
-            return this._context.ChatsDto.FromSqlRaw(sqlQuery).AsEnumerable().ToList();
+            var result = this._context.ChatsDto.FromSqlRaw(sqlQuery).AsEnumerable().ToList();
+            foreach (var chat in result)
+            {
+                chat.MessageContent = Encryptor.DecryptMessage(chat.EncryptedMessageContent, _context.Messages.FirstOrDefault(x => x.ChatId == chat.ChatId).MessageAesKey);
+            }
+            return result;
         }
 
         public List<ChatsDto> GetMessages(int skip, int take, long chatId, long userId)
         {
             var sqlQuery = $"Exec spGetMessageDetails {skip}, {take}, {chatId}, {userId}";
-            return this._context.ChatsDto.FromSqlRaw(sqlQuery).AsEnumerable().ToList();
+            var result = this._context.ChatsDto.FromSqlRaw(sqlQuery).AsEnumerable().ToList();
+            foreach(var chat in result)
+            {
+                chat.MessageContent = Encryptor.DecryptMessage(chat.EncryptedMessageContent, _context.Messages.FirstOrDefault(x=>x.ChatId == chatId).MessageAesKey);
+            }
+            return result;
         }
 
         public long isChatExists(long userId, long targetId)

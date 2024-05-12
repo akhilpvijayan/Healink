@@ -33,8 +33,8 @@ namespace Healink.Helper
             await Clients.All.SendAsync("ReceiveMessage", user, message, targetUser);
 
             var chatUser = await _context.Chats.FirstOrDefaultAsync(x => (x.SendUserId == user && x.ReceivedUserId == targetUser) || (x.ReceivedUserId == user && x.SendUserId == targetUser));
-
-            if(chatUser == null)
+            byte[] aesKey = null;
+            if (chatUser == null)
             {
                 chatUser = new Chats
                 {
@@ -48,16 +48,22 @@ namespace Healink.Helper
 
                 await _context.Chats.AddAsync(chatUser);
                 await _context.SaveChangesAsync();
+                aesKey = Encryptor.GenerateAesKey();
+            }
+            else
+            {
+                aesKey = _context.Messages.FirstOrDefault(x => x.ChatId == chatUser.ChatId).MessageAesKey;
             }
 
             var messageEntity = new Message
             {
-                MessageContent = message,
+                MessageContent = Encryptor.EncryptMessage(message, aesKey),
                 Timestamp = DateTime.Now,
                 IsRead = false,
                 SenderId  = user, 
                 ReceiverId = targetUser,
-                ChatId = chatUser.ChatId
+                ChatId = chatUser.ChatId,
+                MessageAesKey = aesKey
             };
             await _context.Messages.AddAsync(messageEntity);
             await _context.SaveChangesAsync();

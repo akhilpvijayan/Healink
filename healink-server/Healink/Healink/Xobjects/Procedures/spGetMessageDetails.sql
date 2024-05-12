@@ -21,7 +21,8 @@ CREATE PROCEDURE [dbo].[spGetMessageDetails]
 			FROM (
 				SELECT
 					@ChatId AS ChatId,
-					MS.MessageContent,
+					MS.MessageContent EncryptedMessageContent,
+					NULL MessageContent,
 					MS.ReceiverId,
 					MS.IsRead,
 					MS.SenderId,

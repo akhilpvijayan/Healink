@@ -16,7 +16,8 @@ CREATE PROCEDURE [dbo].[spGetChatDetails]
 
 		SELECT
 			CS.ChatId,
-			MS.MessageContent,
+			MS.MessageContent EncryptedMessageContent,
+			NULL MessageContent,
 			CASE WHEN 
 			CS.ReceivedUserId = @UserId
 			THEN CS.SendUserId
