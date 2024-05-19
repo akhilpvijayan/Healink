@@ -28,6 +28,10 @@ https://healinkweb.vercel.app/login
 
 **Message Encryption** :  AES Encryption
 
+# Shots
+![Screenshot (352)](https://github.com/akhilpvijayan/Healink/assets/90704113/2cc74119-76e6-434f-8c05-ac330bae7f40)
+
+
 # Getting Started
 
 To run HeaLink locally, follow these steps:
