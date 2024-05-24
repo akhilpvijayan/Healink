@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationPopupDialogComponent } from '../shared/confirmation-popup-dialog/confirmation-popup-dialog.component';
+import { Enums } from '../shared/enums';
+import { ImageConversionService } from '../services/image-conversion.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,16 +18,31 @@ export class NavBarComponent implements OnInit, OnDestroy{
   isLoggedIn = false;
   isNoNotifications = false;
   searchContent: string = '';
+  userDetail: any;
   constructor(private authService: AuthService,
     private router: Router,
     private userService: UserService,
-    private dialog: MatDialog) {}
+    private dialog: MatDialog,
+    private imgConverter: ImageConversionService) {}
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn() ? true : false;
     this.signOutSubscription = this.authService.signOutObservable$.subscribe(() => {
       // Call your function here
       this.isLoggedIn = this.authService.isLoggedIn() ? true : false;
+    });
+    this.userService.getUserDetail(this.userService.getUserId()).subscribe((res: any)=>{
+      this.userDetail = res;
+      if(this.userDetail?.profileImage != null && this.userDetail.RoleId != Enums.Role.OrganizationalUser){
+        this.imgConverter.convertImageToDataURL(this.userDetail.profileImage).then((profileImageUrl: any) => {
+          this.userDetail.profileImage = profileImageUrl;
+        });
+      }
+      else{
+        this.imgConverter.convertImageToDataURL(this.userDetail.organizationLogo).then((profileImageUrl: any) => {
+          this.userDetail.organizationLogo = profileImageUrl;
+        });
+      }
     });
   }
 
