@@ -59,6 +59,8 @@ import { SearchAllComponent } from './search/search-all/search-all.component';
 import { SearchPostsComponent } from './search/search-posts/search-posts.component';
 import { SearchPersonalUsersComponent } from './search/search-personal-users/search-personal-users.component';
 import { SearchOrganizationalUsersComponent } from './search/search-organizational-users/search-organizational-users.component';
+import { SharePostDialogComponent } from './dashboard/post-list/share-post-dialog/share-post-dialog.component';
+import { PostDetailsComponent } from './dashboard/post-list/post-details/post-details.component';
 
 
 @NgModule({
@@ -103,7 +105,9 @@ import { SearchOrganizationalUsersComponent } from './search/search-organization
     SearchAllComponent,
     SearchPostsComponent,
     SearchPersonalUsersComponent,
-    SearchOrganizationalUsersComponent
+    SearchOrganizationalUsersComponent,
+    SharePostDialogComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

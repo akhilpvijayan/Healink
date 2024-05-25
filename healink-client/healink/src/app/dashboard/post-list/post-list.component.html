@@ -5,7 +5,7 @@
     <app-add-post class="post" [userDetail]="userDetail"></app-add-post>
 </div>
 <div class="facebook-post" *ngFor="let post of this.postDetails">
-    <div class="facebook-header">
+    <div class="facebook-header" (click)="showPostDetails(post)">
         <div class="post-profile-pic" *ngIf="post.profileLogo">
             <img src="{{post.profileLogo}}" (click)="showProfile(post.userId)">
         </div>
@@ -35,10 +35,10 @@
         </div>
 
     </div>
-    <div class="facebook-post-content">
+    <div class="facebook-post-content" (click)="showPostDetails(post)">
         {{post.content}}
     </div>
-    <div class="facebook-post-image" *ngIf="post.contentImage != null">
+    <div class="facebook-post-image" *ngIf="post.contentImage != null" (click)="showPostDetails(post)">
         <img src="{{post.contentImage}}">
     </div>
     <div class="counts">
@@ -65,6 +65,6 @@
                 *ngIf="post.commentCount !== null && post.commentCount > 0">
                 ({{post.commentCount}})
             </ng-container></span>
-        <span class="action-button"><i class="fa fa-share"></i> Share</span>
+        <span class="action-button" (click)="sharePost(post.postId)"><i class="fa fa-share"></i> Share</span>
     </div>
 </div>

@@ -1,0 +1,8 @@
+<div id="share-popup" class="share-popup">
+    <button class="cancel" id='close' (click)="closeDialog()">close</button>
+    <div class="popup-content">
+      <p>Share this link:</p>
+      <input type="text" id="share-link" [value]="shareLink" readonly>
+      <button (click)="copyToClipboard()">Copy Link</button>
+    </div>
+  </div>

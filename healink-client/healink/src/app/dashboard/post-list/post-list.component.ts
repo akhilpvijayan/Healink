@@ -12,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/services/user.service';
 import { SignalRService } from 'src/app/shared/signaal-r.service';
 import { PostCommentsDialogComponent } from './post-comments-dialog/post-comments-dialog.component';
+import { SharePostDialogComponent } from './share-post-dialog/share-post-dialog.component';
 
 @Component({
   selector: 'app-post-list',
@@ -245,4 +246,21 @@ onWindowScroll() {
     });
   }
 
+  sharePost(postId: number){
+    this.dialog.open(SharePostDialogComponent,{
+      width:'auto',
+      height:'auto',
+      hasBackdrop: true,
+      panelClass: 'custom-dialog-container',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+      data: {
+        postDetails: this.postDetails.find((post: any) => post.postId === postId)
+      }
+    });
+  }
+
+  showPostDetails(post: any){
+    this.router.navigate(['post'], { queryParams: { q: post.postId } , state: { post }});
+  }
 }

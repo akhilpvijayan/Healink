@@ -11,6 +11,7 @@ import { NetworkComponent } from './dashboard/network/network.component';
 import { InvitationsListComponent } from './dashboard/network/invitations-list/invitations-list.component';
 import { MessagesComponent } from './dashboard/messages/messages.component';
 import { SearchComponent } from './search/search.component';
+import { PostDetailsComponent } from './dashboard/post-list/post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'users/organizational', component: NetworkComponent, canActivate: [AuthGuard] },
   { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'post', component: PostDetailsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -59,7 +59,7 @@
         <button mat-menu-item (click)="signOut()" class="nav-button"><mat-icon>exit_to_app</mat-icon>Sign Out</button>
     </mat-menu>
 </mat-toolbar>
-<mat-toolbar class="toolbarNav">
+<mat-toolbar class="toolbarNav" *ngIf="isLoggedIn">
     <div class="icon-button" (click)="showHome()">
         <button mat-button class="icon-button-content">
             <mat-icon matBadge="">home</mat-icon>

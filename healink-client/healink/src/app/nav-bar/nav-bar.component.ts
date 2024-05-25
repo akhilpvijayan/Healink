@@ -28,7 +28,6 @@ export class NavBarComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn() ? true : false;
     this.signOutSubscription = this.authService.signOutObservable$.subscribe(() => {
-      // Call your function here
       this.isLoggedIn = this.authService.isLoggedIn() ? true : false;
     });
     this.userService.getUserDetail(this.userService.getUserId()).subscribe((res: any)=>{
