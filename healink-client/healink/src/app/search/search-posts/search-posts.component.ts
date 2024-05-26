@@ -87,8 +87,8 @@ export class SearchPostsComponent implements OnInit{
   
     deletePost(postId: number) {
       const dialogRef = this.dialog.open(ConfirmationPopupDialogComponent, {
-        width: '600px',
-        height: '170px',
+        width: 'auto',
+        height: 'auto',
         hasBackdrop: true,
         panelClass: 'custom-dialog-container',
         enterAnimationDuration: '300ms',

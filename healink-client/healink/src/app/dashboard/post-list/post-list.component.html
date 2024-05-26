@@ -5,7 +5,7 @@
     <app-add-post class="post" [userDetail]="userDetail"></app-add-post>
 </div>
 <div class="facebook-post" *ngFor="let post of this.postDetails">
-    <div class="facebook-header" (click)="showPostDetails(post)">
+    <div class="facebook-header">
         <div class="post-profile-pic" *ngIf="post.profileLogo">
             <img src="{{post.profileLogo}}" (click)="showProfile(post.userId)">
         </div>

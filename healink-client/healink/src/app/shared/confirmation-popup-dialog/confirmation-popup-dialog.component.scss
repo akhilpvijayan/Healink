@@ -1,45 +1,52 @@
-.submit-btn-success{
-    width: 20%;
-    height: 30px;
-    background: #00B4CC;
-    border: none;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.submit-btn-error{
-    width: 20%;
-    height: 30px;
-    background: #7f1d1d8e;
-    border: none;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.submit-btn-success:hover{
-    background: #338d03;
-}
-
-.submit-btn-error:hover{
-    background: #ff0000;
-}
-
-.view-profile{
+.warning-dialog {
+    background-color: #f44336;
+    width: 300px;
     text-align: center;
-    padding-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.header{
-    background-color: #00B4CC;
-   color: white;
+.warning-header {
+    padding: 20px;
+    color: white;
 }
 
-.header h2{
-    padding: 10px;
+.warning-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.warning-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.warning-footer button {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-yes {
+    background-color: #e57373; /* lighter red */
+    color: white;
+}
+
+.btn-no {
+    background-color: #e0e0e0; /* gray */
+    color: black;
+}
+
+.btn-yes:hover {
+    background-color: #d32f2f; /* darker red */
+}
+
+.btn-no:hover {
+    background-color: #bdbdbd; /* darker gray */
 }
 
 .content b{

@@ -102,7 +102,7 @@
         <small *ngIf="userForm.controls['userBio'].dirty && userForm.hasError('required','userBio')"
             class="error">*About section is required</small>
     </div>
-    <div formArrayName="experiences" class="experience">
+    <!-- <div formArrayName="experiences" class="experience">
         <div *ngFor="let experience of experienceForms.controls; let i=index">
             <div [formGroupName]="i" class="experience-item">
                 <div class="head">
@@ -201,6 +201,6 @@
             </div>
         </div>
     </div>
-    <button type="button" class="add-experience" (click)="addEducation()">Add Education</button>
+    <button type="button" class="add-experience" (click)="addEducation()">Add Education</button> -->
     <button class="btn" [disabled]="userForm.invalid || experienceForms.invalid" type="submit">submit</button>
 </form>

@@ -71,8 +71,8 @@ export class NavBarComponent implements OnInit, OnDestroy{
 
   signOut() {
     const dialogRef = this.dialog.open(ConfirmationPopupDialogComponent, {
-      width: '600px',
-      height: '170px',
+      width: 'auto',
+      height: 'auto',
       hasBackdrop: true,
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
