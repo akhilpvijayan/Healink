@@ -3,7 +3,7 @@
 </ngx-spinner>
 <div class="login-box">
     <div class="login-header">
-        <header>Connecting Care,<br> <b class="title">Empowering Careers.</b></header>
+        <header>Connecting Care,<br><br><b class="title">Empowering Careers.</b></header>
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group pt-3">
@@ -24,7 +24,7 @@
             class="error">*Password is required</small>
         <small *ngIf="isInvalidUser"
             class="error">*Invalid Username or password</small>
-        <div class="forgot">
+        <!-- <div class="forgot">
             <section>
                 <input type="checkbox" id="check">
                 <label for="check">Remember me</label>
@@ -32,7 +32,7 @@
             <section>
                 <a href="#">Forgot password?</a>
             </section>
-        </div>
+        </div> -->
         <div class="input-submit">
             <button [disabled]="loginForm.invalid" class="submit-btn btn" id="submit"></button>
             <label for="submit">Sign In</label>

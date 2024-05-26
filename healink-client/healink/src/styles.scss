@@ -84,6 +84,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	color: #00B4CC;
   }
   
+  .hide-scrollbar {
+	overflow: hidden; /* Initially hides the scrollbar */
+	overflow-y: scroll; /* Allows vertical scrolling */
+  }
+  
+  /* Hide scrollbar for WebKit browsers */
+  .hide-scrollbar::-webkit-scrollbar {
+	display: none; /* Hide the scrollbar */
+  }
+  
   @keyframes blink {
 	0% { opacity: 0; }
 	50% { opacity: 1; }

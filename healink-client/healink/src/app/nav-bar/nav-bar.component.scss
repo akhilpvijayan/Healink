@@ -1,13 +1,14 @@
 .mat-elevation-z6{
-    background-color: #363636;
-    color: white;
-    height: 60px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    height: 50px;
     width: 100%;
+    box-shadow: 0 0 0 0px
 }
 a .main-title {
     font-size: 20px;
     font-weight: bold;
-    color: #ffffff;
+    color: #010101;
     display: inline-block;
 }
 
@@ -106,13 +107,25 @@ a span .title {
     display: none;
 }
 
+.logo{
+    width: 40px;
+    height: 40px;
+    margin-right: 2px;
+}
+
 @media only screen and (max-width: 950px) {
     .mat-elevation-z6{
-        background-color: #363636;
-        color: white;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
         height: 40px;
         width: 103%;
         padding: 0px;
+    }
+
+    .logo{
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
     }
 
     .mat-elevation-z6 a{
@@ -152,8 +165,8 @@ a span .title {
         display: flex;
         justify-content: space-between;
         padding: 2px;
-        background-color: #363636;
-        color: white;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
 
         .icon-button-content mat-icon{
             font-size: 30px;

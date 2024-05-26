@@ -1,9 +1,8 @@
 <mat-toolbar class="mat-elevation-z6" *ngIf="isLoggedIn">
+    <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/turftime-745bc.appspot.com/o/HL%20(1).png?alt=media&token=bd218a04-a01a-482a-830d-c40b4289450e" (click)="gotoHome()">
+
     <a href="" class="nav-button">
         <span class="main-title">Hea<span class="title">Link</span></span>
-    </a>
-    <a href="" class="nav-button-header">
-        <span class="main-title">H<span class="title">L</span></span>
     </a>
     <div class="search">
         <input type="text" class="searchTerm" [(ngModel)]="searchContent" placeholder="What are you looking for?">

@@ -93,4 +93,8 @@ export class NavBarComponent implements OnInit, OnDestroy{
       this.router.navigate(['search'], { queryParams: { q: this.searchContent } });
     }
   }
+
+  gotoHome(){
+    this.router.navigateByUrl('home');
+  }
 }
