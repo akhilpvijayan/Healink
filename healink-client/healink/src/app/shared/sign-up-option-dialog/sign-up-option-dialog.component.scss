@@ -8,7 +8,7 @@ span{
     height: 100%;
     background-color: rgba(0, 0, 255, 0.036);
     &:hover{
-        background-color: #00B4CC;
+        background: linear-gradient(to right, #00E0FF, #15A8DF);
     }
 }
 
@@ -17,7 +17,7 @@ span{
     width: 50%;
     height: 100%;
     &:hover{
-        background-color: #00B4CC;
+        background: linear-gradient(to right, #00E0FF, #15A8DF);
     }
 }
 

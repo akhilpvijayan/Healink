@@ -112,7 +112,7 @@
     border-radius: 14px;
     padding: 10px 20px;
     margin-right: 10px;
-    background-color: #00B4CC;
+    background: linear-gradient(to right, #00E0FF, #15A8DF);
     color: white;
     text-align: center;
     font-size: large;
@@ -163,7 +163,7 @@
     outline: none;
 
     &:hover{
-        background-color: #00B4CC;
+        background: linear-gradient(to right, #00E0FF, #15A8DF);
         border: 2px solid #00B4CC;
         color: white;
     }
@@ -174,7 +174,7 @@
 
         &:hover{
             color: white;
-            background-color: #00B4CC;
+            background: linear-gradient(to right, #00E0FF, #15A8DF);
         }
     }
 }
@@ -278,7 +278,7 @@
         border-radius: 14px;
         padding: 5px 10px;
         margin-right: 5px;
-        background-color: #00B4CC;
+        background: linear-gradient(to right, #00E0FF, #15A8DF);
         color: white;
         text-align: center;
         font-size: small;

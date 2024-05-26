@@ -112,7 +112,7 @@
     border-radius: 14px;
     padding: 10px 20px;
     margin-right: 10px; 
-    background-color: #00B4CC; 
+    background: linear-gradient(to right, #00E0FF, #15A8DF);
     color: white;
     text-align: center;
     font-size: large;
@@ -127,7 +127,7 @@
     padding: 10px 20px;
     margin-right: 10px; 
     background-color: none; 
-    border: 2px solid #00B4CC;
+    border: 2px solid linear-gradient(to right, #00E0FF, #15A8DF);
     color: #00B4CC;
     height: 40px;
     font-size: large;
@@ -263,7 +263,7 @@
         border-radius: 14px;
         padding: 5px 10px;
         margin-right: 5px; 
-        background-color: #00B4CC; 
+        background: linear-gradient(to right, #00E0FF, #15A8DF);
         color: white;
         text-align: center;
         font-size: small;
@@ -278,7 +278,7 @@
         padding: 5px 10px;
         margin-right: 10px; 
         background-color: none; 
-        border: 2px solid #00B4CC;
+        border: 2px solid linear-gradient(to right, #00E0FF, #15A8DF);
         color: #00B4CC;
         height: 40px;
         font-size: small;

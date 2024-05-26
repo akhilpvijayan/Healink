@@ -52,12 +52,12 @@
     width: 100px;
     padding: 10px;
     float: right;
-    background-color: #00B4CC;
+    background: linear-gradient(to right, #00E0FF, #15A8DF);
     color: white;
     font-size: small;
     letter-spacing: 2px;
     cursor: pointer;
-    border: 2px solid #00B4CC;
+    border: 2px solid linear-gradient(to right, #00E0FF, #15A8DF);
     border-radius: 20px;
     margin-bottom: 20px;
   }

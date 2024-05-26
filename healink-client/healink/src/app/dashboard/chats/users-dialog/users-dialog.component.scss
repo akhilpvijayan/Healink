@@ -81,7 +81,7 @@
         &:hover {
             transform: scale(1.01);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            background-color: #00B4CC;
+            background-color: linear-gradient(to right, #00E0FF, #15A8DF);
             color: white;
         }
     }

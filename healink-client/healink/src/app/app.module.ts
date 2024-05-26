@@ -61,6 +61,7 @@ import { SearchPersonalUsersComponent } from './search/search-personal-users/sea
 import { SearchOrganizationalUsersComponent } from './search/search-organizational-users/search-organizational-users.component';
 import { SharePostDialogComponent } from './dashboard/post-list/share-post-dialog/share-post-dialog.component';
 import { PostDetailsComponent } from './dashboard/post-list/post-details/post-details.component';
+import { ReloginDialogComponent } from './shared/relogin-dialog/relogin-dialog.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { PostDetailsComponent } from './dashboard/post-list/post-details/post-de
     SearchPersonalUsersComponent,
     SearchOrganizationalUsersComponent,
     SharePostDialogComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    ReloginDialogComponent
   ],
   imports: [
     BrowserModule,
