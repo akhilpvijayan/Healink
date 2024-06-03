@@ -77,5 +77,9 @@ Set server side URL in environment file in client side
 
 We welcome contributions to HeaLink! If you'd like to contribute, please fork the repository and submit a pull request with your changes.
 
+# What we learned
+
+The Healink provided a valuable learning opportunity for me. Firstly, it exposed me to new technologies, allowing me to explore their capabilities and limitations. Secondly, it served as an enriching educational experience, deepening our understanding of cutting-edge technology and demonstrating our ability to translate this knowledge into a tangable project. This journey undescores my unwavering commitment to continuous growth and innovation.
+
 
 
